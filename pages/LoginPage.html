@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Jaya Sejahtera</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../lib/w3.css">
+		<link rel="stylesheet" href="../style/loginPageCss.css">
+		<link rel="stylesheet" href="../lib/w3-theme-sbux.css">
+		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+		
+	</head>
+	<body>
+		<!--BODY-->
+		<div class="container">
+			<div id="sign-in-container" class="form-container">
+				<form id="form1">
+					<h1 id="test1">Sign in</h1>
+					<span>use your account</span>
+					<input id="username" type="text" placeholder="Email" />
+					<input id="password" type="password" placeholder="Password" />
+					<input id="email" type="email" placeholder="Email" />
+					<a id="wrong" style="color: red;">Wrong Email or Password</a>
+					<a id="sended" style="color: teal;">Verification Sended</a>
+					<a class="w3-btn" id="forget">Forgot your password?</a>
+					<a><button class="w3-btn" type="button" id="signin">Sign In</button></a>
+					<a><button class="w3-btn" type="button" id="verif">Send Verification</button></a>
+					<a id="back" style="text-decoration: none; float: left; font-size: 20px; cursor: pointer;"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</a>
+				</form>
+			</div>
+
+			<div id="right-content" >
+				<div id="testing1" class="overlay-panel overlay-right">
+					<h1 id="text1">Jaya Sejahtera</h1>
+					<p id="text2">Enter your personal details and start journey with us</p>
+					<button id="signup">Sign Up</button>
+				</div>
+				<div id="testing2" class="overlay-panel overlay-right">
+					<form id="form2">
+						<h1 id="test2">Sign Up</h1>
+						<span>Fill the Credentials</span>
+						<input id="username1" type="text" placeholder="Username" />
+						<input id="password1" type="password" placeholder="Password" />
+						<input id="email1" type="email" placeholder="Email" />
+						<button id="signup">Sign Up</button>
+						<a id="back1" style="text-decoration: none; float: left; font-size: 20px; cursor: pointer;"><i class="fa fa-chevron-right" aria-hidden="true"></i> Back</a>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script>
+			var signin = document.getElementById('signin');
+			var uname = document.getElementById('username');
+			var fps = document.getElementById('wrong');
+			var form = document.getElementById('sign-in-container');
+			var back1 = document.getElementById('back');
+			var password = document.getElementById('password');
+			var email = document.getElementById('email');
+			var verif = document.getElementById('verif');
+			var sended = document.getElementById('sended');
+			var backindex = 1;
+
+			var forget = document.getElementById('forget');
+
+			var signup = document.getElementById('signup');
+			var form2 = document.getElementById('right-content');
+			var signinbtn = document.getElementById('signinbtn');
+			var testing1 = document.getElementById('testing1');
+			var testing2 = document.getElementById('testing2');
+			var back2 = document.getElementById('back1');
+			var form3 = document.getElementById('form2');
+
+			signin.addEventListener('click', function(){
+				if(uname.value == "josejosejose@gmail.com"){
+					location.href = "../home-Loginned.html";
+				}else{
+					fps.style.display = "block";
+				}
+			})
+
+			back.addEventListener('click',function(){
+				if(backindex == "1"){
+					location.href = "../home.html";
+				}else if(backindex == "0"){
+					form.style.zIndex = 1;
+					form2.style.zIndex = 1;
+					form.style.width = "50%";
+					form2.style.width = "50%"
+					backindex = 1;
+					uname.style.display = "block";
+					password.style.display = "block";
+					signin.style.display = "block";
+					forget.style.display = "block";
+					email.style.display = "none";
+					verif.style.display = "none";
+					sended.style.display = "none";
+				}
+				
+			})
+
+			forget.addEventListener('click',function(){
+				form.style.zIndex = 2;
+				form2.style.zIndex = 1;
+				backindex = 0;
+				uname.style.display = "none";
+				password.style.display = "none";
+				signin.style.display = "none";
+				forget.style.display = "none";
+				fps.style.display = "none";
+				email.style.display = "block";
+				verif.style.display = "block";
+				form.style.width = "100%";
+				form2.style.width = "20%"
+			})
+
+			verif.addEventListener('click',function(){
+				sended.style.display = "block";
+			})
+
+			signup.addEventListener('click',function(){
+				form2.style.zIndex = 2;
+				form.style.zIndex = 1;
+				form2.style.width = "100%";
+				testing1.style.display = "none";
+				testing2.style.display = "block";
+				
+			})
+
+			back2.addEventListener('click',function(){
+				form2.style.width = "50%";
+				testing1.style.display = "block";
+				form3.style.display = "none";
+			})
+		</script>
+    </body>
+</html>

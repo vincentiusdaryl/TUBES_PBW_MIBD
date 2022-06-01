@@ -1,0 +1,337 @@
+@font-face {
+  font-family: reguler;
+  src:url(../fonts/Montserrat-Regular.ttf)
+}
+@font-face {
+  font-family: bold;
+  src: url(../fonts/Montserrat-ExtraBold.ttf);
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+font-family: reguler;
+background-color: rgb(255, 255, 255);
+}
+
+#spacetop1{
+margin-top: 30px;
+}
+
+#spacetop2{
+margin-top: 60px;
+}
+
+.w3-btn{
+  background-color: white;
+}
+
+#header{
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 150px;
+  font-family: reguler;
+}
+
+#header #left-navbar{
+  text-decoration: none;
+  color: #173695;
+  margin: 0px 30px;
+  vertical-align: 50px;
+  line-height: 150px;
+}
+
+#header #right-navbar{
+  text-decoration: none;
+  color: #173695;
+  margin: 0px 10px;
+  line-height: 150px;
+  float: right;
+}
+
+#header input{
+  margin-top: 65px;
+  line-height: 10px;
+  text-decoration: #173695;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: #173695;
+}
+
+#header a:hover{
+  font-weight: bolder;
+  color:teal;
+}
+
+
+#right-navbar a:hover{
+  font-weight: bolder;
+  color:teal;
+  text-decoration: underline;
+}
+
+#right-navbar{
+  display: inline;
+}
+
+.body-body{
+top: 0;
+background-image: url(../img/bg1.png);
+background-repeat:no-repeat;
+background-position: top right;
+width: 100%;
+}
+
+#body-header{
+  margin-top: 122px;
+  margin-left: 50px;
+  font-size: 40px;
+  margin-bottom: 120px;
+  height: 100px;
+}
+
+#body-header-title{
+  float: left;
+  font-family: bold;
+  margin-left: 300px;
+  color: #173695;
+  font-size: 70px;
+}
+
+#body-content1{
+margin-left: auto;
+margin-right: auto;
+font-size: 20px;
+width: 1180px;
+padding-left: 50px;
+padding-top: 50px;
+padding-bottom: 20px;
+border-radius: 25px;
+}
+
+#kolom1{
+width: 700px;
+}
+
+#kolom2{
+width: 400px;
+float: left;
+}
+
+#kolom3{
+float: left;
+width: 200px;
+}
+
+#linetable{
+border-top: 3px solid black;
+width: 1080px;
+}
+
+#contenttitle{
+font-family: bold;
+float: left; 
+font-size: 30px; 
+margin-left: 20px;
+text-decoration: none;
+}
+
+#contentwriter{
+float: left; 
+font-size: 15px; 
+margin-left: 20px;
+top: 0;
+text-decoration: none;
+}
+
+#contentprice{
+float: left; 
+font-size: 20px; 
+margin-left: 20px;
+}
+
+#contentbtn-add{
+  float: left;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 1px;
+  background-color: #173695;
+  border-radius: 15px;
+  height: 50px;
+  width: 200px;
+  overflow: hidden;
+  transition: 0.3s ease-in-out;
+}
+
+#contentbtn-add1{
+  float: left;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 1px;
+  background-color: #173695;
+  border-radius: 15px;
+  height: 50px;
+  width: 200px;
+  overflow: hidden;
+  transition: 0.3s ease-in-out;
+}
+
+  #contentbtn-add:hover{
+    background-color: teal;
+    height: 52px;
+    width: 210px;
+  }
+
+#contentbtn-del{
+  float: right;
+  margin-right: 75px;
+  margin-top: 20px;
+  background-color: #173695;
+  border-radius: 15px;
+  height: 50px;
+  width: 200px;
+  overflow: hidden;
+  transition: 0.3s ease-in-out;
+  background-color: rgb(255, 73, 73);
+}
+
+  #contentbtn-del:hover{
+    background-color: red;
+    height: 52px;
+    width: 210px;
+  }
+
+#deletefunc{
+  float: right;
+  margin-right: 75px;
+  margin-top: 20px;
+  background-color: #173695;
+  border-radius: 15px;
+  height: 50px;
+  width: 200px;
+  overflow: hidden;
+  transition: 0.3s ease-in-out;
+  background-color: rgb(255, 73, 73);
+}
+
+#btn-yes{
+  float: left;
+  margin-left: 34px;
+  margin-top: 30px;
+  background-color: green;
+  border-radius: 15px;
+  height: 50px;
+  width: 200px;
+  overflow: hidden;
+  transition: 0.3s ease-in-out;
+  display: none;
+}
+
+#btn-no{
+  float: right;
+  margin-right: 75px;
+  margin-top: 10px;
+  background-color: #173695;
+  border-radius: 15px;
+  height: 50px;
+  width: 200px;
+  overflow: hidden;
+  transition: 0.3s ease-in-out;
+  background-color: red;
+  display: none;
+}
+
+.counter-btn :hover{
+color: teal;
+cursor: pointer;
+}
+
+  #clear{
+  width: 450px;
+  height: 50px;
+  border-radius: 10px;
+  font-family: bold;
+  background-color: black;
+  transition: 0.5s ease-in-out;
+  }
+
+  #continue{
+  margin-left: 20px;
+  width: 610px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #173695;
+  font-family: bold;
+  transition: 0.5s ease-in-out;
+  }
+
+  #btncancel{
+    margin-left: 300px;
+    width: 310px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: red;
+    font-family: bold;
+    margin-top: 10px;
+    transition: 0.5s ease-in-out;
+    visibility: hidden;
+    transition: 0.5s ease-in-out;
+  }
+
+  #btncancel:hover{
+    height: 57px;
+    background-color: rgb(179, 0, 0);
+  }
+
+#desk{
+  width: 300px;
+  height: 200px;
+  color: black;
+  text-align: left;
+  transition: 1s ease-in-out;
+  white-space: normal;
+}
+
+#desk:hover{
+  height: 500px;
+  width: 600px;
+  cursor: text;
+  box-shadow: black;
+}
+
+#content7{
+  display: none;
+}
+
+#linetable7{
+  border-top: 3px solid black;
+  width: 1080px;
+  display: none;
+}
+
+.contact{
+  text-align: center;
+}
+
+  .contact a{
+    font-size: 80px;
+    margin-right: 20px;
+  }
+
+  .contect a:hover{
+    color: teal;
+  }
+
+  .contact i{
+    color: black;
+  }
+
+.footer{
+  background-color: #173695;
+  height: 500px;
+}
