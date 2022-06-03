@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<link rel="shortcut icon" href="img/icon.png"/>
-		<title>Bajuku - Admin Home Page</title>
+		<title>Bajuku - Owner Home Page</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="style/homepemilik.css">
 		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
@@ -36,14 +36,20 @@
 				Dengan Harga Terjangkau
 			</a>
 			<br>
-			<a href="#aturpemesanan">
+			<a href="#model">
 				<button id="btn_startshop" type="button">Atur Stok<br>Model Baju</button><br>
 			</a><br>
-			<a href="#aturakun">
+			<a href="#bahan">
 				<button id="btn_startshop" type="button">Atur Stok<br>Bahan Baju</button>
 			</a><br>
-			<a href="#aturakun">
+			<a href="#aksesoris">
 				<button id="btn_startshop" type="button">Atur Stok<br>Aksesoris</button>
+			</a><br>
+			<a href="#aksesoris">
+				<button id="btn_startshop" type="button">Atur Pengiriman</button>
+			</a><br>
+			<a href="#aksesoris">
+				<button id="btn_startshop" type="button">Laporan</button>
 			</a>
 			</div>
 			
@@ -52,25 +58,219 @@
 					<div class="mySlides fade">
 					  <!--Gambar Dalam Carousel 1-->
 					  <img src="img/bajuku_logo_putih.png" style="height: 150px;"><br><br><br><br><br><br><br><br>
-					  <a id="aturpemesanan">.</a>
+					  <a id="model">.</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<a id="aturpemesanan" style="color: white;"></a>
 		
-		<div class="bodycard" id="body-pemesanan">
+		<a id="aturakun">.</a><br>
+		
+		<!-- Model Baju -->
+		<div class="bodycard" id="body-space">
 			<br><br>
 			<div id="judul">
 				<span style="">Model Baju</span>
-				<a id="category" href="Home-Admin.html#aturakun">Atur Akun Costumer</a>
+				<a id="category" href="#bahan">Bahan Baju</a>
+				<a id="category" href="#Aksesoris">Aksesoris</a>
+				<a id="category" href="#Pengiriman">Pengiriman</a>
+				<a id="category" href="#Laporan">Laporan</a>
 			</div> 
 			<br>
 			<div id="voucher">
 				<a id="voucher-nama">SEARCH</a>
-				<a style="float: right; margin-right: 20px;"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+				<a><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
 				<div id="voucher-content">
-					<input id="voucher-content-input" placeholder="Masukan Nomor Transaksi" type="text"><br><br>
+					<input id="voucher-content-input" placeholder="Masukan Username" type="text"><br><br>
+					<button id="voucher-content-btn">SEARCH</button>
+				</div>
+			</div>
+			<br><br>
+			<div class="scrollmenu" id="scrollmenu">
+				<table id="table-pemesanan">
+					<tr>
+						<td>No.</td>
+						<td>Nama Model</td>
+						<td>Deskripsi</td> 
+						<td>Harga</td> 
+						<td>Edit</td>
+						
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>Polo</td>
+						<td>Kaos polo berkeras</td> 
+						<td>Rp 85.000,-</td>
+						<td>Edit</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Kaos Cotton 30s</td>
+						<td>Kaos dengan bahan combed Cotton 30s</td> 
+						<td>Rp 85.000,-</td>
+						<td>Edit</td>
+					</tr>
+				</table>
+			</div>
+			<a>
+				<button id="btn_tambahakun" type="button">Tambah Model Baju</button><br>
+				<a id="bahan">.</a>
+			</a>
+		</div>
+
+		<!-- Bahan -->
+		<div class="bodycard" id="body-space">
+			<br><br>
+			<div id="judul">
+				<span style="">Bahan</span>
+				<a id="category" href="#model">Model Baju</a>
+				<a id="category" href="#Aksesoris">Aksesoris</a>
+				<a id="category" href="#Pengiriman">Pengiriman</a>
+				<a id="category" href="#Laporan">Laporan</a>
+			</div> 
+			<br>
+			<div id="voucher">
+				<a id="voucher-nama">SEARCH</a>
+				<a><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+				<div id="voucher-content">
+					<input id="voucher-content-input" placeholder="Masukan Username" type="text"><br><br>
+					<button id="voucher-content-btn">SEARCH</button>
+				</div>
+			</div>
+			<br><br>
+			<div class="scrollmenu" id="scrollmenu">
+				<table id="table-pemesanan">
+					<tr>
+						<td>No.</td>
+						<td>Nama Bahan</td>
+						<td>Deskripsi</td> 
+						<td>Stok</td> 
+						<td>Harga Beli</td>
+						<td>Harga Jual</td>
+						<td>Edit</td>
+						
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>Cotton 30s</td>
+						<td>Bahan Cotton 30s</td> 
+						<td>20</td>
+						<td>Rp 20.000,-</td>
+						<td>Rp 25.000,-</td>
+						<td>Edit</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Cotton 20s</td>
+						<td>Bahan Cotton 20s</td> 
+						<td>20</td>
+						<td>Rp 20.000,-</td>
+						<td>Rp 25.000,-</td>
+						<td>Edit</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>Linen</td>
+						<td>Bahan Linen</td> 
+						<td>20</td>
+						<td>Rp 20.000,-</td>
+						<td>Rp 25.000,-</td>
+						<td>Edit</td>
+					</tr>
+				</table>
+			</div>
+			<a>
+				<button id="btn_tambahakun" type="button">Tambah Bahan</button><br>
+			</a>
+			<div id="form-tambahakun">
+				
+				<button id="btn_entertambahakun" type="button">Tambah Akun</button><br>
+				<a id="Aksesoris">.</a>
+			</div>
+		</div>
+
+		<!-- Aksesoris -->
+		<div class="bodycard" id="body-space">
+			<br><br>
+			<div id="judul">
+				<span style="">Aksesoris</span>
+				<a id="category" href="#model">Model Baju</a>
+				<a id="category" href="#bahan">Bahan Baju</a>
+				<a id="category" href="#Pengiriman">Pengiriman</a>
+				<a id="category" href="#Laporan">Laporan</a>
+			</div> 
+			<br>
+			<div id="voucher">
+				<a id="voucher-nama">SEARCH</a>
+				<a><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+				<div id="voucher-content">
+					<input id="voucher-content-input" placeholder="Masukan Username" type="text"><br><br>
+					<button id="voucher-content-btn">SEARCH</button>
+				</div>
+			</div>
+			<br><br>
+			<div class="scrollmenu" id="scrollmenu">
+				<table id="table-pemesanan">
+					<tr>
+						<td>No.</td>
+						<td>Nama Aksesoris</td>
+						<td>Deskripsi</td> 
+						<td>Stok</td> 
+						<td>Harga Beli</td>
+						<td>Harga Jual</td>
+						<td>Biaya Jahit</td>
+						<td>Edit</td>
+						
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>Kancing</td>
+						<td>Kancing</td> 
+						<td>100</td>
+						<td>Rp 1.000,-</td>
+						<td>Rp 1.500,-</td>
+						<td>Rp 500,-</td>
+						<td>Edit</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Renda</td>
+						<td>Renda</td> 
+						<td>100</td>
+						<td>Rp 1.000,-</td>
+						<td>Rp 1.500,-</td>
+						<td>Rp 500,-</td>
+						<td>Edit</td>
+					</tr>
+				</table>
+			</div>
+			<a>
+				<button id="btn_tambahakun" type="button">Tambah Aksesoris</button><br>
+			</a>
+
+			<div id="form-tambahakun">
+				
+				<button id="btn_entertambahakun" type="button">Tambah Akun</button><br>
+				<a id="Pengiriman">.</a>
+			</div>
+		</div>
+		
+		<!-- pengiriman -->
+		<div class="bodycard" id="body-space">
+			<br><br>
+			<div id="judul">
+				<span style="">Pengiriman</span>
+				<a id="category" href="#model">Model Baju</a>
+				<a id="category" href="#bahan">Bahan Baju</a>
+				<a id="category" href="#Aksesoris">Aksesoris</a>
+				<a id="category" href="#Laporan">Laporan</a>
+			</div> 
+			<br>
+			<div id="voucher">
+				<a id="voucher-nama">SEARCH</a>
+				<a><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+				<div id="voucher-content">
+					<input id="voucher-content-input" placeholder="Masukan Username" type="text"><br><br>
 					<button id="voucher-content-btn">SEARCH</button>
 				</div>
 			</div>
@@ -80,146 +280,100 @@
 					<tr>
 						<td>No.</td>
 						<td>Nomor Transaksi</td>
-						<td>Nama Pembeli</td> 
-						<td>Link Bukti Pembayaran</td>
-						<td>Status Pembayaran</td>
-						<td>Progress Pesanan</td>
+						<td>Nomor Pembeli</td> 
+						<td>Tanggal</td> 
 						<td>Status Pesanan</td>
-						<td>Edit</td>
+						<td>Kurir</td>
+						<td>Resi</td>
 					</tr>
 					<tr>
 						<td>1</td>
-						<td>123058798761924</td>
-						<td>Suverna</td> 
-						<td>IMG/BUKTIPEMBAYARAN/SUVERNA032</td>
-						<td>SUDAH</td>
-						<td>PEMBUATAN POLA</td>
-						<td>PROSES</td>
-						<td>Edit</td>
+						<td>000111</td>
+						<td>17368232</td> 
+						<td>03/06/2022</td>
+						<td>Proses</td>
+						<td>JNT</td>
+						<td>88309092838</td>
 					</tr>
 					<tr>
 						<td>2</td>
-						<td>123058798761924</td>
-						<td>Suverna</td> 
-						<td>IMG/BUKTIPEMBAYARAN/SUVERNA032</td>
-						<td>SUDAH</td>
-						<td>DIKIRIM</td>
-						<td>PROSES</td>
-						<td>Edit</td>
+						<td>000112</td>
+						<td>17386432</td> 
+						<td>03/06/2022</td>
+						<td>Proses</td>
+						<td>JNT</td>
+						<td>88309092839</td>
 					</tr>
 					<tr>
 						<td>3</td>
-						<td>123058798761924</td>
-						<td>Suverna</td> 
-						<td>IMG/BUKTIPEMBAYARAN/SUVERNA032</td>
-						<td>SUDAH</td>
-						<td>DIKIRIM</td>
-						<td>PROSES</td>
-						<td>Edit</td>
+						<td>000112</td>
+						<td>15568232</td> 
+						<td>03/06/2022</td>
+						<td>Proses</td>
+						<td>JNT</td>
+						<td>88309092840</td>
 					</tr>
-					<tr>
-						<td>4</td>
-						<td>123058798761924</td>
-						<td>Suverna</td> 
-						<td>IMG/BUKTIPEMBAYARAN/SUVERNA032</td>
-						<td>SUDAH</td>
-						<td>DIKIRIM</td>
-						<td>PROSES</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>123058798761924</td>
-						<td>Suverna</td> 
-						<td>IMG/BUKTIPEMBAYARAN/SUVERNA032</td>
-						<td>SUDAH</td>
-						<td>DIKIRIM</td>
-						<td>PROSES</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>6</td>
-						<td>123058798761924</td>
-						<td>Suverna</td> 
-						<td>IMG/BUKTIPEMBAYARAN/SUVERNA032</td>
-						<td>SUDAH</td>
-						<td>DIKIRIM</td>
-						<td>PROSES</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>7</td>
-						<td>123058798761924</td>
-						<td>Suverna</td> 
-						<td>IMG/BUKTIPEMBAYARAN/SUVERNA032</td>
-						<td>SUDAH</td>
-						<td>DIKIRIM</td>
-						<td>PROSES</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>8</td>
-						<td>123058798761924</td>
-						<td>Suverna</td> 
-						<td>IMG/BUKTIPEMBAYARAN/SUVERNA032</td>
-						<td>SUDAH</td>
-						<td>DIKIRIM</td>
-						<td>PROSES</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>9</td>
-						<td>123058798761924</td>
-						<td>Suverna</td> 
-						<td>IMG/BUKTIPEMBAYARAN/SUVERNA032</td>
-						<td>SUDAH</td>
-						<td>DIKIRIM</td>
-						<td>PROSES</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>10</td>
-						<td>123058798761924</td>
-						<td>Suverna</td> 
-						<td>IMG/BUKTIPEMBAYARAN/SUVERNA032</td>
-						<td>SUDAH</td>
-						<td>DIKIRIM</td>
-						<td>PROSES</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>11</td>
-						<td>123058798761924</td>
-						<td>Suverna</td> 
-						<td>IMG/BUKTIPEMBAYARAN/SUVERNA032</td>
-						<td>SUDAH</td>
-						<td>DIKIRIM</td>
-						<td>PROSES</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>12</td>
-						<td>123058798761924</td>
-						<td>Suverna</td> 
-						<td>IMG/BUKTIPEMBAYARAN/SUVERNA032</td>
-						<td>SUDAH</td>
-						<td>DIKIRIM</td>
-						<td>PROSES</td>
-						<td>Edit</td>
-					</tr>
-					
 				</table>
-				
 			</div>
-			
+			<a>
+				<button id="btn_tambahakun" type="button">Tambah Bahan</button><br>
+			</a>
+			<div id="form-tambahakun">
+				<table id="table-tambahakun">
+					<tr>
+						<td>Nama</td>
+						<td> :</td>
+						<td><input id="table-tambahakun-masukan" placeholder="Masukan Nama Lengkap" type="text"></td>
+					</tr>
+					<tr>
+						<td>Username</td>
+						<td> :</td>
+						<td><input id="table-tambahakun-masukan" placeholder="Masukan Username" type="text"></td>
+					</tr>
+					<tr>
+						<td>Password</td>
+						<td> :</td>
+						<td><input id="table-tambahakun-masukan" placeholder="Masukan Password" type="text"></td>
+					</tr>
+					<tr>
+						<td>Email</td>
+						<td> :</td>
+						<td><input id="table-tambahakun-masukan" placeholder="Masukan Email" type="text"></td>
+					</tr>
+					<tr>
+						<td>Alamat</td>
+						<td> :</td>
+						<td><input id="table-tambahakun-masukan" placeholder="Masukan Alamat" type="text"></td>
+					</tr>
+					<tr>
+						<td>Nomor HP</td>
+						<td> :</td>
+						<td><input id="table-tambahakun-masukan" placeholder="Masukan Nomor HP" type="text"></td>
+					</tr>
+					<tr>
+						<td>Tipe Akun</td>
+						<td> :</td>
+						<td><Select id="table-tambahakun-select">
+							<option>Costumer</option>
+							<option>Admin</option>
+							<option>Pemilik</option>
+						</Select></td>
+					</tr>
+				</table>
+				<button id="btn_entertambahakun" type="button">Tambah Akun</button><br>
+				<a id="Laporan">.</a>
+			</div>
 		</div>
-		<a id="aturakun">.</a><br><br><br><br><br><br>
-		
-		<div class="bodycard" id="body-aturakun">
+
+		<!-- Laporan -->
+		<div class="bodycard" id="body-space">
 			<br><br>
 			<div id="judul">
-				<span style="">Atur Akun</span>
-				<a id="category" href="Home-Admin.html#aturpemesanan">Bahan</a>
+				<span style="">Laporan</span>
+				<a id="category" href="#model">Model Baju</a>
+				<a id="category" href="#bahan">Bahan Baju</a>
+				<a id="category" href="#Aksesoris">Aksesoris</a>
+				<a id="category" href="#Pengiriman">Pengiriman</a>
 			</div> 
 			<br>
 			<div id="voucher">
@@ -278,475 +432,16 @@
 						<td>Jalan shireen sungkar no 38</td>
 						<td>Edit</td>
 					</tr>
-					<tr>
-						<td>4</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
 				</table>
 			</div>
 			<a>
-				<button id="btn_tambahakun" type="button">Tambah Akun +</button><br>
+				<button id="btn_tambahakun" type="button">Tambah Bahan</button><br>
 			</a>
 			<div id="form-tambahakun">
-				<table id="table-tambahakun">
-					<tr>
-						<td>Nama</td>
-						<td> :</td>
-						<td><input id="table-tambahakun-masukan" placeholder="Masukan Nama Lengkap" type="text"></td>
-					</tr>
-					<tr>
-						<td>Username</td>
-						<td> :</td>
-						<td><input id="table-tambahakun-masukan" placeholder="Masukan Username" type="text"></td>
-					</tr>
-					<tr>
-						<td>Password</td>
-						<td> :</td>
-						<td><input id="table-tambahakun-masukan" placeholder="Masukan Password" type="text"></td>
-					</tr>
-					<tr>
-						<td>Email</td>
-						<td> :</td>
-						<td><input id="table-tambahakun-masukan" placeholder="Masukan Email" type="text"></td>
-					</tr>
-					<tr>
-						<td>Alamat</td>
-						<td> :</td>
-						<td><input id="table-tambahakun-masukan" placeholder="Masukan Alamat" type="text"></td>
-					</tr>
-					<tr>
-						<td>Nomor HP</td>
-						<td> :</td>
-						<td><input id="table-tambahakun-masukan" placeholder="Masukan Nomor HP" type="text"></td>
-					</tr>
-					<tr>
-						<td>Tipe Akun</td>
-						<td> :</td>
-						<td><Select id="table-tambahakun-select">
-							<option>Costumer</option>
-							<option>Admin</option>
-							<option>Pemilik</option>
-						</Select></td>
-					</tr>
-				</table>
+				
 				<button id="btn_entertambahakun" type="button">Tambah Akun</button><br>
 			</div>
 		</div>
-		
 
 		<br>
 		<div class="contact">
@@ -792,15 +487,13 @@
 				</tr>
 			</table>
 			<a id="about">.</a>
-			
-			
 		</div>
 
 		<script>
 
 			let add = document.getElementById('btn_tambahakun');
 			let form = document.getElementById('form-tambahakun');
-			let base = document.getElementById('body-aturakun')
+			let base = document.getElementById('body-space')
 
 			add.addEventListener('click',function(){
 				if(form.style.width == "fit-content"){
