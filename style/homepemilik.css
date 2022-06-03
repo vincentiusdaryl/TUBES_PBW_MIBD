@@ -188,7 +188,7 @@ button:active {
 
 #body-header{
     margin-top: 165px;
-    height: 600px;
+    height: 700px;
     width: 75%;
     margin-left: auto;
     margin-right: auto;
@@ -229,7 +229,7 @@ button:active {
 #biglogo{
   width: 100%; 
   height:fit-content;
-  margin: 30% 100px 0 100px;
+  margin: 40% 100px 0 100px;
 }
 
 * {box-sizing: border-box}
@@ -237,7 +237,7 @@ body {font-family: Verdana, sans-serif; margin:0}
 .mySlides {display: none}
 img {vertical-align: middle;}
 
-#body-aturakun{
+#body-space{
   height: 1000px;
   transition: 0.5s;
 }
@@ -255,7 +255,7 @@ div.scrollmenu {
     margin-right: auto; 
   }
 
-    table tr,td{
+    table td{
       border-style:groove ;
     }
 
