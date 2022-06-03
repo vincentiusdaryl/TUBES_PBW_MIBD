@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="shortcut icon" href="../img/icon.png">
+		<title>Bajuku - LoginPage</title>
+		<link rel="stylesheet" href="../style/loginPageCss.css">
+		
+	</head>
+	<body>
+		<!--BODY-->
+		<div class="container">
+			<div id="sign-in-container" class="form-container">
+				<form id="form1">
+					<h1 id="test1">Sign in</h1>
+					<span>use your account</span>
+					<input id="username" type="text" placeholder="Username" />
+					<input id="password" type="password" placeholder="Password" />
+					<input id="email" type="email" placeholder="Email" />
+					<a id="wrong">Wrong Username or Password</a>
+					<a><button class="btn" type="button" id="signin">Sign In</button></a>
+					<a><button class="btn" type="button" id="verif">Send Verification</button></a>
+					<a id="back" href="../home.html"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</a>
+				</form>
+			</div>
+
+			<div id="right-content" >
+				<div id="testing1" class="overlay-panel overlay-right">
+					<img src="../img/bajuku_logo_putih.png">
+					<p id="text2">Make Your Dream Outfit Comes True With<br> BAJUKU</p>
+					<button id="signup">ADMIN</button>
+				</div>
+				<div id="testing2" class="overlay-panel overlay-right">
+					<form id="form2">
+						<h1 id="test2">ADMIN</h1>
+						<span>Fill the Credentials</span>
+						<input id="username1" type="text" placeholder="Username" />
+						<input id="password1" type="password" placeholder="Password" />
+						<a href="..\Home-Admin.html" id="signin-admin">Sign In</a>
+						<a id="back1" href="../pages/LoginPage.html"><i class="fa fa-chevron-right" aria-hidden="true" ></i> Back</a>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script>
+			let signin = document.getElementById('signin');
+			var uname = document.getElementById('username');
+			let uname1 = document.getElementById('username1');
+			var fps = document.getElementById('wrong');
+			var form = document.getElementById('sign-in-container');
+			var back1 = document.getElementById('back');
+			var password = document.getElementById('password');
+			var email = document.getElementById('email');
+			var verif = document.getElementById('verif');
+			var sended = document.getElementById('sended');
+			var backindex = 1;
+			let loginindex;
+
+			var forget = document.getElementById('forget');
+
+			var signup = document.getElementById('signup');
+			var signup2 = document.getElementById('signup2');
+			var form2 = document.getElementById('right-content');
+			var signinbtn = document.getElementById('signinbtn');
+			var testing1 = document.getElementById('testing1');
+			var testing2 = document.getElementById('testing2');
+			var form3 = document.getElementById('form2');
+
+			signin.addEventListener('click', function(){
+				if(uname.value == "josejosejose@gmail.com"){
+					location.href = "../home-costumer.html";
+				}else{
+					fps.style.display = "block";
+				}
+			})
+
+			verif.addEventListener('click',function(){
+				sended.style.display = "block";
+			})
+
+			signup.addEventListener('click',function(){
+				form2.style.zIndex = 2;
+				form.style.zIndex = 1;
+				form2.style.width = "100%";
+				testing1.style.display = "none";
+				testing2.style.display = "block";
+			})
+		</script>
+    </body>
+</html>
