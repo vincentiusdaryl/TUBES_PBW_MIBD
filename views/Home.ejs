@@ -26,16 +26,16 @@
 			<% if(pengguna){ %>
 				<a class="w3-button" id="left-navbar" style="cursor: pointer;" onclick="javascript:alert('Login Terlebih Dahulu')">Wishlist</a>
 			<% } %>
-			<a class="w3-button" id="left-navbar" style="cursor: pointer;" href="pages/Catalog copy.html">Costum</a>
+			<a class="w3-button" id="left-navbar" style="cursor: pointer;" href="/catalog">Costum</a>
 
 			<%# Show contextual menu based on user's data %> 
 			<% if(!pengguna) { %>
 				<a class="w3-button" id="right-navbar" style="float: right; font-weight:300; margin-right: 100px;" href="login"><i class="fa fa-sign-in"></i> Sign In</a>
 				<a onclick="javascript:alert('Login Terlebih Dahulu')" class="w3-button" id="right-navbar" style="float: right; font-weight: 300; font-size: 30px;" href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
 			<% } else { %>
-				<a class="w3-buttin" id="right-navbar" style="float: right; font-weight: 300; font-size: 20px;" href="pages/Catalog copy 2.html#humor"><i class="fa fa-search"></i></a>
+				<a class="w3-buttin" id="right-navbar" style="float: right; font-weight: 300; font-size: 20px;" href="/catalog#humor"><i class="fa fa-search"></i></a>
 				<input style="float: right;" type="text" placeholder=" &#xF002 Search..."  style="font-family:Arial, FontAwesome"/>
-				<a id="right-navbar" style="float: right; font-weight:300; margin-right: 100px;" href="pages/LoginPage.html"><i class="fa fa-sign-in"></i> Log Out</a>
+				<a id="right-navbar" style="float: right; font-weight:300; margin-right: 100px;" href="/login"><i class="fa fa-sign-in"></i> Log Out</a>
 				<a onclick="javascript:alert('Login Terlebih Dahulu')" class="w3-button" id="right-navbar" style="float: right; font-weight: 300; font-size: 30px;" href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
 			<% } %>
 		</div>
@@ -143,20 +143,20 @@
 				<% if(pengguna.peran === 'admin') { %>
 					<div id="judul">
 						<span style="">Pemesanan</span>
-						<a id="category" href="Home-Admin.html#aturakun">Atur Akun Costumer</a>
+						<a id="category" href="#aturakun">Atur Akun Costumer</a>
 					</div> 
 				<% } else if(pengguna.peran === 'pemilik') { %>
 					<span style="">Model Baju</span>
-					<a id="category" href="Home-Admin.html#aturakun">Atur Akun Costumer</a>
+					<a id="category" href="#aturakun">Atur Akun Costumer</a>
 				<% } else { %>
 					<div id="judul">
 						<span style="font-family: bold; margin: 50px 0px 50px 50px; font-size: 30px; font-weight: bold;">HOT SALE</span>
-						<a class="" style="margin-left: 50px; font-size: 15px;" id="category" href="pages/Catalog copy.html#home">Popular Book</a>
-						<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="pages/Catalog copy.html#fantasy">Fantasy</a>
-						<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="pages/Catalog copy.html#bisnis">Bussiness & Investing</a>
-						<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="pages/Catalog copy.html#sains">Science Fiction</a>
-						<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="pages/Catalog copy.html#humor">Humor & Games</a>
-						<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="pages/Catalog copy.html#artphoto">Arts & Photography</a>
+						<a class="" style="margin-left: 50px; font-size: 15px;" id="category" href="/catalog#home">Popular Book</a>
+						<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="/catalog#fantasy">Fantasy</a>
+						<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="/catalog#bisnis">Bussiness & Investing</a>
+						<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="/catalog#sains">Science Fiction</a>
+						<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="/catalog#humor">Humor & Games</a>
+						<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="/catalog#artphoto">Arts & Photography</a>
 					</div> 
 					<br><br><br>
 					<div class="scrollmenu" id="scrollmenu" style="height: 450px; width: 90%; margin-left: auto; margin-right: auto;">
@@ -180,9 +180,9 @@
 			<br><br>
 			<div id="">
 				<span style="font-family: bold; margin: 50px 0px 50px 50px; font-size: 30px; font-weight: bold;">HOT SALE</span>
-				<a id="category" href="pages/Catalog copy.html#home">Model Baju</a>
-				<a id="category" href="pages/Catalog copy.html#fantasy">Bahan Baku</a>
-				<a id="category" href="pages/Catalog copy.html#bisnis">Aksesoris</a>
+				<a id="category" href="/catalog#home">Model Baju</a>
+				<a id="category" href="/catalog#fantasy">Bahan Baku</a>
+				<a id="category" href="/catalog#bisnis">Aksesoris</a>
 			</div> 
 			<br><br><br>
 			<div class="scrollmenu" id="scrollmenu" style="">
@@ -240,7 +240,7 @@
 					<br><br>
 					<div id="judul">
 						<span style="">Atur Akun</span>
-						<a id="category" href="Home-Admin.html#aturpemesanan">Atur Pemesanan</a>
+						<a id="category" href="#aturpemesanan">Atur Pemesanan</a>
 					</div> 
 					<br>
 					<div id="voucher">
@@ -346,7 +346,7 @@
 			<table>
 				<tr>
 					<th>
-						<a><img style="margin-top: 80px; margin-left: 190px; margin-right: 300px; height: 60%; width: 60%;" src="img/logo white.png"></a>
+						<a><img style="margin-top: 80px; margin-left: 190px; margin-right: 300px; height: 60%; width: 60%;" src="/img/bajuku_logo_putih.png"></a>
 					</th>
 					<th>
 						<br>
@@ -358,15 +358,15 @@
 						<div style="text-align: left; font-family: reguler; color: white; font-weight: lighter;">
 							<br><br><br><br>
 							<p style="font-size: 18px; margin-right: 150px;">Legal</p>
-							<a href="pages/Cookies.html">Cookies Policy</a><br><br>
-							<a href="pages/privacy.html">Privacy Policy</a>
+							<a href="/cookies">Cookies Policy</a><br><br>
+							<a href="/privacy">Privacy Policy</a>
 						</div>
 					</th>
 					<th>
 						<div style="text-align: left; font-family: reguler; color: white; font-weight: lighter;">
 							<br><br><br><br>
 							<p style="font-size: 18px; margin-right: 150px;">Support</p>
-							<a href="pages/Faq.html">FAQ</a><br><br>
+							<a href="/faq">FAQ</a><br><br>
 							<a href="mailto:jayasejahtera@gmail.com">Contact Support</a><br><br>
 							<a href="Viscovery_Online_Terms_and_Conditions.pdf" target="_blank">Terms of Sevice</a>
 						</div>
