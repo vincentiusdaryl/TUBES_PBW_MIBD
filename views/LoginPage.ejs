@@ -13,8 +13,8 @@
 				<form id="form1" method="POST">
 					<h1 id="test1">Sign in</h1>
 					<span>use your account</span>
-					<input id="username" type="text" placeholder="Username" />
-					<input id="password" type="password" placeholder="Password" />
+					<input id="username" type="text" placeholder="Username" name='username'/>
+					<input id="password" type="password" placeholder="Password" name='password'/>
 					<input id="email" type="email" placeholder="Email" />
 					<a id="wrong" style="<%= 'display: ' + (error ? 'block' : 'none') %>" >Wrong Username or Password</a>
 					<a><input class="btn" type="submit" id="signin" value='Sign In'></a>

@@ -17,7 +17,7 @@ CREATE TABLE Pengguna (
 	idPengguna int AUTO_INCREMENT,
     Email varchar(30),
     Username varchar(20),
-    Pass varchar(20),
+    Pass varchar(128),
     namaPengguna varchar(20),
     peran varchar(20),
     alamat varchar(50) NOT NULL,
@@ -28,13 +28,14 @@ CREATE TABLE Pengguna (
 
 -- Buat Table Bahan Baku
 CREATE TABLE BahanBaku (
-	idBahanBaku int,
+	idBahanBaku int AUTO_INCREMENT,
     namaBahanBaku varchar(20), 
     hargaBeliBahan decimal NOT NULL,
-    hargaJualBahan decimal NOT NULL
+    hargaJualBahan decimal NOT NULL,
+    stock int NOT NULL,
     deskripsiBahanBaku varchar(50) NOT NULL,
-    gambarBahanBaku varchar(100) NOT NULL,
-    PRIMARY KEY(idBahanBaku),
+    gambarBahanBaku varchar(100) NOT NULL DEFAULT "",
+    PRIMARY KEY(idBahanBaku)
 );
 
 
@@ -43,9 +44,10 @@ CREATE TABLE Aksesoris (
 	idAksesoris int AUTO_INCREMENT,
     namaAksesoris varchar(20),
     hargaBeliAksesoris decimal NOT NULL,
-    hargaJualAksesoris decimal NOT NULL
+    hargaJualAksesoris decimal NOT NULL,
     deskripsiAksesoris varchar(50) NOT NULL,
-    gambarAksesoris varchar(100) NOT NULL,
+    stock int,
+    gambarAksesoris varchar(100) NOT NULL DEFAULT "",
     PRIMARY KEY(idAksesoris)
 );
 
@@ -81,7 +83,7 @@ CREATE TABLE Baju (
 -- Buat Table Kurir
 CREATE TABLE Kurir (
 	idKurir int AUTO_INCREMENT,
-    jenisKurir int,
+    namaKurir varchar(16),
     PRIMARY KEY(idKurir)
 );
 
@@ -96,7 +98,8 @@ CREATE TABLE Transaksi (
     tglTransaksi date,
     statPemesanan varchar(30),
     statPembayaran varchar(30),
-    buktiTransfer varchar(50)
+    progresPesanan varchar(50),
+    buktiTransfer varchar(50),
     hargaTotal int(20) NOT NULL,
     PRIMARY KEY(idTransaksi),
     INDEX(idPengguna),
@@ -109,7 +112,7 @@ CREATE TABLE Transaksi (
         REFERENCES Baju(idBaju),
     FOREIGN KEY (idKurir)
         REFERENCES Kurir(idKurir),
-    FOREIGN KEY (idAksesoris),
+    FOREIGN KEY (idAksesoris)
         REFERENCES Aksesoris(idAksesoris)
 );
 
@@ -117,8 +120,9 @@ CREATE TABLE Transaksi (
 -- INSERT TABLE
 
 -- Insert Table Pengguna
-INSERT INTO Pengguna(idPengguna, Email, Username, Pass, namaPengguna, peran) VALUES
-(1, 'admin@gmail.com', 'admin', 'admin', 'admin', 'admin');
+INSERT INTO Pengguna(idPengguna, Email, Username, Pass, namaPengguna, peran, alamat, noHP) VALUES
+(1, 'admin@gmail.com', 'admin', 'jGl25bVBBBW96Qi9Te4V37Fnqchz/Eu4qB9vKrRIqRg=', 'admin', 'admin', '', '');
+INSERT INTO Pengguna(Email, Username, Pass, namaPengguna, peran, alamat, noHP) VALUES("email", "pemilik", "M8K0iOehtiH6CQTPXm9E2md5JYl4l2XncsYeNkyyyWo=", "a", "pemilik", "", "");
 
 -- Insert Table Kurir
 INSERT INTO Kurir(idKurir, namaKurir) VALUES

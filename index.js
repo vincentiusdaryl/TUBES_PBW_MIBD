@@ -12,6 +12,17 @@ app.set('view engine','ejs');
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.resolve('public')));
 
+app.use((req, res, next) => {
+    const cookies = req.headers.cookie;
+    if(cookies){
+        req.cookies = cookies.split(';').reduce((r, c) => {
+            const n = c.split('=');
+            r[n[0].trim()] = n[1].trim();
+            return r;
+        }, {});
+    }
+    next();
+});
 routes(app);
 
 
