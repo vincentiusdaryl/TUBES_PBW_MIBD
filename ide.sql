@@ -58,7 +58,7 @@ CREATE TABLE ModelBaju (
     namaModel varchar(20),
     deskripsiModel varchar(50) NOT NULL,
     hargaModel decimal NOT NULL,
-    gambarModel varchar(50) NOT NULL,
+    gambarModel varchar(50) NOT NULL DEFAULT "",
     PRIMARY KEY(idModel)
 );
 

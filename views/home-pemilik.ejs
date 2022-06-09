@@ -96,24 +96,28 @@
 						<td>Edit</td>
 						
 					</tr>
+					<% for(let i = 0; i < model.length; i++){ %>
+						<tr>
+							<td><%- i+1 %></td>
+							<td><%- model[i].namaModel %></td>
+							<td><%- model[i].deskripsiModel %></td> 
+							<td><%- model[i].hargaModel %></td>
+							<td><button>Edit</button></td>
+						</tr>
+					<% } %>
+				</table>
+				<template id='template-model'>
 					<tr>
 						<td>1</td>
-						<td>Polo</td>
-						<td>Kaos polo berkeras</td> 
-						<td>Rp 85.000,-</td>
-						<td>Edit</td>
+						<td><input type='text'></td> 
+						<td><input type='text'></td>
+						<td><input type='number'></td>
+						<td><button>Save</button></td>
 					</tr>
-					<tr>
-						<td>2</td>
-						<td>Kaos Cotton 30s</td>
-						<td>Kaos dengan bahan combed Cotton 30s</td> 
-						<td>Rp 85.000,-</td>
-						<td>Edit</td>
-					</tr>
-				</table>
+				</template>
 			</div>
 			<a>
-				<button id="btn_tambahakun" type="button">Tambah Model Baju</button><br>
+				<button id="btn_tambahmodel" type="button">Tambah Model Baju</button><br>
 				<a id="bahan">.</a>
 			</a>
 		</div>
@@ -488,11 +492,13 @@
 			let addAkun = document.getElementById('btn_tambahakun');
 			let addBahan = document.getElementById('btn_tambahbahan');
 			let addAksesoris = document.getElementById('btn_tambahaksesoris');
+			let addModel = document.getElementById('btn_tambahmodel');
 			let form = document.getElementById('form-tambahakun');
 			let base = document.getElementById('body-space')
 
 			let nBahan = <%= bahan.length %>;
 			let nAksesoris = <%= aksesoris.length %>;
+			let nModel = <%= model.length %>;
 
 			addAkun.addEventListener('click',function(){
 				if(form.style.width == "fit-content"){
@@ -561,6 +567,29 @@
 				tabelBahan.appendChild(node);
 			});
 
+			addModel.addEventListener('click', (e) => {
+				const tabelBahan = document.querySelector('#table-model');
+				const rowTemplate = document.querySelector('#template-model');
+				const node = rowTemplate.content.cloneNode(true);
+				const td = node.querySelectorAll('td');
+				const input = node.querySelectorAll('input');
+				td[0].textContent = ++nAksesoris;
+				td[4].querySelector('button').addEventListener('click', (e) => {
+					const name = input[0].value;
+					const desc = input[1].value;
+					const price = +input[2].value;
+					fetch('/add_model', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/x-www-form-urlencoded'
+						},
+						body: new URLSearchParams({
+							name, desc, price
+						})
+					}).then(() => location.reload());
+				});
+				tabelBahan.appendChild(node);
+			});
 		</script>
 	</body>
 </html>

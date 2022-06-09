@@ -1,4 +1,4 @@
-import { getUserDetail, getUserPassword, dbConnect, getTransactions, getAllBahan, addBahan, getAllAksesoris, addAksesoris } from './sql.js';
+import { getUserDetail, getUserPassword, dbConnect, getTransactions, getAllBahan, addBahan, getAllAksesoris, addAksesoris, addModel, getAllModel } from './sql.js';
 import { hashPassword } from './app.js';
 
 export const routes = (app) => {
@@ -23,7 +23,8 @@ export const routes = (app) => {
         else if(pengguna.peran === 'pemilik'){
             const bahan = await getAllBahan(conn);
             const aksesoris = await getAllAksesoris(conn);
-            res.render('home-pemilik', {bahan, aksesoris})
+            const model = await getAllModel(conn);
+            res.render('home-pemilik', {bahan, aksesoris, model})
         }
         else if(pengguna.peran === 'customer'){
             res.render('home-costumer', {pengguna})
@@ -93,6 +94,16 @@ export const routes = (app) => {
       const {name, desc, stock, buy, sell} = req.body;
       const conn = await dbConnect();
       addAksesoris(conn, name, desc, stock, buy, sell)
+        .then(() => res.status(200).send('OK'))
+        .catch((e) => {
+            console.error(e);
+            res.status(500).send('NOT OK')
+        });
+  })
+  app.post('/add_model', async (req, res) => {
+      const {name, desc, price} = req.body;
+      const conn = await dbConnect();
+      addModel(conn, name, desc, price)
         .then(() => res.status(200).send('OK'))
         .catch((e) => {
             console.error(e);

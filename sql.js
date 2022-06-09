@@ -81,3 +81,22 @@ export const addAksesoris = (conn, name, desc, stock, buy, sell) => {
         })
     });
 }
+
+export const getAllModel = (conn) => {
+    return new Promise((resolve, reject) => {
+        conn.query(`SELECT * FROM ModelBaju`, (err, res) => {
+            if(err) reject(err);
+            else resolve(res);
+        })
+    });
+}
+
+export const addModel = (conn, name, desc, price) => {
+    return new Promise((resolve, reject) => {
+        conn.query(`INSERT INTO ModelBaju(namaModel, hargaModel, deskripsiModel) VALUES(?,?,?)`,
+        [name, price, desc], (err, res) => {
+            if(err) reject(err);
+            else resolve(res);
+        })
+    });
+}
