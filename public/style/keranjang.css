@@ -26,57 +26,74 @@ body {
 
 
 #header{
-    background-color: white;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 150px;
-    font-family: reguler;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 150px;
+  font-family: reguler;
+  opacity: 90%;
+  transition: 0.3s;
+}
+#header-text{
+  top: 10px;
+  margin: 10px;
 }
 
-#header #left-navbar{
-    text-decoration: none;
-    color: #173695;
-    margin: 0px 30px;
-    vertical-align: 50px;
-    line-height: 150px;
+#header:hover{
+  opacity: 100%;
+  transition:0.3s;
 }
 
-#header #right-navbar{
-    text-decoration: none;
-    color: #173695;
-    margin: 0px 10px;
-    line-height: 150px;
-    float: right;
-}
-
-#header input{
-    margin-top: 65px;
-    line-height: 10px;
-    text-decoration: #173695;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-color: #173695;
-}
-
-#header a:hover{
-    font-weight: bolder;
-    color:teal;
-}
-
-#right-navbar a:hover{
-    font-weight: bolder;
-    color:teal;
-    text-decoration: underline;
-}
-
-#right-navbar{
-    display: inline;
+#logo{
+  margin: 0px 80px 80px 10%; 
+  width: 150px; 
+  height: fit-content;
 }
 
 button:active {
-	transform: scale(0.95);
+transform: scale(0.95);
+}
+
+#header #left-navbar{
+  text-decoration: none;
+  color: #173695;
+  margin: 0px 30px;
+  vertical-align: 50px;
+  line-height: 150px;
+}
+
+#header #right-navbar{
+  text-decoration: none;
+  color: #173695;
+  margin: 0px 10px;
+  line-height: 150px;
+  float: right;
+}
+
+#header input{
+  margin-top: 65px;
+  line-height: 10px;
+  text-decoration: #173695;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: #173695;
+}
+
+#header a:hover{
+  font-weight: bolder;
+  color:teal;
+}
+
+#right-navbar a:hover{
+  font-weight: bolder;
+  color:teal;
+  text-decoration: underline;
+}
+
+#right-navbar{
+  display: inline;
 }
 
 .body-body{
