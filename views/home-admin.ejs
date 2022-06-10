@@ -84,9 +84,16 @@
 						<th>Status Pesanan</th>
 						<th>Edit</th>
 					</thead>
-					<% for(const t of transaksi){ %>
+					<% for(let i = 0; i < transaksi.length; i++){ %>
 					<tr>
-						<td><%= t %></td>
+						<td><%= i+1 %></td>
+						<td><%- transaksi[i].idTransaksi %></td>
+						<td><%- transaksi[i].namaPengguna %></td>
+						<td><%- transaksi[i].buktiTransfer %></td>
+						<td><%- transaksi[i].statPembayaran %></td>
+						<td><%- transaksi[i].progresPesanan %></td>
+						<td><%- transaksi[i].statPemesanan %></td>
+						<td><button>save</button></td>
 					</tr>
 					<% } %>
 				</table>
@@ -113,19 +120,39 @@
 			</div>
 			<br><br>
 			<div class="scrollmenu" id="scrollmenu">
-				<table id="table-pemesanan">
+				<table id="table-user">
 					<tr>
 						<td>No.</td>
 						<td>username</td>
-						<td>Password</td> 
 						<td>Tipe</td> 
 						<td>Nama Lengkap</td>
 						<td>Nomor HP</td>
 						<td>Email</td>
 						<td>Alamat</td>
-						<td>Edit</td>
 					</tr>
+					<% for(let i = 0; i < users.length; i++){ %>
+						<tr>
+							<td><%- i+1 %></td>
+							<td><%- users[i].Username %></td>
+							<td><%- users[i].peran %></td>
+							<td><%- users[i].namaPengguna %></td>
+							<td><%- users[i].noHP %></td>
+							<td><%- users[i].Email %></td>
+							<td><%- users[i].alamat %></td>
+						</tr>
+					<% } %>
 				</table>
+				<template id="template-user">
+					<tr>
+						<td>No.</td>
+						<td>username</td>
+						<td>Tipe</td> 
+						<td>Nama Lengkap</td>
+						<td>Nomor HP</td>
+						<td>Email</td>
+						<td>Alamat</td>
+					</tr>
+				</template>
 			</div>
 			<a>
 				<button id="btn_tambahakun" type="button">Tambah Akun +</button><br>
@@ -228,8 +255,11 @@
 		<script>
 
 			let add = document.getElementById('btn_tambahakun');
+			let addSave = document.getElementById('btn_entertambahakun');
 			let form = document.getElementById('form-tambahakun');
 			let base = document.getElementById('body-aturakun')
+
+			let users = <%- users.length %>
 
 			add.addEventListener('click',function(){
 				if(form.style.width == "fit-content"){
@@ -245,34 +275,40 @@
 				}
 				
 			})
-
-			var slideIndex = 1;
-			showSlides(slideIndex);
-
-			function plusSlides(n) {
-			showSlides(slideIndex += n);
-			}
-
-			function currentSlide(n) {
-			showSlides(slideIndex = n);
-			}
-
-			function showSlides(n) {
-			var i;
-			var slides = document.getElementsByClassName("mySlides");
-			var dots = document.getElementsByClassName("dot");
-			setTimeout(showSlides, 3000);
-			if (n > slides.length) {slideIndex = 1}
-			if (n < 1) {slideIndex = slides.length}
-			for (i = 0; i < slides.length; i++) {
-				slides[i].style.display = "none";  
-			}
-			for (i = 0; i < dots.length; i++) {
-				dots[i].className = dots[i].className.replace(" active", "");
-			}
-			slides[slideIndex-1].style.display = "block";
-			dots[slideIndex-1].className += " active";
-			}
+			
+			addSave.addEventListener('click', () => {
+				const inputs = form.querySelectorAll('input');
+				const name = inputs[0].value;
+				const username = inputs[1].value;
+				const password = inputs[2].value;
+				const email = inputs[3].value;
+				const alamat = inputs[4].value;
+				const nomorHp = inputs[5].value;
+				const tipe = form.querySelector('select')
+					.selectedOptions[0].textContent;
+				fetch('/register', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded'
+					},
+					body: new URLSearchParams({name, username, password, email, alamat, nomorHp, tipe})
+				}).then(res => {
+					if(res.ok){
+						const tabelBahan = document.querySelector('#table-user');
+						const rowTemplate = document.querySelector('#template-user');
+						const node = rowTemplate.content.cloneNode(true);
+						const td = node.querySelectorAll('td');
+						td[0].textContent = ++users;
+						td[1].textContent = name;
+						td[2].textContent = tipe;
+						td[3].textContent = name;
+						td[4].textContent = nomorHp;
+						td[5].textContent = email;
+						td[6].textContent = alamat;
+						tabelBahan.appendChild(node);
+					}
+				});
+			});
 		</script>
 	</body>
 </html>

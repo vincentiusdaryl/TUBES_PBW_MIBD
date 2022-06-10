@@ -1,4 +1,4 @@
-import { getUserDetail, getUserPassword, dbConnect, getTransactions, getAllBahan, addBahan, getAllAksesoris, addAksesoris, addModel, getAllModel } from './sql.js';
+import { getUserDetail, getUserPassword, dbConnect, getTransactions, getAllBahan, addBahan, getAllAksesoris, addAksesoris, addModel, getAllModel, addUser, getAllUsers } from './sql.js';
 import { hashPassword } from './app.js';
 
 export const routes = (app) => {
@@ -18,7 +18,8 @@ export const routes = (app) => {
         }
         else if(pengguna.peran === 'admin'){
             const transaksi = await getTransactions(conn);
-            res.render('home-admin', {transaksi})
+            const users = await getAllUsers(conn);
+            res.render('home-admin', {transaksi, users})
         }
         else if(pengguna.peran === 'pemilik'){
             const bahan = await getAllBahan(conn);
@@ -61,18 +62,22 @@ export const routes = (app) => {
       }
   });
 
-
-  app.get('/login',async (req,res) =>{
-      res.render('login')
-  });
-
-  app.post('/login',async (req,res) => {
-      console.log('hello')
-      res.body.username
-      const pw = res.body.password
-      console.log(res.body.username)
-      const hashed_pass = crypto.createHash('sha256').update(password).digest('based64')
-      res.render('login')
+  app.post('/register', async (req, res) => {
+      const {name,username,password,email,alamat,nomorHp,tipe} = req.body;
+      if(!name || !username || !password || !email || !alamat || !nomorHp || !tipe){
+          res.status(401).end();
+      }
+      else{
+          const hashedPassword = hashPassword(password);
+          const conn = await dbConnect();
+          addUser(conn, name, username, hashedPassword, email, alamat, nomorHp, tipe)
+            .then(() => {
+                res.status(201).send();
+            })
+            .catch((e) => {
+                res.status(500).send();
+            });
+      }
   })
 
   app.get('/logout', (req, res) => {

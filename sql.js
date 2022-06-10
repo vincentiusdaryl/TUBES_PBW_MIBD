@@ -35,6 +35,29 @@ export const getUserPassword = (conn, username) => {
   });
 }
 
+export const addUser = (conn, name, username, password, email, alamat, nomorHp, tipe) => {
+    return new Promise((resolve, reject) => {
+        conn.query(
+        `INSERT INTO Pengguna(Email, Username, Pass, namaPengguna, peran, alamat, noHP) VALUES(?,?,?,?,?,?,?)`,
+        [email, username, password, name, tipe, alamat, nomorHp], (err, res) => {
+            if(err) reject(err);
+            else resolve(res);
+        })
+    })
+}
+
+export const getAllUsers = (conn) => {
+    return new Promise((resolve, reject) => {
+        conn.query(
+            'SELECT Email, Username, Pass, namaPengguna, peran, alamat, noHp FROM Pengguna',
+            (err, res) => {
+                if(err) reject(err);
+                else resolve(res);
+            }
+        );
+    })
+}
+
 export const getTransactions = (conn) => {
     return new Promise((resolve, reject) => {
         conn.query(`SELECT * FROM Transaksi t INNER JOIN Pengguna p ON t.idPengguna = p.idPengguna`, (err, res) => {
