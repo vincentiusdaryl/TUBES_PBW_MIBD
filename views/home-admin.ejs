@@ -97,6 +97,18 @@
 					</tr>
 					<% } %>
 				</table>
+				<template id="template-pesanan">
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><button>save</button></td>
+					</tr>
+				</template>
 				
 			</div>
 			
@@ -193,7 +205,7 @@
 						<td>Tipe Akun</td>
 						<td> :</td>
 						<td><Select id="table-tambahakun-select">
-							<option>Costumer</option>
+							<option>Customer</option>
 							<option>Admin</option>
 							<option>Pemilik</option>
 						</Select></td>
@@ -258,6 +270,7 @@
 			let addSave = document.getElementById('btn_entertambahakun');
 			let form = document.getElementById('form-tambahakun');
 			let base = document.getElementById('body-aturakun')
+			let searchTransaksi = document.getElementById('voucher-content-btn');
 
 			let users = <%- users.length %>
 
@@ -275,6 +288,31 @@
 				}
 				
 			})
+
+			searchTransaksi.addEventListener('click', (e) => {
+				const query = document.querySelector('#voucher-content-input').value;
+				fetch(`/transaksi?id=${query}`)
+					.then(res => res.json())
+					.then(data => {
+						const table = document.querySelector('#table-pemesanan');
+						const head = table.querySelector('thead');
+						table.textContent='';
+						table.appendChild(head);
+						const template = document.querySelector('#template-pesanan');
+						data.forEach((row, i) => {
+							const node = template.content.cloneNode(true);
+							const td = node.querySelectorAll('td');
+							td[0].textContent = i+1;
+							td[1].textContent = row.idTransaksi;
+							td[2].textContent = row.namaPengguna;
+							td[3].textContent = row.buktiTransfer;
+							td[4].textContent = row.statPembayaran;
+							td[5].textContent = row.progresPesanan;
+							td[6].textContent = row.statPemesanan;
+							table.appendChild(node);
+						})
+					});
+			});
 			
 			addSave.addEventListener('click', () => {
 				const inputs = form.querySelectorAll('input');
@@ -285,7 +323,7 @@
 				const alamat = inputs[4].value;
 				const nomorHp = inputs[5].value;
 				const tipe = form.querySelector('select')
-					.selectedOptions[0].textContent;
+					.selectedOptions[0].textContent.toLowerCase();
 				fetch('/register', {
 					method: 'POST',
 					headers: {

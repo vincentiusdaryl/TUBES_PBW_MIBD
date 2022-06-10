@@ -1,4 +1,4 @@
-import { getUserDetail, getUserPassword, dbConnect, getTransactions, getAllBahan, addBahan, getAllAksesoris, addAksesoris, addModel, getAllModel, addUser, getAllUsers } from './sql.js';
+import { getUserDetail, getUserPassword, dbConnect, getTransactions, getAllBahan, addBahan, getAllAksesoris, addAksesoris, addModel, getAllModel, addUser, getAllUsers, getTransactionsById } from './sql.js';
 import { hashPassword } from './app.js';
 
 export const routes = (app) => {
@@ -29,6 +29,9 @@ export const routes = (app) => {
         }
         else if(pengguna.peran === 'customer'){
             res.render('home-costumer', {pengguna})
+        }
+        else{
+            res.render('home')
         }
   });
 
@@ -114,5 +117,18 @@ export const routes = (app) => {
             console.error(e);
             res.status(500).send('NOT OK')
         });
+  })
+
+  app.get('/transaksi', async(req, res) => {
+      const id = +req.query['id'];
+      const conn = await dbConnect();
+      try{
+        const transactions = await getTransactionsById(conn, id);
+        res.json(transactions)
+      }
+      catch(e){
+          console.error(e);
+          res.status(500).send();
+      }
   })
 }

@@ -67,6 +67,16 @@ export const getTransactions = (conn) => {
     });
 }
 
+export const getTransactionsById = (conn, id) => {
+    return new Promise((resolve, reject) => {
+        conn.query(`SELECT * FROM Transaksi t INNER JOIN Pengguna p ON t.idPengguna = p.idPengguna WHERE idTransaksi = ?`,
+        [id], (err, res) => {
+            if(err) reject(err);
+            else resolve(res);
+        })
+    })
+}
+
 export const getAllBahan = (conn) => {
     return new Promise((resolve, reject) => {
         conn.query(`SELECT * FROM BahanBaku`, (err, res) => {
