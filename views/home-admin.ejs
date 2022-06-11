@@ -282,10 +282,11 @@
 			let users = <%- users.length %>
 			
 			function saveTransaksi(i){
+				i++;
 				const transaksi = document.querySelectorAll('#table-pemesanan tr');
 				const data = transaksi[i].querySelectorAll('td');
-				const statPemesanan = data[6];
-				const idTransaksi = data[1];
+				const statPemesanan = data[6].querySelector('select').selectedOptions[0].textContent;
+				const idTransaksi = data[1].textContent;
 				fetch('/update_statpemesanan', {
 					method: 'POST',
 					body: new URLSearchParams({stat: statPemesanan, idTransaksi})

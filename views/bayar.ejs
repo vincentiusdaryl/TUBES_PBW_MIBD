@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<link rel="shortcut icon" href="/img/icon.png"/>
+		<title>Bajuku - Custom</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/style/Catalog.css">
+		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  </head>
+	<body>
+		<!-- Header class -->
+		<div class="card3" id="header">
+			<a href="/"><img id="logo" src="/img/bajuku_logo.png"></a>
+			<!--Navbar-->
+			
+			
+			<a id="right-navbar" style="float: right; font-weight:300; margin-right: 100px;" href="/logout"><i class="fa fa-user"></i> Log out</a>
+			
+		</div>
+		<!-- BODY -->
+		<div class="card3" id='body-header'>
+      <h2>Detail Pembayaran</h2>
+      <table>
+        <thead>
+          <th>Komponen</th>
+          <th>Harga</th>
+        </thead>
+        <tr>
+          <td>Baju: <%- baju.namaModel %></td>
+          <td><%- baju.hargaBaju %></td>
+        </tr>
+        <tr>
+          <td>Bahan: <%- baju.namaBahanBaku %></td>
+          <td><%- baju.hargaJualBahan %></td>
+        </tr>
+        <tr>
+          <td>Ukuran: <%- baju.Ukuran %></td>
+        </tr>
+        <tr>
+          <td>Aksesoris: <%- baju.namaAksesoris ? baju.namaAksesoris : 'tidak ada' %></td>
+          <td><%- baju.hargaJualAksesoris %></td>
+        </tr>
+      </table>
+      <span>Total bayar: <%- baju.hargaTotal %></span>
+      <input type="file" id="buktibayar">
+      <button id='bayar'>Bayar</button>
+		</div>
+
+		<script>
+		</script>
+	</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<link rel="shortcut icon" href="/img/icon.png"/>
+		<title>Bajuku - Custom</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/style/Catalog.css">
+		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  </head>
+	<body>
+		<!-- Header class -->
+		<div class="card3" id="header">
+			<a href="/"><img id="logo" src="/img/bajuku_logo.png"></a>
+			<!--Navbar-->
+			
+			
+			<a id="right-navbar" style="float: right; font-weight:300; margin-right: 100px;" href="/logout"><i class="fa fa-user"></i> Log out</a>
+			
+		</div>
+		<!-- BODY -->
+		<!-- 1st part: model -->
+		<div class="card3" id='body-header'>
+			<div id="model-display">
+				<% for(let i = 0; i < models.length; i++){ %>
+					<div class="card model-baju" onclick="pilihModelBaju(<%- i %>, <%- models[i].idModel %>)">
+						<img src="<%- models[i].gambarModel %>">
+						<h3><%- models[i].namaModel %></h3>
+						<p><%- models[i].deskripsiModel %></p>
+						<span><%- models[i].hargaModel %></span>
+					</div>
+				<% } %>
+			</div>
+			<button id="prev-model" style="display: none">Previous Page</button>
+			<button id="next-model">Next Page</button>
+		</div>
+
+		<!-- 2nd part: bahan -->
+		<div class='card3' id="body-header">
+			<h2 id="bahan">Pilih bahan:</h2>
+			<select id="select-bahan">
+				<% for(let i = 0; i < bahan.length; i++){ %>
+					<option value="<%- bahan[i].idBahanBaku %>"><%- bahan[i].namaBahanBaku %></option>
+				<% } %>
+			</select>
+		</div>
+
+		<!-- 3rd part: model size -->
+		<div class="card3" id='body-header'>
+			<h2 id='ukuran'>Pilih Ukuran:</h2>
+			<select id="select-ukuran">
+				<option>XXS</option>
+				<option>XS</option>
+				<option>S</option>
+				<option selected="selected">M</option>
+				<option>L</option>
+				<option>XL</option>
+				<option>XXL</option>
+				<option>3XL</option>
+			</select>
+		</div>
+
+		<!-- 4th part: aksesoris -->
+		<div class="card3" id='body-header'>
+			<h2 id="aksesoris">Pilih Aksesoris:</h2>
+			<select id="select-aksesoris">
+				<% for(let i = 0; i < aksesoris.length; i++){ %>
+					<option value="<%- aksesoris[i].idAksesoris %>"><%- aksesoris[i].namaAksesoris %></option>
+				<% } %>
+			</select>
+			<button id='navigate-pay'>Lanjut Bayar</button>
+		</div>
+		<script>
+			let models = <%- models.length %>;
+			let currentPage = 1;
+			const modelContainer = document.querySelector('#model-display');
+			const prevModel = document.querySelector('#prev-model')
+			const nextModel = document.querySelector('#next-model')
+
+			let selectedModelId;
+
+			if(models < <%- modelPages %>){
+				document.getElementById("next-model").style.display = 'none';
+			}
+			prevModel.addEventListener('click', () => {
+				if(currentPage > 1){
+					fetch(`/models?page=${--currentPage}`).then(res => res.text()).then(html => modelContainer.innerHTML = html)
+					nextModel.style.display = '';
+				}
+			});
+			nextModel.addEventListener('click', () =>{
+				if(currentPage < <%- modelPages %>){
+					fetch(`/models?page=${++currentPage}`).then(res => res.text()).then(html => modelContainer.innerHTML = html)
+					prevModel.style.display = '';
+				}
+			});
+			function pilihModelBaju(i, id){
+				selectedModelId = id;
+			}
+			document.querySelector('#navigate-pay').addEventListener('click', () => {
+				// validate everything
+				if(selectedModelId){
+					fetch('/custom', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/x-www-form-urlencoded'
+						},
+						body: new URLSearchParams({
+							modelId: selectedModelId,
+							bahanId: document.querySelector('#select-bahan').selectedOptions[0].value,
+							size: document.querySelector('#select-ukuran').selectedOptions[0].textContent,
+							aksesorisId: document.querySelector('#select-aksesoris').selectedOptions[0].value
+						})
+					}).then(res => {
+						if(res.ok) return res.json();
+					}).then(data => {
+						location.href = `/pay?id=${data.transactionId}`
+					})
+				}
+			})
+		</script>
+	</body>
+</html>

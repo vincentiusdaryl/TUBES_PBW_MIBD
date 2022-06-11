@@ -1,0 +1,8 @@
+<% for(let i = 0; i < models.length; i++){ %>
+  <div class="card model-baju" onclick="pilihModelBaju(<%- i %>, <%- models[i].idModel %>)">
+    <img src="<%- models[i].gambarModel %>">
+    <h3><%- models[i].namaModel %></h3>
+    <p><%- models[i].deskripsiModel %></p>
+    <span><%- models[i].hargaModel %></span>
+  </div>
+<% } %>

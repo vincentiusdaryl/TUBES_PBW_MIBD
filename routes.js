@@ -1,4 +1,4 @@
-import { getUserDetail, getUserPassword, dbConnect, getTransactions, getAllBahan, addBahan, getAllAksesoris, addAksesoris, addModel, getAllModel, addUser, getAllUsers, getTransactionsById, updateStatPemesanan, getUsersByUsername } from './sql.js';
+import { getUserDetail, getUserPassword, dbConnect, getTransactions, getAllBahan, addBahan, getAllAksesoris, addAksesoris, addModel, getAllModel, addUser, getAllUsers, getTransactionsById, updateStatPemesanan, getUsersByUsername, getModelPaginated, getModelCount, addTransaction, getAllAvailableAksesoris, addBaju, getBajuById, getTransactionDetailById } from './sql.js';
 import { hashPassword } from './app.js';
 
 export const routes = (app) => {
@@ -41,6 +41,46 @@ export const routes = (app) => {
   app.get('/cookies', (req, res) => res.render('Cookies'));
   app.get('/faq', (req, res) => res.render('Faq'));
   app.get('/privacy', (req, res) => res.render('privacy'));
+
+  const modelPageSize = 3;
+  app.get('/custom', async (req, res) => {
+    const conn = await dbConnect();
+    const modelCount = await getModelCount(conn);
+    const modelPages = Math.ceil(modelCount/modelPageSize);
+    const models = await getModelPaginated(conn, 1, modelPageSize);
+    const bahan = await getAllBahan(conn);
+    const aksesoris = await getAllAvailableAksesoris(conn);
+    res.render('custom', {models, modelPages, bahan, aksesoris})
+  })
+  app.get('/models', async (req, res) => {
+    const conn = await dbConnect();
+    const page = req.query['page'];
+    try{
+        const models = await getModelPaginated(conn, page, modelPageSize);
+        res.render('model-display', {models});
+    }
+    catch(e){
+        res.status(500).send();
+    }
+  })
+
+  app.post('/custom', async (req, res) => {
+    const { modelId, bahanId, size, aksesorisId } = req.body;
+    const conn = await dbConnect();
+    const { idPengguna } = await getUserDetail(conn, req.cookies['username']);
+    const idBaju = await addBaju(conn, modelId, bahanId, size);
+    const { hargaBaju } = await getBajuById(conn, idBaju);
+
+    const transactionId = await addTransaction(conn, idPengguna, aksesorisId, idBaju, hargaBaju);
+    res.status(201).json({transactionId}).send();
+  })
+
+  app.get('/pay', async(req, res) => {
+    const transactionId = req.query['id'];
+    const conn = await dbConnect();
+    const transaction = await getTransactionDetailById(conn, transactionId);
+    res.render('bayar', {baju: transaction});
+  })
 
   app.get('/login', async (req, res) => {
       res.render('LoginPage', {error: false});
