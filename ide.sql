@@ -65,7 +65,7 @@ CREATE TABLE ModelBaju (
 
 -- Buat Table Baju
 CREATE TABLE Baju (
-	idBaju int,
+	idBaju int AUTO_INCREMENT,
     Ukuran varchar(5),
     idBahanBaku int,
     idModel int,

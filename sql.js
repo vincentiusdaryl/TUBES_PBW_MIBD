@@ -98,10 +98,10 @@ export const getAllBahan = (conn) => {
     });
 }
 
-export const addBahan = (conn, name, desc, stock, buy, sell) => {
+export const addBahan = (conn, name, desc, stock, buy, sell, img) => {
     return new Promise((resolve, reject) => {
-        conn.query(`INSERT INTO BahanBaku (namaBahanBaku, hargaBeliBahan, hargaJualBahan, deskripsiBahanBaku, stock) VALUES(?,?,?,?,?)`,
-        [name, buy, sell, desc, stock], (err, res) => {
+        conn.query(`INSERT INTO BahanBaku (namaBahanBaku, hargaBeliBahan, hargaJualBahan, deskripsiBahanBaku, stock, gambarBahanBaku) VALUES(?,?,?,?,?,?)`,
+        [name, buy, sell, desc, stock, img], (err, res) => {
             if(err) reject(err);
             else resolve(res);
         })
@@ -126,10 +126,10 @@ export const getAllAvailableAksesoris = (conn) => {
     });
 }
 
-export const addAksesoris = (conn, name, desc, stock, buy, sell) => {
+export const addAksesoris = (conn, name, desc, stock, buy, sell, img) => {
     return new Promise((resolve, reject) => {
-        conn.query(`INSERT INTO Aksesoris (namaAksesoris, hargaBeliAksesoris, hargaJualAksesoris, deskripsiAksesoris, stock) VALUES(?,?,?,?,?)`,
-        [name, buy, sell, desc, stock], (err, res) => {
+        conn.query(`INSERT INTO Aksesoris (namaAksesoris, hargaBeliAksesoris, hargaJualAksesoris, deskripsiAksesoris, stock, gambarAksesoris) VALUES(?,?,?,?,?,?)`,
+        [name, buy, sell, desc, stock, img], (err, res) => {
             if(err) reject(err);
             else resolve(res);
         })
@@ -165,20 +165,20 @@ export const getModelPaginated = (conn, page, pageSize) => {
     })
 }
 
-export const addModel = (conn, name, desc, price) => {
+export const addModel = (conn, name, desc, price, img) => {
     return new Promise((resolve, reject) => {
-        conn.query(`INSERT INTO ModelBaju(namaModel, hargaModel, deskripsiModel) VALUES(?,?,?)`,
-        [name, price, desc], (err, res) => {
+        conn.query(`INSERT INTO ModelBaju(namaModel, hargaModel, deskripsiModel, gambarModel) VALUES(?,?,?,?)`,
+        [name, price, desc, img], (err, res) => {
             if(err) reject(err);
             else resolve(res);
         })
     });
 }
 
-export const updateStatPemesanan = (conn, idTransaksi, stat) => {
+export const updatePemesanan = (conn, idTransaksi, idKurir, stat) => {
     return new Promise((resolve, reject) => {
-        conn.query(`UPDATE Transaksi SET statPemesanan = ? WHERE idTransaksi = ?`,
-        [stat, idTransaksi], (err, res) => {
+        conn.query(`UPDATE Transaksi SET statPemesanan = ?, idKurir = ? WHERE idTransaksi = ?`,
+        [stat, idKurir, idTransaksi], (err, res) => {
             if(err) reject(err);
             else resolve(res);
         })
@@ -219,10 +219,60 @@ export const getTransactionById = (conn, idTransaction) => {
 
 export const getTransactionDetailById = (conn, idTransaction) => {
     return new Promise((resolve, reject) => {
-        conn.query('SELECT namaModel, hargaBaju, namaBahanBaku, hargaJualBahan, Ukuran, namaAksesoris, hargaJualAksesoris, hargaBaju+hargaJualBahan+hargaJualAksesoris as hargaTotal FROM Transaksi t INNER JOIN Aksesoris a ON t.idAksesoris = a.idAksesoris INNER JOIN Baju b ON t.idBaju = b.idBaju INNER JOIN BahanBaku bb ON b.idBahanBaku = bb.idBahanBaku INNER JOIN ModelBaju m ON b.idModel = m.idModel WHERE idTransaksi=?',
+        conn.query('SELECT idTransaksi, namaModel, hargaBaju, namaBahanBaku, hargaJualBahan, Ukuran, namaAksesoris, hargaJualAksesoris, hargaBaju+hargaJualBahan+hargaJualAksesoris as hargaTotal FROM Transaksi t INNER JOIN Aksesoris a ON t.idAksesoris = a.idAksesoris INNER JOIN Baju b ON t.idBaju = b.idBaju INNER JOIN BahanBaku bb ON b.idBahanBaku = bb.idBahanBaku INNER JOIN ModelBaju m ON b.idModel = m.idModel WHERE idTransaksi=?',
         [idTransaction], (err, res) => {
             if(err) reject(err);
             else resolve(res[0]);
+        })
+    })
+}
+
+export const updateBuktiBayar = (conn, idTransaksi, buktiBayar) => {
+    return new Promise((resolve, reject) => {
+        conn.query('UPDATE Transaksi SET buktiTransfer = ? WHERE idTransaksi = ?',
+        [buktiBayar, idTransaksi], (err, res) => {
+            if(err) reject(err);
+            else resolve(res);
+        })
+    });
+}
+
+export const getPesananStatus = (conn) => {
+    return new Promise((resolve, reject) => {
+        conn.query('SELECT idTransaksi, idPengguna, tglTransaksi, statPemesanan, idKurir FROM Transaksi',
+        (err, res) => {
+            if(err) reject(err);
+            else resolve(res);
+        });
+    })
+}
+
+export const getKurirs = (conn) => {
+    return new Promise((resolve, reject) => {
+        conn.query('SELECT * FROM Kurir',
+        (err, res) => {
+            if(err) reject(err);
+            else resolve(res);
+        })
+    })
+}
+
+export const getLaporan = (conn) => {
+    return new Promise((resolve, reject) => {
+        conn.query('SELECT idTransaksi, namaModel, namaAksesoris, hargaTotal, hargaJualAksesoris+hargaJualBahan as totalBeli FROM Transaksi t INNER JOIN Baju b ON t.idBaju = b.idBaju INNER JOIN ModelBaju m ON b.idModel = m.idModel INNER JOIN Aksesoris a ON t.idAksesoris = a.idAksesoris INNER JOIN BahanBaku bb ON b.idBahanBaku = bb.idBahanBaku',
+        (err, res) => {
+            if(err) reject(err);
+            else resolve(res);
+        })
+    })
+}
+
+export const getTotalPemasukan = (conn) => {
+    return new Promise((resolve, reject) => {
+        conn.query('SELECT SUM(hargaTotal) FROM Transaksi',
+        (err, res) => {
+            if(err) reject(err);
+            else resolve(res);
         })
     })
 }

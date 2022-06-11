@@ -1,7 +1,7 @@
-import { getUserDetail, getUserPassword, dbConnect, getTransactions, getAllBahan, addBahan, getAllAksesoris, addAksesoris, addModel, getAllModel, addUser, getAllUsers, getTransactionsById, updateStatPemesanan, getUsersByUsername, getModelPaginated, getModelCount, addTransaction, getAllAvailableAksesoris, addBaju, getBajuById, getTransactionDetailById } from './sql.js';
+import { getUserDetail, getUserPassword, dbConnect, getTransactions, getAllBahan, addBahan, getAllAksesoris, addAksesoris, addModel, getAllModel, addUser, getAllUsers, getTransactionsById, updatePemesanan, getUsersByUsername, getModelPaginated, getModelCount, addTransaction, getAllAvailableAksesoris, addBaju, getBajuById, getTransactionDetailById, updateBuktiBayar, getPesananStatus, getKurirs, getLaporan, getTotalPemasukan } from './sql.js';
 import { hashPassword } from './app.js';
 
-export const routes = (app) => {
+export const routes = (app, upload) => {
   app.get('/',async (req, res) => {
         const conn = await dbConnect();
         let pengguna = null;
@@ -25,7 +25,11 @@ export const routes = (app) => {
             const bahan = await getAllBahan(conn);
             const aksesoris = await getAllAksesoris(conn);
             const model = await getAllModel(conn);
-            res.render('home-pemilik', {bahan, aksesoris, model})
+            const pengiriman = await getPesananStatus(conn);
+            const kurir = await getKurirs(conn);
+            const laporan = await getLaporan(conn);
+            const pemasukan = await getTotalPemasukan(conn);
+            res.render('home-pemilik', {bahan, aksesoris, model, pengiriman, kurir, laporan, pemasukan})
         }
         else if(pengguna.peran === 'customer'){
             res.render('home-costumer', {pengguna})
@@ -82,6 +86,15 @@ export const routes = (app) => {
     res.render('bayar', {baju: transaction});
   })
 
+  app.post('/pay_upload', upload.single('buktibayar'), async(req, res) => {
+    const idTransaksi = +req.query['id'];
+    const file = req.file.filename;
+    console.log(idTransaksi, file);
+    const conn = await dbConnect();
+    await updateBuktiBayar(conn, idTransaksi, file);
+    res.redirect('/')
+  })
+
   app.get('/login', async (req, res) => {
       res.render('LoginPage', {error: false});
   });
@@ -128,30 +141,33 @@ export const routes = (app) => {
     res.redirect('/')
   })
 
-  app.post('/add_bahan', async (req, res) => {
+  app.post('/add_bahan', upload.single('img'), async (req, res) => {
       const {name, desc, stock, buy, sell} = req.body;
+      const img = req.file.filename
       const conn = await dbConnect();
-      addBahan(conn, name, desc, stock, buy, sell)
+      addBahan(conn, name, desc, stock, buy, sell, img)
         .then(() => res.status(200).send('OK'))
         .catch((e) => {
             console.error(e);
             res.status(500).send('NOT OK')
         });
   })
-  app.post('/add_aksesoris', async (req, res) => {
+  app.post('/add_aksesoris', upload.single('img'), async (req, res) => {
       const {name, desc, stock, buy, sell} = req.body;
+      const img = req.file.filename;
       const conn = await dbConnect();
-      addAksesoris(conn, name, desc, stock, buy, sell)
+      addAksesoris(conn, name, desc, stock, buy, sell, img)
         .then(() => res.status(200).send('OK'))
         .catch((e) => {
             console.error(e);
             res.status(500).send('NOT OK')
         });
   })
-  app.post('/add_model', async (req, res) => {
+  app.post('/add_model', upload.single('img'), async (req, res) => {
       const {name, desc, price} = req.body;
+      const img = req.file.filename;
       const conn = await dbConnect();
-      addModel(conn, name, desc, price)
+      addModel(conn, name, desc, price, img)
         .then(() => res.status(200).send('OK'))
         .catch((e) => {
             console.error(e);
@@ -185,11 +201,12 @@ export const routes = (app) => {
     }
   })
 
-  app.post('/update_statpemesanan', async(req, res) => {
-    const { idTransaksi, stat } = req.body;
+  app.post('/update_pengiriman', async(req, res) => {
+    const { idTransaksi, stat, idKurir } = req.body;
     const conn = await dbConnect();
     try{
-        await updateStatPemesanan(conn, idTransaksi, stat);
+        console.log(idTransaksi, idKurir, stat);
+        await updatePemesanan(conn, +idTransaksi, +idKurir, stat);
         res.status(200).send();
     }
     catch(e){
@@ -197,4 +214,5 @@ export const routes = (app) => {
         res.status(500).send();
     }
   })
+
 }

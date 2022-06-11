@@ -93,6 +93,7 @@
 						<td>Nama Model</td>
 						<td>Deskripsi</td> 
 						<td>Harga</td> 
+						<td>Gambar</td>
 						<td>Edit</td>
 						
 					</tr>
@@ -102,6 +103,7 @@
 							<td><%- model[i].namaModel %></td>
 							<td><%- model[i].deskripsiModel %></td> 
 							<td><%- model[i].hargaModel %></td>
+							<td><img src='/uploads/<%- model[i].gambarModel %>'></td>
 							<td><button>Edit</button></td>
 						</tr>
 					<% } %>
@@ -112,6 +114,7 @@
 						<td><input type='text'></td> 
 						<td><input type='text'></td>
 						<td><input type='number'></td>
+						<td><input type='file'></td>
 						<td><button>Save</button></td>
 					</tr>
 				</template>
@@ -151,6 +154,7 @@
 						<td>Stok</td> 
 						<td>Harga Beli</td>
 						<td>Harga Jual</td>
+						<td>Gambar</td>
 						<td>Edit</td>
 					</tr>
 					<% for(let i = 0; i < bahan.length; i++){ %>
@@ -161,6 +165,7 @@
 							<td><%- bahan[i].stock %></td>
 							<td><%- bahan[i].hargaBeliBahan %></td>
 							<td><%- bahan[i].hargaJualBahan %></td>
+							<td><img src="/uploads/<%- bahan[i].gambarBahanBaku %>"></td>
 							<td><button>Edit</button></td>
 						</tr>
 					<% } %>
@@ -173,6 +178,7 @@
 						<td><input type='number'></td>
 						<td><input type='number'></td>
 						<td><input type='number'></td>
+						<td><input type='file'></td>
 						<td><button>Save</button></td>
 					</tr>
 				</template>
@@ -216,6 +222,7 @@
 						<td>Stok</td> 
 						<td>Harga Beli</td>
 						<td>Harga Jual</td>
+						<td>Gambar</td>
 						<td>Edit</td>
 					</tr>
 					<% for(let i = 0; i < aksesoris.length; i++){ %>
@@ -274,43 +281,34 @@
 			</div>
 			<br><br>
 			<div class="scrollmenu" id="scrollmenu">
-				<table id="table-pemesanan">
-					<tr>
-						<td>No.</td>
-						<td>Nomor Transaksi</td>
-						<td>Nomor Pembeli</td> 
-						<td>Tanggal</td> 
-						<td>Status Pesanan</td>
-						<td>Kurir</td>
-						<td>Resi</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>000111</td>
-						<td>17368232</td> 
-						<td>03/06/2022</td>
-						<td>Proses</td>
-						<td>JNT</td>
-						<td>88309092838</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>000112</td>
-						<td>17386432</td> 
-						<td>03/06/2022</td>
-						<td>Proses</td>
-						<td>JNT</td>
-						<td>88309092839</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>000112</td>
-						<td>15568232</td> 
-						<td>03/06/2022</td>
-						<td>Proses</td>
-						<td>JNT</td>
-						<td>88309092840</td>
-					</tr>
+				<table id="table-stat-pengiriman">
+					<thead>
+						<th>No.</th>
+						<th>Nomor Transaksi</th>
+						<th>Nomor Pembeli</th> 
+						<th>Tanggal</th> 
+						<th>Status Pesanan</th>
+						<th>Kurir</th>
+						<th>Edit</th>
+					</thead>
+					<% for(let i = 0; i < pengiriman.length; i++){ %>
+						<tr>
+							<td><%- i+1 %></td>
+							<td><%- pengiriman[i].idTransaksi %></td>
+							<td><%- pengiriman[i].idPengguna %></td> 
+							<td><%- pengiriman[i].tglTransaksi %></td>
+							<td><select>
+								<option <%- pengiriman[i].statPemesanan === 'belum dikirim' ? 'selected="selected"' : ''%>>belum dikirim</option>
+								<option <%- pengiriman[i].statPemesanan === 'sudah dikirim' ? 'selected="selected"' : ''%>>sudah dikirim</option>
+							</select></td>
+							<td><select>
+								<% for(let j = 0; j < kurir.length; j++){ %>
+									<option value="<%- kurir[j].idKurir %>" <%- pengiriman[i].idKurir === kurir[j].idKurir ? 'selected="selected"' : '' %>><%- kurir[j].namaKurir %></option>
+								<% } %>
+							</select></td>
+							<td><button onclick="updateData(<%- i %>, <%- pengiriman[i].idTransaksi %>)">save</button></td>
+						</tr>
+					<% } %>
 				</table>
 			</div>
 			<a>
@@ -384,53 +382,29 @@
 			</div>
 			<br><br>
 			<div class="scrollmenu" id="scrollmenu">
-				<table id="table-pemesanan">
-					<tr>
-						<td>No.</td>
-						<td>username</td>
-						<td>Password</td> 
-						<td>Tipe</td> 
-						<td>Nama Lengkap</td>
-						<td>Nomor HP</td>
-						<td>Email</td>
-						<td>Alamat</td>
-						<td>Edit</td>
-						
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>Darylcodemaster</td>
-						<td>mycodemyadventure</td> 
-						<td>Admin</td>
-						<td>Vincentius Daryl Kurniawan</td>
-						<td>081341819800</td>
-						<td>VDKurniawan@gmail.com</td>
-						<td>Jalan Raline Shah no 33</td>
-						<td>Edit</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>andicodeslayer</td>
-						<td>codingcodingdihatiku</td> 
-						<td>Pemilik</td>
-						<td>Andi Mulawarman</td>
-						<td>081111819800</td>
-						<td>AndiCodingmaster@gmail.com</td>
-						<td>Jalan shireen sungkar no 38</td>
-						<td>Edit</td>
-					</tr>
+				<table id="table-laporan">
+					<thead>
+						<th>No.</th>
+						<th>No. Transaksi</th>
+						<th>Model Baju</th> 
+						<th>Aksesoris</th> 
+						<th>Harga Total</th>
+						<th>Total Beli</th>
+					</thead>
+					<tbody>
+						<% for(let i = 0; i < laporan.length; i++){ %>
+							<tr>
+								<td><%- i+1 %></td>
+								<td><%- laporan[i].idTransaksi %></td>
+								<td><%- laporan[i].namaModel %></td>
+								<td><%- laporan[i].namaAksesoris %></td>
+								<td><%- laporan[i].hargaTotal %></td>
+								<td><%- laporan[i].totalBeli %></td>
+							</tr>
+						<% } %>
+					</tbody>
 				</table>
+				<span>Total pemasukan: <%- pemasukan %></span>
 			</div>
 			<a>
 				<button id="btn_tambahakun" type="button">Tambah Bahan</button><br>
@@ -522,21 +496,20 @@
 				const td = node.querySelectorAll('td');
 				const input = node.querySelectorAll('input');
 				td[0].textContent = ++nBahan;
-				td[6].querySelector('button').addEventListener('click', (e) => {
-					const name = input[0].value;
-					const desc = input[1].value;
-					const stock = +input[2].value;
-					const buy = +input[3].value;
-					const sell = +input[4].value;
+				td[7].querySelector('button').addEventListener('click', (e) => {
+					const fd = new FormData();
+					fd.append('name', input[0].value);
+					fd.append('desc', input[1].value);
+					fd.append('stock', input[2].value);
+					fd.append('buy', input[3].value);
+					fd.append('sell', input[4].value);
+					fd.append('img', input[5].files[0]);
 					fetch('/add_bahan', {
 						method: 'POST',
-						headers: {
-							'Content-Type': 'application/x-www-form-urlencoded'
-						},
-						body: new URLSearchParams({
-							name, desc, stock, buy, sell
-						})
-					}).then(() => reload());
+						body: fd
+					}).then((res) => {
+						if(res.ok) location.reload();
+					});
 				});
 				tabelBahan.appendChild(node);
 			});
@@ -549,20 +522,18 @@
 				const input = node.querySelectorAll('input');
 				td[0].textContent = ++nAksesoris;
 				td[6].querySelector('button').addEventListener('click', (e) => {
-					const name = input[0].value;
-					const desc = input[1].value;
-					const stock = +input[2].value;
-					const buy = +input[3].value;
-					const sell = +input[4].value;
+					const fd = new FormData();
+					fd.append('name', input[0].value);
+					fd.append('desc', input[1].value);
+					fd.append('stock', +input[2].value);
+					fd.append('buy', +input[3].value);
+					fd.append('sell', +input[4].value);
 					fetch('/add_aksesoris', {
 						method: 'POST',
-						headers: {
-							'Content-Type': 'application/x-www-form-urlencoded'
-						},
-						body: new URLSearchParams({
-							name, desc, stock, buy, sell
-						})
-					}).then(() => reload());
+						body: fd
+					}).then((res) => {
+						if(res.ok) location.reload()
+					});
 				});
 				tabelBahan.appendChild(node);
 			});
@@ -574,22 +545,32 @@
 				const td = node.querySelectorAll('td');
 				const input = node.querySelectorAll('input');
 				td[0].textContent = ++nAksesoris;
-				td[4].querySelector('button').addEventListener('click', (e) => {
-					const name = input[0].value;
-					const desc = input[1].value;
-					const price = +input[2].value;
+				td[5].querySelector('button').addEventListener('click', (e) => {
+					const fd = new FormData();
+					fd.append('name', input[0].value);
+					fd.append('desc', input[1].value);
+					fd.append('price', +input[2].value);
+					fd.append('img', input[3].files[0]);
 					fetch('/add_model', {
 						method: 'POST',
-						headers: {
-							'Content-Type': 'application/x-www-form-urlencoded'
-						},
-						body: new URLSearchParams({
-							name, desc, price
-						})
-					}).then(() => location.reload());
+						body: fd
+					}).then((res) => {
+						if(res.ok) location.reload()
+					});
 				});
 				tabelBahan.appendChild(node);
 			});
+
+			function updateData(i, idTransaksi){
+				const row = document.querySelector('#table-stat-pengiriman').querySelectorAll('tbody tr')[i].querySelectorAll('td');
+				const statPemesanan = row[4].querySelector('select').selectedOptions[0].textContent;
+				const idKurir = row[5].querySelector('select').selectedOptions[0].value;
+				fetch('/update_pengiriman', {
+					headers: {},
+					method: 'POST',
+					body: new URLSearchParams({idTransaksi, stat: statPemesanan, idKurir})
+				})
+			}
 		</script>
 	</body>
 </html>

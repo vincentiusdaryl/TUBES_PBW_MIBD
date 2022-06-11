@@ -43,8 +43,10 @@
         </tr>
       </table>
       <span>Total bayar: <%- baju.hargaTotal %></span>
-      <input type="file" id="buktibayar">
-      <button id='bayar'>Bayar</button>
+      <form action="/pay_upload?id=<%- baju.idTransaksi %>" method='POST' enctype="multipart/form-data">
+        <input type="file" name='buktibayar'>
+        <button id='bayar'>Bayar</button>
+      </form>
 		</div>
 
 		<script>
