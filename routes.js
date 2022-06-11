@@ -1,4 +1,4 @@
-import { getUserDetail, getUserPassword, dbConnect, getTransactions, getAllBahan, addBahan, getAllAksesoris, addAksesoris, addModel, getAllModel, addUser, getAllUsers, getTransactionsById } from './sql.js';
+import { getUserDetail, getUserPassword, dbConnect, getTransactions, getAllBahan, addBahan, getAllAksesoris, addAksesoris, addModel, getAllModel, addUser, getAllUsers, getTransactionsById, updateStatPemesanan, getUsersByUsername } from './sql.js';
 import { hashPassword } from './app.js';
 
 export const routes = (app) => {
@@ -130,5 +130,31 @@ export const routes = (app) => {
           console.error(e);
           res.status(500).send();
       }
+  })
+
+  app.get('/users', async(req, res) => {
+    const username = req.query['username'];
+    const conn = await dbConnect();
+    try{
+        const users = await getUsersByUsername(conn, username);
+        res.json(users);
+    }
+    catch(e){
+        console.error(e);
+        res.status(500).send();
+    }
+  })
+
+  app.post('/update_statpemesanan', async(req, res) => {
+    const { idTransaksi, stat } = req.body;
+    const conn = await dbConnect();
+    try{
+        await updateStatPemesanan(conn, idTransaksi, stat);
+        res.status(200).send();
+    }
+    catch(e){
+        console.error(e);
+        res.status(500).send();
+    }
   })
 }

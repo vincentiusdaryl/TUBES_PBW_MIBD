@@ -92,8 +92,14 @@
 						<td><%- transaksi[i].buktiTransfer %></td>
 						<td><%- transaksi[i].statPembayaran %></td>
 						<td><%- transaksi[i].progresPesanan %></td>
-						<td><%- transaksi[i].statPemesanan %></td>
-						<td><button>save</button></td>
+						<td>
+							<select>
+								<option <%- transaksi[i].statPemesanan === 'belum dikerjakan' ? 'selected="selected"' : '' %>>belum dikerjakan</option>
+								<option <%- transaksi[i].statPemesanan === 'sudah dikerjakan' ? 'selected="selected"' : '' %>>sudah dikerjakan</option>
+								<option <%- transaksi[i].statPemesanan === 'sudah dikirim' ? 'selected="selected"' : '' %>>sudah dikirim</option>
+							</select>
+						</td>
+						<td><button onclick="saveTransaksi(<%- i %>)">save</button></td>
 					</tr>
 					<% } %>
 				</table>
@@ -126,22 +132,22 @@
 				<a id="voucher-nama">SEARCH</a>
 				<a><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
 				<div id="voucher-content">
-					<input id="voucher-content-input" placeholder="Masukan Username" type="text"><br><br>
-					<button id="voucher-content-btn">SEARCH</button>
+					<input id="search-username-input" placeholder="Masukan Username" type="text"><br><br>
+					<button id="search-username-btn">SEARCH</button>
 				</div>
 			</div>
 			<br><br>
 			<div class="scrollmenu" id="scrollmenu">
 				<table id="table-user">
-					<tr>
-						<td>No.</td>
-						<td>username</td>
-						<td>Tipe</td> 
-						<td>Nama Lengkap</td>
-						<td>Nomor HP</td>
-						<td>Email</td>
-						<td>Alamat</td>
-					</tr>
+					<thead>
+						<th>No.</th>
+						<th>username</th>
+						<th>Tipe</th> 
+						<th>Nama Lengkap</th>
+						<th>Nomor HP</th>
+						<th>Email</th>
+						<th>Alamat</th>
+					</thead>
 					<% for(let i = 0; i < users.length; i++){ %>
 						<tr>
 							<td><%- i+1 %></td>
@@ -271,8 +277,20 @@
 			let form = document.getElementById('form-tambahakun');
 			let base = document.getElementById('body-aturakun')
 			let searchTransaksi = document.getElementById('voucher-content-btn');
+			let searchUsername = document.getElementById('search-username-btn');
 
 			let users = <%- users.length %>
+			
+			function saveTransaksi(i){
+				const transaksi = document.querySelectorAll('#table-pemesanan tr');
+				const data = transaksi[i].querySelectorAll('td');
+				const statPemesanan = data[6];
+				const idTransaksi = data[1];
+				fetch('/update_statpemesanan', {
+					method: 'POST',
+					body: new URLSearchParams({stat: statPemesanan, idTransaksi})
+				})
+			}
 
 			add.addEventListener('click',function(){
 				if(form.style.width == "fit-content"){
@@ -309,6 +327,31 @@
 							td[4].textContent = row.statPembayaran;
 							td[5].textContent = row.progresPesanan;
 							td[6].textContent = row.statPemesanan;
+							table.appendChild(node);
+						})
+					});
+			});
+
+			searchUsername.addEventListener('click', (e) => {
+				const query = document.querySelector('#search-username-input').value;
+				fetch(`/users?username=${query}`)
+					.then(res => res.json())
+					.then(data => {
+						const table = document.querySelector('#table-user');
+						const head = table.querySelector('thead');
+						table.textContent='';
+						table.appendChild(head);
+						const template = document.querySelector('#template-user');
+						data.forEach((row, i) => {
+							const node = template.content.cloneNode(true);
+							const td = node.querySelectorAll('td');
+							td[0].textContent = i+1;
+							td[1].textContent = row.Username;
+							td[2].textContent = row.peran;
+							td[3].textContent = row.namaPengguna;
+							td[4].textContent = row.noHP;
+							td[5].textContent = row.Email;
+							td[6].textContent = row.alamat;
 							table.appendChild(node);
 						})
 					});

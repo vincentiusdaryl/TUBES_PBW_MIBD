@@ -58,6 +58,18 @@ export const getAllUsers = (conn) => {
     })
 }
 
+export const getUsersByUsername = (conn, username) => {
+    return new Promise((resolve, reject) => {
+        conn.query(
+            `SELECT Email, Username, Pass, namaPengguna, peran, alamat, noHp FROM Pengguna WHERE Username LIKE "%${username}%"`,
+            (err, res) => {
+                if(err) reject(err);
+                else resolve(res);
+            }
+        );
+    })
+}
+
 export const getTransactions = (conn) => {
     return new Promise((resolve, reject) => {
         conn.query(`SELECT * FROM Transaksi t INNER JOIN Pengguna p ON t.idPengguna = p.idPengguna`, (err, res) => {
@@ -128,6 +140,16 @@ export const addModel = (conn, name, desc, price) => {
     return new Promise((resolve, reject) => {
         conn.query(`INSERT INTO ModelBaju(namaModel, hargaModel, deskripsiModel) VALUES(?,?,?)`,
         [name, price, desc], (err, res) => {
+            if(err) reject(err);
+            else resolve(res);
+        })
+    });
+}
+
+export const updateStatPemesanan = (conn, idTransaksi, stat) => {
+    return new Promise((resolve, reject) => {
+        conn.query(`UPDATE Transaksi SET statPemesanan = ? WHERE idTransaksi = ?`,
+        [stat, idTransaksi], (err, res) => {
             if(err) reject(err);
             else resolve(res);
         })
