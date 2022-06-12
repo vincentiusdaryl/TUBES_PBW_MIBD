@@ -213,7 +213,7 @@ export const updatePemesanan = (conn, idTransaksi, idKurir, stat) => {
 // Menambah Baju
 export const addBaju = (conn, idModel, idBahan, ukuran) => {
     return new Promise((resolve, reject) => {
-        conn.query(`INSERT INTO Baju(Ukuran, idBahanBaku, idModel, hargaBaju) VALUES(?, ?, ?, (SELECT hargaModel*hargaJualBahan FROM ModelBaju CROSS JOIN BahanBaku WHERE idModel = ? AND idBahanBaku = ?))`,
+        conn.query(`INSERT INTO Baju(Ukuran, idBahanBaku, idModel, hargaBaju) VALUES(?, ?, ?, (SELECT hargaModel+hargaJualBahan FROM ModelBaju CROSS JOIN BahanBaku WHERE idModel = ? AND idBahanBaku = ?))`,
         [ukuran, idBahan, idModel, idModel, idBahan], (err, res) => {
             if(err) reject(err);
             else resolve(res.insertId);

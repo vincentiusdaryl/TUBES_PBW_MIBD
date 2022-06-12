@@ -94,9 +94,10 @@
 						<td><%- transaksi[i].progresPesanan %></td>
 						<td>
 							<select>
-								<option <%- transaksi[i].statPemesanan === 'belum dikerjakan' ? 'selected="selected"' : '' %>>belum dikerjakan</option>
-								<option <%- transaksi[i].statPemesanan === 'sudah dikerjakan' ? 'selected="selected"' : '' %>>sudah dikerjakan</option>
-								<option <%- transaksi[i].statPemesanan === 'sudah dikirim' ? 'selected="selected"' : '' %>>sudah dikirim</option>
+								<option <%- transaksi[i].statPemesanan === 'validasi pembayaran' ? 'selected="selected"' : '' %>>validasi pembayaran</option>
+								<option <%- transaksi[i].statPemesanan === 'pembuatan pola' ? 'selected="selected"' : '' %>>pembuatan pola</option>
+								<option <%- transaksi[i].statPemesanan === 'pengiriman' ? 'selected="selected"' : '' %>>pengiriman</option>
+								<option <%- transaksi[i].statPemesanan === 'sudah diterima' ? 'selected="selected"' : '' %>>sudah diterima</option>
 							</select>
 						</td>
 						<td><button onclick="saveTransaksi(<%- i %>)">save</button></td>
