@@ -118,6 +118,7 @@ export const routes = (app, upload) => {
       }
   });
 
+
   app.post('/register', async (req, res) => {
       const {name,username,password,email,alamat,nomorHp,tipe} = req.body;
       if(!name || !username || !password || !email || !alamat || !nomorHp || !tipe){
@@ -136,11 +137,13 @@ export const routes = (app, upload) => {
       }
   })
 
+  // Fungsi logout keluar dari pengguna
   app.get('/logout', (req, res) => {
       res.clearCookie('username');
     res.redirect('/')
   })
 
+  // rute untuk menambah bahan
   app.post('/add_bahan', upload.single('img'), async (req, res) => {
       const {name, desc, stock, buy, sell} = req.body;
       const img = req.file.filename
@@ -152,6 +155,8 @@ export const routes = (app, upload) => {
             res.status(500).send('NOT OK')
         });
   })
+
+  // rute untuk menambah aksesoris
   app.post('/add_aksesoris', upload.single('img'), async (req, res) => {
       const {name, desc, stock, buy, sell} = req.body;
       const img = req.file.filename;
@@ -163,6 +168,8 @@ export const routes = (app, upload) => {
             res.status(500).send('NOT OK')
         });
   })
+
+  // rute untuk menambah model
   app.post('/add_model', upload.single('img'), async (req, res) => {
       const {name, desc, price} = req.body;
       const img = req.file.filename;
@@ -201,6 +208,7 @@ export const routes = (app, upload) => {
     }
   })
 
+  // rute untuk update pengiriman
   app.post('/update_pengiriman', async(req, res) => {
     const { idTransaksi, stat, idKurir } = req.body;
     const conn = await dbConnect();
@@ -215,6 +223,7 @@ export const routes = (app, upload) => {
     }
   })
 
+  // rute untuk menghapus user
   app.delete('/delete_user', async(req, res) => {
     const {username} = req.query;
     const conn = await dbConnect();
@@ -222,6 +231,7 @@ export const routes = (app, upload) => {
     res.send();
   })
 
+  // rute untuk menghapus model
   app.delete('/delete_model', async(req, res) => {
     const {id} = req.query;
     const conn = await dbConnect();
@@ -229,6 +239,7 @@ export const routes = (app, upload) => {
     res.send();
   })
 
+  // rute untuk menghapus bahan
   app.delete('/delete_bahan', async(req, res) => {
     const {id} = req.query;
     const conn = await dbConnect();
@@ -236,6 +247,7 @@ export const routes = (app, upload) => {
     res.send();
   })
 
+  // rute untuk menghapus aksesoris
   app.delete('/delete_aksesoris', async(req, res) => {
     const {id} = req.query;
     const conn = await dbConnect();
