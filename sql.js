@@ -276,3 +276,47 @@ export const getTotalPemasukan = (conn) => {
         })
     })
 }
+
+export const deleteUserByUsername = (conn, username) => {
+    return new Promise((resolve, reject) => {
+        conn.query('DELETE FROM Pengguna WHERE Username = ?', 
+        [username], (err, res) => {
+            if(err) reject(err);
+            else resolve(res);
+        }
+        )
+    })
+}
+
+export const deleteModelById = (conn, id) => {
+    return new Promise((resolve, reject) => {
+        conn.query('DELETE FROM ModelBaju WHERE idModel = ?', 
+        [id], (err, res) => {
+            if(err) reject(err);
+            else resolve(res);
+        }
+        )
+    })
+}
+
+export const deleteBahanById = (conn, id) => {
+    return new Promise((resolve, reject) => {
+        conn.query('DELETE FROM ModelBaju WHERE idBahanBaku = ?', 
+        [id], (err, res) => {
+            if(err) reject(err);
+            else resolve(res);
+        }
+        )
+    })
+}
+
+export const deleteAksesorisById = (conn, id) => {
+    return new Promise((resolve, reject) => {
+        conn.query('DELETE FROM ModelBaju WHERE idAksesoris = ?', 
+        [id], (err, res) => {
+            if(err) reject(err);
+            else resolve(res);
+        }
+        )
+    })
+}

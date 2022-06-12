@@ -104,7 +104,7 @@
 							<td><%- model[i].deskripsiModel %></td> 
 							<td><%- model[i].hargaModel %></td>
 							<td><img src='/uploads/<%- model[i].gambarModel %>'></td>
-							<td><button>Edit</button></td>
+							<td><button onclick="deleteModel(<%- model[i].idModel %>)">Delete</button></td>
 						</tr>
 					<% } %>
 				</table>
@@ -166,7 +166,7 @@
 							<td><%- bahan[i].hargaBeliBahan %></td>
 							<td><%- bahan[i].hargaJualBahan %></td>
 							<td><img src="/uploads/<%- bahan[i].gambarBahanBaku %>"></td>
-							<td><button>Edit</button></td>
+							<td><button onclick="deleteBahan(<%- bahan[i].idBahanBaku%>)">Delete</button></td>
 						</tr>
 					<% } %>
 				</table>
@@ -233,7 +233,7 @@
 							<td><%= aksesoris[i].stock %></td>
 							<td><%= aksesoris[i].hargaJualAksesoris %></td>
 							<td><%= aksesoris[i].hargaBeliAksesoris %></td>
-							<td><button>Edit</button></td>
+							<td><button onclick="deleteAksesoris(<%- aksesoris[i].idAksesoris %>)">Delete</button></td>
 						</tr>
 					<% } %>
 				</table>
@@ -569,6 +569,30 @@
 					headers: {},
 					method: 'POST',
 					body: new URLSearchParams({idTransaksi, stat: statPemesanan, idKurir})
+				})
+			}
+
+			function deleteModel(idModel) {
+				fetch(`/delete_model?id=${idModel}`, {
+					method: 'DELETE'
+				}).then(res => {
+					if(res.ok) location.reload();
+				})
+			}
+
+			function deleteBahan(idBahan) {
+				fetch(`/delete_bahan?id=${idBahan}`, {
+					method: 'DELETE'
+				}).then(res => {
+					if(res.ok) location.reload();
+				})
+			}
+
+			function deleteAksesoris(idModel) {
+				fetch(`/delete_aksesoris?id=${idModel}`, {
+					method: 'DELETE'
+				}).then(res => {
+					if(res.ok) location.reload();
 				})
 			}
 		</script>

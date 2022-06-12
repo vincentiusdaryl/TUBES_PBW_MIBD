@@ -147,6 +147,7 @@
 						<th>Nomor HP</th>
 						<th>Email</th>
 						<th>Alamat</th>
+						<th>Delete</th>
 					</thead>
 					<% for(let i = 0; i < users.length; i++){ %>
 						<tr>
@@ -157,6 +158,7 @@
 							<td><%- users[i].noHP %></td>
 							<td><%- users[i].Email %></td>
 							<td><%- users[i].alamat %></td>
+							<td><button onclick="deleteUser(<%- i %>, <%- users[i].Username)">Delete</button></td>
 						</tr>
 					<% } %>
 				</table>
@@ -391,6 +393,14 @@
 					}
 				});
 			});
+
+			function deleteUser(i, username){
+				fetch(`/delete_user?username=${username}`,{
+					method: 'DELETE'
+				}).then(res => {
+					if(res.ok) location.reload();
+				})
+			}
 		</script>
 	</body>
 </html>

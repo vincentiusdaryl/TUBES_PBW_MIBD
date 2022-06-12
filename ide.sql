@@ -74,9 +74,11 @@ CREATE TABLE Baju (
     INDEX (idBahanBaku),
     INDEX(idModel),
     FOREIGN KEY (idBahanBaku)
-        REFERENCES BahanBaku(idBahanBaku),
+        REFERENCES BahanBaku(idBahanBaku)
+        ON DELETE CASCADE,
     FOREIGN KEY (idModel)
         REFERENCES ModelBaju(idModel)
+        ON DELETE CASCADE
 );
 
 
@@ -107,13 +109,17 @@ CREATE TABLE Transaksi (
     Index(idBaju),
     INDEX(idKurir),
     FOREIGN KEY (idPengguna)
-        REFERENCES Pengguna(idPengguna),
+        REFERENCES Pengguna(idPengguna)
+        ON DELETE CASCADE,
     FOREIGN KEY (idBaju)
-        REFERENCES Baju(idBaju),
+        REFERENCES Baju(idBaju)
+        ON DELETE CASCADE,
     FOREIGN KEY (idKurir)
-        REFERENCES Kurir(idKurir),
+        REFERENCES Kurir(idKurir)
+        ON DELETE CASCADE,
     FOREIGN KEY (idAksesoris)
         REFERENCES Aksesoris(idAksesoris)
+        ON DELETE CASCADE
 );
 
 
