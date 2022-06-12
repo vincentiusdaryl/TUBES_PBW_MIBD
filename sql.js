@@ -14,7 +14,7 @@ export const dbConnect = () =>{
     })
 };
 
-// Melihat 1 Info Pengguna
+// Mencari 1 info pengguna berdasarkan username
 export const getUserDetail = (conn,username) => {
     return new Promise((resolve, rejects) =>{
         conn.query(`
@@ -221,7 +221,7 @@ export const addBaju = (conn, idModel, idBahan, ukuran) => {
     });
 }
 
-// Mengambil informasi baju berdasarkan id
+// Mencari informasi baju berdasarkan id
 export const getBajuById = (conn, idBaju) => {
     return new Promise((resolve, reject) => {
         conn.query('SELECT * FROM Baju WHERE idBaju = ?', [idBaju], (err, res) => {
@@ -308,7 +308,7 @@ export const getTotalPemasukan = (conn) => {
     })
 }
 
-// Menghapus user berdasarkan username
+// Menghapus pengguna berdasarkan username
 export const deleteUserByUsername = (conn, username) => {
     return new Promise((resolve, reject) => {
         conn.query('DELETE FROM Pengguna WHERE Username = ?', 
