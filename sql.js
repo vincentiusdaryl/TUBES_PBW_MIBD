@@ -1,5 +1,6 @@
 import { pool } from "./app.js";
 
+// Dari modul
 export const dbConnect = () =>{
     return new Promise((resolve, rejects) =>{
         pool.getConnection((err, conn) =>{
@@ -13,9 +14,13 @@ export const dbConnect = () =>{
     })
 };
 
+// Melihat 1 Info Pengguna
 export const getUserDetail = (conn,username) => {
     return new Promise((resolve, rejects) =>{
-        conn.query(`SELECT idPengguna, Email, Username, namaPengguna, peran FROM Pengguna WHERE Username = "${username}" LIMIT 1`,(err, result) =>{
+        conn.query(`
+        SELECT idPengguna, Email, Username, namaPengguna, peran 
+        FROM Pengguna 
+        WHERE Username = "${username}" LIMIT 1`,(err, result) =>{
             if(err){
                 rejects(err);
             }else{
@@ -26,15 +31,20 @@ export const getUserDetail = (conn,username) => {
     });
 };
 
+// Mengambil password dari pengguna
 export const getUserPassword = (conn, username) => {
-  return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
     conn.query(`SELECT Pass as password FROM Pengguna WHERE Username = "${username}" LIMIT 1`, (err, res) => {
-      if(err) reject(err);
-      else resolve(res[0]);
+        if(err) 
+            reject(err);
+        else 
+            resolve(res[0]);
+        });
     });
-  });
 }
 
+
+// Insert user baru
 export const addUser = (conn, name, username, password, email, alamat, nomorHp, tipe) => {
     return new Promise((resolve, reject) => {
         conn.query(
@@ -46,6 +56,8 @@ export const addUser = (conn, name, username, password, email, alamat, nomorHp, 
     })
 }
 
+
+// Mengambil info semua pengguna
 export const getAllUsers = (conn) => {
     return new Promise((resolve, reject) => {
         conn.query(
@@ -58,6 +70,7 @@ export const getAllUsers = (conn) => {
     })
 }
 
+// Fitur Search user berdasarkan username
 export const getUsersByUsername = (conn, username) => {
     return new Promise((resolve, reject) => {
         conn.query(
@@ -70,6 +83,7 @@ export const getUsersByUsername = (conn, username) => {
     })
 }
 
+// Mengambil semua transaksi yang dilakukan pengguna
 export const getTransactions = (conn) => {
     return new Promise((resolve, reject) => {
         conn.query(`SELECT * FROM Transaksi t INNER JOIN Pengguna p ON t.idPengguna = p.idPengguna`, (err, res) => {
@@ -79,6 +93,7 @@ export const getTransactions = (conn) => {
     });
 }
 
+// Mengambil transaksi tertentu yang dilakukan pengguna
 export const getTransactionsById = (conn, id) => {
     return new Promise((resolve, reject) => {
         conn.query(`SELECT * FROM Transaksi t INNER JOIN Pengguna p ON t.idPengguna = p.idPengguna WHERE idTransaksi = ?`,
@@ -89,6 +104,7 @@ export const getTransactionsById = (conn, id) => {
     })
 }
 
+// Mengambil bahan baku
 export const getAllBahan = (conn) => {
     return new Promise((resolve, reject) => {
         conn.query(`SELECT * FROM BahanBaku`, (err, res) => {
@@ -98,7 +114,8 @@ export const getAllBahan = (conn) => {
     });
 }
 
-export const addBahan = (conn, name, desc, stock, buy, sell, img) => {
+// Menambah bahan baku
+export const addBahan = (conn, name, desc, stock, buy, sell, img) => { //conn, name, desc, stock, buy, sell, img parameter
     return new Promise((resolve, reject) => {
         conn.query(`INSERT INTO BahanBaku (namaBahanBaku, hargaBeliBahan, hargaJualBahan, deskripsiBahanBaku, stock, gambarBahanBaku) VALUES(?,?,?,?,?,?)`,
         [name, buy, sell, desc, stock, img], (err, res) => {
@@ -108,6 +125,7 @@ export const addBahan = (conn, name, desc, stock, buy, sell, img) => {
     });
 }
 
+// Mengambil semua aksesoris
 export const getAllAksesoris = (conn) => {
     return new Promise((resolve, reject) => {
         conn.query(`SELECT * FROM Aksesoris`, (err, res) => {
@@ -117,6 +135,7 @@ export const getAllAksesoris = (conn) => {
     });
 }
 
+// Mengambil semua aksesoris yang memiliki stock yang lebih dari 0
 export const getAllAvailableAksesoris = (conn) => {
     return new Promise((resolve, reject) => {
         conn.query(`SELECT * FROM Aksesoris WHERE stock > 0`, (err, res) => {
@@ -126,6 +145,7 @@ export const getAllAvailableAksesoris = (conn) => {
     });
 }
 
+// Menambah aksesoris
 export const addAksesoris = (conn, name, desc, stock, buy, sell, img) => {
     return new Promise((resolve, reject) => {
         conn.query(`INSERT INTO Aksesoris (namaAksesoris, hargaBeliAksesoris, hargaJualAksesoris, deskripsiAksesoris, stock, gambarAksesoris) VALUES(?,?,?,?,?,?)`,
@@ -136,6 +156,7 @@ export const addAksesoris = (conn, name, desc, stock, buy, sell, img) => {
     });
 }
 
+// Mengambil semua model Baju
 export const getAllModel = (conn) => {
     return new Promise((resolve, reject) => {
         conn.query(`SELECT * FROM ModelBaju`, (err, res) => {
@@ -145,6 +166,7 @@ export const getAllModel = (conn) => {
     });
 }
 
+// Mengambil jumlah model baju yang berada di database
 export const getModelCount = (conn) => {
     return new Promise((resolve, reject) => {
         conn.query(`SELECT COUNT(*) as count FROM ModelBaju`,
@@ -155,6 +177,7 @@ export const getModelCount = (conn) => {
     })
 }
 
+// Mengambil List model dengan pagination
 export const getModelPaginated = (conn, page, pageSize) => {
     return new Promise((resolve, reject) => {
         conn.query(`SELECT * FROM ModelBaju LIMIT ${pageSize} OFFSET ${(page-1)*pageSize}`,
@@ -165,6 +188,7 @@ export const getModelPaginated = (conn, page, pageSize) => {
     })
 }
 
+// Menambah Model Baju
 export const addModel = (conn, name, desc, price, img) => {
     return new Promise((resolve, reject) => {
         conn.query(`INSERT INTO ModelBaju(namaModel, hargaModel, deskripsiModel, gambarModel) VALUES(?,?,?,?)`,
@@ -175,6 +199,7 @@ export const addModel = (conn, name, desc, price, img) => {
     });
 }
 
+// Update status pemesanan
 export const updatePemesanan = (conn, idTransaksi, idKurir, stat) => {
     return new Promise((resolve, reject) => {
         conn.query(`UPDATE Transaksi SET statPemesanan = ?, idKurir = ? WHERE idTransaksi = ?`,
@@ -185,6 +210,7 @@ export const updatePemesanan = (conn, idTransaksi, idKurir, stat) => {
     });
 }
 
+// Menambah Baju
 export const addBaju = (conn, idModel, idBahan, ukuran) => {
     return new Promise((resolve, reject) => {
         conn.query(`INSERT INTO Baju(Ukuran, idBahanBaku, idModel, hargaBaju) VALUES(?, ?, ?, (SELECT hargaModel*hargaJualBahan FROM ModelBaju CROSS JOIN BahanBaku WHERE idModel = ? AND idBahanBaku = ?))`,
@@ -195,6 +221,7 @@ export const addBaju = (conn, idModel, idBahan, ukuran) => {
     });
 }
 
+// Mengambil informasi baju berdasarkan id
 export const getBajuById = (conn, idBaju) => {
     return new Promise((resolve, reject) => {
         conn.query('SELECT * FROM Baju WHERE idBaju = ?', [idBaju], (err, res) => {
@@ -204,6 +231,7 @@ export const getBajuById = (conn, idBaju) => {
     })
 }
 
+// Menambah transaksi
 export const addTransaction = (conn, idPengguna, idAksesoris, idBaju, hargaBaju) => {
     return new Promise((resolve, reject) => {
         conn.query(`INSERT INTO Transaksi(idPengguna, idAksesoris, idBaju, idKurir, tglTransaksi, statPemesanan, statPembayaran, progresPesanan, buktiTransfer, hargaTotal) VALUES (?,?,?,1,now(),"belum dikerjakan","belum","belum dikerjakan","",?+(SELECT hargaJualAksesoris FROM Aksesoris WHERE idAksesoris = ?))`,
@@ -214,9 +242,7 @@ export const addTransaction = (conn, idPengguna, idAksesoris, idBaju, hargaBaju)
     });
 }
 
-export const getTransactionById = (conn, idTransaction) => {
-}
-
+// Mengambil informasi detail transaksi berdasarkan id
 export const getTransactionDetailById = (conn, idTransaction) => {
     return new Promise((resolve, reject) => {
         conn.query('SELECT idTransaksi, namaModel, hargaBaju, namaBahanBaku, hargaJualBahan, Ukuran, namaAksesoris, hargaJualAksesoris, hargaBaju+hargaJualBahan+hargaJualAksesoris as hargaTotal FROM Transaksi t INNER JOIN Aksesoris a ON t.idAksesoris = a.idAksesoris INNER JOIN Baju b ON t.idBaju = b.idBaju INNER JOIN BahanBaku bb ON b.idBahanBaku = bb.idBahanBaku INNER JOIN ModelBaju m ON b.idModel = m.idModel WHERE idTransaksi=?',
@@ -227,6 +253,7 @@ export const getTransactionDetailById = (conn, idTransaction) => {
     })
 }
 
+// Mengubah bukti pembayaran
 export const updateBuktiBayar = (conn, idTransaksi, buktiBayar) => {
     return new Promise((resolve, reject) => {
         conn.query('UPDATE Transaksi SET buktiTransfer = ? WHERE idTransaksi = ?',
@@ -237,6 +264,7 @@ export const updateBuktiBayar = (conn, idTransaksi, buktiBayar) => {
     });
 }
 
+// Mengambil informasi status pemesanan dari transaksi 
 export const getPesananStatus = (conn) => {
     return new Promise((resolve, reject) => {
         conn.query('SELECT idTransaksi, idPengguna, tglTransaksi, statPemesanan, idKurir FROM Transaksi',
@@ -247,6 +275,7 @@ export const getPesananStatus = (conn) => {
     })
 }
 
+// Mengambil semua kurir yang ada pada database
 export const getKurirs = (conn) => {
     return new Promise((resolve, reject) => {
         conn.query('SELECT * FROM Kurir',
@@ -257,6 +286,7 @@ export const getKurirs = (conn) => {
     })
 }
 
+// Membuat laporan dari transaksi 
 export const getLaporan = (conn) => {
     return new Promise((resolve, reject) => {
         conn.query('SELECT idTransaksi, namaModel, namaAksesoris, hargaTotal, hargaJualAksesoris+hargaJualBahan as totalBeli FROM Transaksi t INNER JOIN Baju b ON t.idBaju = b.idBaju INNER JOIN ModelBaju m ON b.idModel = m.idModel INNER JOIN Aksesoris a ON t.idAksesoris = a.idAksesoris INNER JOIN BahanBaku bb ON b.idBahanBaku = bb.idBahanBaku',
@@ -267,6 +297,7 @@ export const getLaporan = (conn) => {
     })
 }
 
+// Mengambil total pemasukkan toko baju
 export const getTotalPemasukan = (conn) => {
     return new Promise((resolve, reject) => {
         conn.query('SELECT SUM(hargaTotal) FROM Transaksi',
@@ -277,6 +308,7 @@ export const getTotalPemasukan = (conn) => {
     })
 }
 
+// Menghapus user berdasarkan username
 export const deleteUserByUsername = (conn, username) => {
     return new Promise((resolve, reject) => {
         conn.query('DELETE FROM Pengguna WHERE Username = ?', 
@@ -288,6 +320,7 @@ export const deleteUserByUsername = (conn, username) => {
     })
 }
 
+// Menghapus Model berdasarkan id
 export const deleteModelById = (conn, id) => {
     return new Promise((resolve, reject) => {
         conn.query('DELETE FROM ModelBaju WHERE idModel = ?', 
@@ -299,6 +332,7 @@ export const deleteModelById = (conn, id) => {
     })
 }
 
+// Menghapus Bahan berdasarkan id
 export const deleteBahanById = (conn, id) => {
     return new Promise((resolve, reject) => {
         conn.query('DELETE FROM ModelBaju WHERE idBahanBaku = ?', 
@@ -310,6 +344,7 @@ export const deleteBahanById = (conn, id) => {
     })
 }
 
+// Mengambil aksesoris baju berdasarkan id
 export const deleteAksesorisById = (conn, id) => {
     return new Promise((resolve, reject) => {
         conn.query('DELETE FROM ModelBaju WHERE idAksesoris = ?', 

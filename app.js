@@ -3,7 +3,7 @@ import crypto from 'crypto';
 
 export const pool = mysql.createPool({
     user: 'root',
-    password: '',
+    password: 'darylk123',
     database: 'ide',
     host: 'localhost',
     connectionLimit: 10
