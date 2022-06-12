@@ -158,7 +158,7 @@
 							<td><%- users[i].noHP %></td>
 							<td><%- users[i].Email %></td>
 							<td><%- users[i].alamat %></td>
-							<td><button onclick="deleteUser(<%- i %>, <%- users[i].Username)">Delete</button></td>
+							<td><button onclick="deleteUser(<%- i %>, '<%- users[i].Username %>')">Delete</button></td>
 						</tr>
 					<% } %>
 				</table>
