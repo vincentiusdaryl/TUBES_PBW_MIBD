@@ -300,7 +300,7 @@ export const getLaporan = (conn) => {
 // Mengambil total pemasukkan toko baju
 export const getTotalPemasukan = (conn) => {
     return new Promise((resolve, reject) => {
-        conn.query('SELECT SUM(hargaTotal) FROM Transaksi',
+        conn.query('SELECT SUM(hargaTotal) AS total FROM Transaksi',
         (err, res) => {
             if(err) reject(err);
             else resolve(res);

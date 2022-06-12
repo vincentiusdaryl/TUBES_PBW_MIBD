@@ -233,6 +233,7 @@
 							<td><%= aksesoris[i].stock %></td>
 							<td><%= aksesoris[i].hargaJualAksesoris %></td>
 							<td><%= aksesoris[i].hargaBeliAksesoris %></td>
+							<td><img src='/uploads/<%- aksesoris[i].gambarAksesoris %>'></td>
 							<td><button onclick="deleteAksesoris(<%- aksesoris[i].idAksesoris %>)">Delete</button></td>
 						</tr>
 					<% } %>
@@ -245,6 +246,7 @@
 						<td><input type='number'></td>
 						<td><input type='number'></td>
 						<td><input type='number'></td>
+						<td><input type='file'></td>
 						<td><button>Save</button></td>
 					</tr>
 				</template>
@@ -311,9 +313,6 @@
 					<% } %>
 				</table>
 			</div>
-			<a>
-				<button id="btn_tambahakun" type="button">Tambah Bahan</button><br>
-			</a>
 			<div id="form-tambahakun">
 				<table id="table-tambahakun">
 					<tr>
@@ -404,11 +403,8 @@
 						<% } %>
 					</tbody>
 				</table>
-				<span>Total pemasukan: <%- pemasukan %></span>
+				<span>Total pemasukan: <%- pemasukan.total %></span>
 			</div>
-			<a>
-				<button id="btn_tambahakun" type="button">Tambah Bahan</button><br>
-			</a>
 			<div id="form-tambahakun">
 				
 				<button id="btn_entertambahakun" type="button">Tambah Akun</button><br>
@@ -521,13 +517,14 @@
 				const td = node.querySelectorAll('td');
 				const input = node.querySelectorAll('input');
 				td[0].textContent = ++nAksesoris;
-				td[6].querySelector('button').addEventListener('click', (e) => {
+				td[7].querySelector('button').addEventListener('click', (e) => {
 					const fd = new FormData();
 					fd.append('name', input[0].value);
 					fd.append('desc', input[1].value);
 					fd.append('stock', +input[2].value);
 					fd.append('buy', +input[3].value);
 					fd.append('sell', +input[4].value);
+					fd.append('img', input[5].files[0]);
 					fetch('/add_aksesoris', {
 						method: 'POST',
 						body: fd
