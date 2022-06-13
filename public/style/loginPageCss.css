@@ -60,32 +60,10 @@ a {
 		color: teal;
 	}
 
-	#back1:hover{
-		transform: scale(1.1);
-	}
-
 	#wrong{
 		display: none;
 		color: red;
 	}
-
-	#sended{
-		display: none;
-	}
-
-	#signin-admin{
-		font-family: bold;
-		font-size: 18px;
-		background-color: black;
-		color: white;
-		padding: 20px;
-		border-radius: 15px;
-	}
-		#signin-admin:hover{
-			font-size: 20px;
-			margin-top: 13px;
-		}
-
 .btn{
 	background-color: teal;
 	border-radius: 25px;
@@ -112,10 +90,6 @@ button {
 	text-transform: uppercase;
 	transition: 0.3S;
 }
-	#verif{
-		display: none;
-		transition: 0.5s ease-in-out;
-	}
 
 	#signinbtn{
 		display: none;
@@ -137,26 +111,9 @@ button:active{
 	float: left; font-size: 20px; 
 	cursor: pointer;
 }
-#back1{
-	text-decoration: none; 
-	float: left; 
-	font-size: 20px; 
-	cursor: pointer;
-	color: black;
-}
 
 #form1 {
 	background-color:  #ffffff;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 0 50px;
-	height: 100%;
-	text-align: center;
-}
-
-#form2{
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -189,69 +146,4 @@ input {
 	width: 768px;
 	max-width: 100%;
 	min-height: 480px;
-}
-
-.form-container {
-	position: absolute;
-	top: 0;
-	height: 100%;
-	transition: all 0.6s ease-in-out;
-}
-
-#sign-in-container {
-	left: 0;
-	width: 50%;
-	transition: 0.3s ease-in-out;
-}
-
-.sign-in-container {
-	background: #173695;
-	background: -webkit-linear-gradient(to right, teal, #173695);
-	background: linear-gradient(to right, teal, #173695);
-	left: 0;
-	width: 100%;
-	transition: 0.3s ease-in-out;
-}
-
-#right-content{
-	background: #173695;
-	background: -webkit-linear-gradient(to right, teal, #173695);
-	background: linear-gradient(to right, teal, #173695);
-	color: #FFFFFF;
-	position: relative;
-	height: 100%;
-	width: 50%;
-	transition: transform 0.6s ease-in-out;
-	float: right;
-	transition: 0.3s ease-in-out;
-	border-radius: 10px;
-}
-
-.overlay-panel {
-	position: absolute;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 0 40px;
-	text-align: center;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	transition: transform 0.6s ease-in-out;
-}
-
-#testing1{
-	right: -40px;
-}
-
-#testing2{
-	display: none;
-	right: -50px;
-}
-
-.overlay-right {
-	right: auto;
-	left: auto;
-	transform: translateX(0);
 }
