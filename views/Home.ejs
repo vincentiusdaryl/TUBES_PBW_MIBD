@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="shortcut icon" href="img/icon.png"/>
 		<title>Bajuku - Home Page</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="/style/style.css">
+		<link rel="stylesheet" href="style/style.css">
 		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
-		
+		<a id="home">.</a>
 	</head>
 	<body>
 		<!-- Header class -->
 		<a id="home">home</a>
 		<div class="card3" id="header">
-			<a href="#home"><img  style="margin: 0px 80px 80px 10%; width: 150px; height: fit-content; top: 0;" src="/img/bajuku_logo.png"></a>
+			<a href="#home"><img id="logo" src="img/bajuku_logo.png"></a>
 			<!--Navbar-->
-			<a class="w3-button" id="left-navbar" href="#aboutus">About</a>
-			<a class="w3-button" id="left-navbar" href="#newRelease">New Release</a>
-			<a class="w3-button" id="left-navbar" style="cursor: pointer;" onclick="javascript:alert('Login Terlebih Dahulu')">Wishlist</a>
-			<a class="w3-button" id="left-navbar" style="cursor: pointer;" href="/catalog">Costum</a>
+			<a id="left-navbar" href="#aboutus">About</a>
+			<a id="left-navbar" style="cursor: pointer;" onclick="javascript:alert('Login Terlebih Dahulu')">Costum</a>
 			
-			<a class="w3-button" id="right-navbar" style="float: right; font-weight:300; margin-right: 100px;" href="/login"><i class="fa fa-sign-in"></i> Sign In</a>
-			<a onclick="javascript:alert('Login Terlebih Dahulu')" class="w3-button" id="right-navbar" style="float: right; font-weight: 300; font-size: 30px;" href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-			<a class="w3-buttin" id="right-navbar" style="float: right; font-weight: 300; font-size: 20px;" href="/catalog#humor"><i class="fa fa-search"></i></a>
-			<input style="float: right;" type="text" placeholder=" &#xF002 Search..."  style="font-family:Arial, FontAwesome"/>
+			<a id="right-navbar" href="/login"><i class=""></i> Log In</a>
+			<a onclick="javascript:alert('Login Terlebih Dahulu')" class="w3-button" id="right-navbar"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
 		</div>
 		<!-- BODY -->
 		<div class="card3" id="body-header">
@@ -40,114 +37,23 @@
 				Dengan Harga Terjangkau
 			</a>
 			<br>
-			<a href="#Bestrating">
-				<button class="w3-btn" id="btn_startshop" type="button">Mulai Custom</button>
+			<a href="">
+				<button onclick="javascript:alert('Login Terlebih Dahulu')" class="w3-btn" id="btn_startshop" type="button">Mulai Custom</button>
 			</a>
 			</div>
 			
-			<div class="" id="carousel">
-				<div class="slideshow-container" style=" width: 90%; margin-top: 35px; float: left; bottom: 0;">
-
-					
+			<div id="carousel">
+				<div id="biglogo">
 					<div class="mySlides fade">
 					  <!--Gambar Dalam Carousel 1-->
-					  <img src="/img/cimg1.png" style="height: 340px;">
-					</div>
-					
-					<div class="mySlides fade">
-					  <!--Gambar Dalam Carousel 1-->
-					  <img src="/img/book/AMinorFall.png" style="height: 340px;">
-					</div>
-					
-					<div class="mySlides fade">
-					  <div class="numbertext"></div>
-					  <!--Gambar Dalam Carousel 1-->
-					  <img src="/img/book/BasedOnATrueStory.png" style="height: 340px;">
-					</div>
-					
-					<a class="prev" onclick="plusSlides(-1)" style="top: 703px; margin-left: 255px; color: white;">&#10094;</a>
-					<a class="next" onclick="plusSlides(1)" style="top: 60px; margin-left: 500px; color: white; float: left; position: relative;">&#10095;</a>
-					</div>
-					
-					<div style="margin:100px 400px 100px 300px; top: 0;">
-					  <span class="dot" onclick="currentSlide(1)" style="margin-right: 20px;"></span> 
-					  <span class="dot" onclick="currentSlide(2)" style="margin-right: 20px;"></span> 
-					  <span class="dot" onclick="currentSlide(3)"></span> 
+					  <img src="img/bajuku_logo_putih.png" style="height: 150px;"><br><br><br><br><br><br><br><br>
+					  <a id="aturpemesanan">.</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		<div class="card3" id="body-bestseller">
-			<br><br>
-			<div id="judul">
-				<span style="font-family: bold; margin: 50px 0px 50px 50px; font-size: 30px; font-weight: bold;">HOT SALE</span>
-				<a class="" style="margin-left: 50px; font-size: 15px;" id="category" href="/catalog#home">Popular Book</a>
-				<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="/catalog#fantasy">Fantasy</a>
-				<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="/catalog#bisnis">Bussiness & Investing</a>
-				<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="/catalog#sains">Science Fiction</a>
-				<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="/catalog#humor">Humor & Games</a>
-				<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="/catalog#artphoto">Arts & Photography</a>
-			</div> 
-			<br><br><br>
-			<div class="scrollmenu" id="scrollmenu" style="height: 450px; width: 90%; margin-left: auto; margin-right: auto;">
-				<a class="w3-btn" href="#home"><img src="/img/book/beowulf.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#news"><img src="/img/book/book1.webp" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#contact"><img src="/img/book/book2.webp" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#about"><img src="/img/book/book3.webp" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#support"><img src="/img/book/book4.webp" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#blog"><img src="/img/book/book5.webp" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#tools"><img src="/img/book/book6.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#base"><img src="/img/book/book7.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#custom"><img src="/img/book/book8.jpg" width="280px" height="380x"></a>
-				<br>
-				<a id="newRelease" style="color: white;">oasnfd</a>
-			</div>
-		</div>
 
-		<div class="card3" id="body-newrelease">
-			<br><br>
-			<div id="">
-				<span style="font-family: bold; margin: 50px 0px 50px 50px; font-size: 30px; font-weight: bold;">HOT SALE</span>
-				<a class="" style="margin-left: 50px; font-size: 15px;" id="category" href="/catalog#home">Popular Book</a>
-				<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="/catalog#fantasy">Fantasy</a>
-				<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="/catalog#bisnis">Bussiness & Investing</a>
-				<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="/catalog#sains">Science Fiction</a>
-				<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="/catalog#humor">Humor & Games</a>
-				<a class="" style="margin-left: 30px; font-size: 15px;" id="category" href="/catalog#artphoto">Arts & Photography</a>
-			</div> 
-			<br><br><br>
-			<div class="scrollmenu" id="scrollmenu" style="height: 850px; width: 90%; margin-left: auto; margin-right: auto;">
-				<a class="w3-btn" href="#home"><img src="/img/book/rpo.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#news"><img src="/img/book/pride.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#contact"><img src="/img/book/wheel.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#about"><img src="/img/book/time.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#support"><img src="/img/book/AMinorFall.png" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#blog"><img src="/img/book/harry.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#tools"><img src="/img/book/dracula.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#base"><img src="/img/book/percy.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#custom"><img src="/img/book/dune.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#more"><img src="/img/book/jane.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#logo"><img src="/img/book/mist.jpg" width="280px" height="380x"></a><br>
-				<a class="w3-btn" href="#friends"><img src="/img/book/ender.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#partners"><img src="/img/book/book12.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#people"><img src="/img/book/book13.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#people"><img src="/img/book/book14.webp" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#people"><img src="/img/book/book15.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#people"><img src="/img/book/book16.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#people"><img src="/img/book/BasedOnATrueStory.png" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#people"><img src="/img/book/dracula.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#people"><img src="/img/book/sherlock.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#people"><img src="/img/book/star.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#people"><img src="/img/book/raven.jpg" width="280px" height="380x"></a>
-				<a class="w3-btn" href="#people"><img src="/img/book/time.jpg" width="280px" height="380x"></a>
-				<br>
-				
-			</div>
-			<a id="Bestrating" style="color: white;">oasnfd</a>
-		</div>
-
-		
+		<a id="aboutus" style="color: white;">oasnfd</a>
 		<br>
 		<div class="contact">
 			<p style="font-family: bold; font-size: 40px; text-align: center;">
@@ -160,11 +66,11 @@
 			<a href="https://www.youtube.com/?gl=ID" target="_blank"><i class="fa fa-youtube-play"></i></a>
 		</div>
 		<br><br>
-		<div class="footer" style="float: left; width: 100%;">
+		<div class="footer">
 			<table>
 				<tr>
 					<th>
-						<a><img style="margin-top: 80px; margin-left: 190px; margin-right: 300px; height: 60%; width: 60%;" src="/img/logo white.png"></a>
+						<a><img id="logobawah" src="img/bajuku_logo_putih.png"></a>
 					</th>
 					<th>
 						<br>
@@ -173,20 +79,20 @@
 						<br>
 					</th>
 					<th>
-						<div style="text-align: left; font-family: reguler; color: white; font-weight: lighter;">
+						<div class="footer-text" >
 							<br><br><br><br>
-							<p style="font-size: 18px; margin-right: 150px;">Legal</p>
-							<a href="/cookies">Cookies Policy</a><br><br>
-							<a href="/privacy">Privacy Policy</a>
+							<p>Legal</p>
+							<a href="pages/Cookies.html">Cookies Policy</a><br><br>
+							<a href="pages/privacy.html">Privacy Policy</a>
 						</div>
 					</th>
 					<th>
-						<div style="text-align: left; font-family: reguler; color: white; font-weight: lighter;">
+						<div class="footer-text">
 							<br><br><br><br>
-							<p style="font-size: 18px; margin-right: 150px;">Support</p>
-							<a href="/faq">FAQ</a><br><br>
+							<p>Support</p>
+							<a href="pages/Faq.html">FAQ</a><br><br>
 							<a href="mailto:jayasejahtera@gmail.com">Contact Support</a><br><br>
-							<a href="/Viscovery_Online_Terms_and_Conditions.pdf" target="_blank">Terms of Sevice</a>
+							<a href="Viscovery_Online_Terms_and_Conditions.pdf" target="_blank">Terms of Sevice</a>
 						</div>
 					</th>
 				</tr>
