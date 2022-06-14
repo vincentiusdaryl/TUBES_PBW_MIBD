@@ -3,6 +3,7 @@ import express from 'express'
 import { routes } from './routes.js';
 import multer from 'multer';
 
+// Untuk handle file upload menggunakan library multer
 const upload = multer({
     storage: multer.diskStorage({
         destination: (req, file, cb) => {
@@ -15,8 +16,6 @@ const upload = multer({
     })
 });
 
-
-
 const port = 8080;
 const app = express();
 
@@ -25,6 +24,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.resolve('public')));
 app.use('/uploads', express.static(path.resolve('uploads')));
 
+// Parse cookie
 app.use((req, res, next) => {
     const cookies = req.headers.cookie;
     if(cookies){
@@ -40,5 +40,5 @@ routes(app, upload);
 
 
 app.listen(port,()=>{
-    console.log("ready!!!")
+    console.log(`Listening on port ${port}`);
 }); 

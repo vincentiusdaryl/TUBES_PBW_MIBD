@@ -2,6 +2,8 @@ import { getUserDetail, getUserPassword, dbConnect, getTransactions, getAllBahan
 import { hashPassword } from './app.js';
 
 export const routes = (app, upload) => {
+  
+  //bagian home ngarahin ke bagian home admin atau pemilik atau pengguna
   app.get('/',async (req, res) => {
         const conn = await dbConnect();
         let pengguna = null;
@@ -39,14 +41,16 @@ export const routes = (app, upload) => {
         }
   });
 
-  app.get('/keranjang', (req, res) => res.render('keranjang'));
-
-  app.get('/catalog', (req, res) => res.render('Catalog'));
+  //rute untuk render page
   app.get('/cookies', (req, res) => res.render('Cookies'));
   app.get('/faq', (req, res) => res.render('Faq'));
   app.get('/privacy', (req, res) => res.render('privacy'));
 
-  const modelPageSize = 3;
+
+  //jumlah model yang ditampilkan per halaman
+  const modelPageSize = 3;  
+
+  //Rute untuk bagian custom (merender dari .ejs ke client)
   app.get('/custom', async (req, res) => {
     const conn = await dbConnect();
     const modelCount = await getModelCount(conn);
@@ -56,6 +60,8 @@ export const routes = (app, upload) => {
     const aksesoris = await getAllAvailableAksesoris(conn);
     res.render('custom', {models, modelPages, bahan, aksesoris})
   })
+
+  //Rute untuk bagian model
   app.get('/models', async (req, res) => {
     const conn = await dbConnect();
     const page = req.query['page'];
@@ -68,6 +74,7 @@ export const routes = (app, upload) => {
     }
   })
 
+  //Rute untuk bagian custom (menerima data dari client)
   app.post('/custom', async (req, res) => {
     const { modelId, bahanId, size, aksesorisId } = req.body;
     const conn = await dbConnect();
@@ -79,6 +86,7 @@ export const routes = (app, upload) => {
     res.status(201).json({transactionId}).send();
   })
 
+  //Rute untuk upload bagian transaksi (render .ejs)
   app.get('/pay', async(req, res) => {
     const transactionId = req.query['id'];
     const conn = await dbConnect();
@@ -86,6 +94,7 @@ export const routes = (app, upload) => {
     res.render('bayar', {baju: transaction});
   })
 
+  //Rute untuk upload bagian transaksi (menerima bukti pembayaran dari client)
   app.post('/pay_upload', upload.single('buktibayar'), async(req, res) => {
     const idTransaksi = +req.query['id'];
     const file = req.file.filename;
@@ -95,10 +104,12 @@ export const routes = (app, upload) => {
     res.redirect('/')
   })
 
+  //Rute untuk bagian halaman login.ejs
   app.get('/login', async (req, res) => {
       res.render('LoginPage', {error: false});
   });
 
+  //Rute untuk bagian halaman login.ejs (Menerima data dari pengguna apakah login sudah benar atau belum)
   app.post('/login', async (req, res) => {
       const { username, password } = req.body;
       const conn = await dbConnect();
@@ -118,7 +129,7 @@ export const routes = (app, upload) => {
       }
   });
 
-
+  // Rute untuk menambahkan akun pengguna
   app.post('/register', async (req, res) => {
       const {name,username,password,email,alamat,nomorHp,tipe} = req.body;
       if(!name || !username || !password || !email || !alamat || !nomorHp || !tipe){
@@ -182,6 +193,7 @@ export const routes = (app, upload) => {
         });
   })
 
+  // rute untuk mengambil data dari transaksi (menggunakan ajax)
   app.get('/transaksi', async(req, res) => {
       const id = +req.query['id'];
       const conn = await dbConnect();
@@ -195,6 +207,7 @@ export const routes = (app, upload) => {
       }
   })
 
+  // rute untuk mengambil data dari pengguna (menggunakan ajax)
   app.get('/users', async(req, res) => {
     const username = req.query['username'];
     const conn = await dbConnect();
