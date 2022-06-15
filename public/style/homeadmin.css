@@ -1,235 +1,235 @@
 @font-face {
-    font-family: reguler;
-    src:url(../fonts/Montserrat-Regular.ttf)
+  font-family: reguler;
+  src:url(../fonts/Montserrat-Regular.ttf)
 }
 @font-face {
-    font-family: bold;
-    src: url(../fonts/Montserrat-ExtraBold.ttf);
+  font-family: bold;
+  src: url(../fonts/Montserrat-ExtraBold.ttf);
 }
 
 .card3{
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
 
 .bodycard{
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
-  width: 75%;
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 1000px;
-  overflow: hidden;
+box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+width: 75%;
+margin-top: 50px;
+margin-left: auto;
+margin-right: auto;
+height: 1000px;
+overflow: hidden;
 }
-  .bodycard a{
-    text-decoration: none;
-  }
+.bodycard a{
+  text-decoration: none;
+}
 
-  .bodycard a:hover{
-    text-decoration: underline;
-    color:teal;
-  }
+.bodycard a:hover{
+  text-decoration: underline;
+  color:teal;
+}
 
 html{
-  scroll-behavior: smooth;
+scroll-behavior: smooth;
 }
 
 body {
-	font-family: reguler;
-	background-color: rgb(255, 255, 255);
+font-family: reguler;
+background-color: rgb(255, 255, 255);
 }
 
 span {
-  font-family: bold; 
-  margin: 50px 0px 50px 50px; 
-  font-size: 30px; 
-  font-weight: bold;
+font-family: bold; 
+margin: 50px 0px 50px 50px; 
+font-size: 30px; 
+font-weight: bold;
 }
 
 #category{
-  margin-left: 30px; 
-  font-size: 15px;
+margin-left: 30px; 
+font-size: 15px;
 }
 
-  #voucher{
-  margin: auto;
+#voucher{
+margin: auto;
+width: 800px;
+height: 75px;
+margin-bottom: 40px;
+background-color: #173695;
+transition: 250ms ease-in-out;
+overflow: hidden;
+border-radius: 10px;
+}
+
+
+#voucher:hover{
   width: 800px;
-  height: 75px;
-  margin-bottom: 40px;
-  background-color: #173695;
-  transition: 250ms ease-in-out;
-  overflow: hidden;
-  border-radius: 10px;
-  }
-  
+  height: 300px;
+}
 
-  #voucher:hover{
-    width: 800px;
-    height: 300px;
-  }
+#voucher a{
+  color: white;
+  font-family: bold;
+  font-size: 40px;
+  vertical-align: middle;
+  margin: 20px 0 0 20px;
+}
 
-  #voucher a{
-    color: white;
-    font-family: bold;
-    font-size: 40px;
-    vertical-align: middle;
-    margin: 20px 0 0 20px;
-  }
+#voucher-content{
+  margin-top: 80px;
+  margin-left: 15%;
+}
 
-  #voucher-content{
-    margin-top: 80px;
-    margin-left: 15%;
-  }
+#voucher-content-input{
+  width: 600px;
+  height: 70px;
+  border-radius: 50px;
+  font-size: 35px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
 
-  #voucher-content-input{
-    width: 600px;
-    height: 70px;
-    border-radius: 50px;
-    font-size: 35px;
-    padding-left: 40px;
-    padding-right: 40px;
-  }
+#voucher-content-btn{
+  width: 300px;
+  height: 50px;
+  border-radius: 20px;
+  font-size: 20px;
+  background-color: white;
+  font-family: bold;
+  color: #173695;
+  margin-left: 20%;
+  border: none;
+}
 
-  #voucher-content-btn{
-    width: 300px;
-    height: 50px;
-    border-radius: 20px;
-    font-size: 20px;
-    background-color: white;
-    font-family: bold;
-    color: #173695;
-    margin-left: 20%;
-    border: none;
-  }
-
-  #voucher-content-btn:hover{
-    background-color: teal;
-    color: white;
-    cursor: pointer;
-    font-size: 22px;
-  }
+#voucher-content-btn:hover{
+  background-color: teal;
+  color: white;
+  cursor: pointer;
+  font-size: 22px;
+}
 
 #header{
-    background-color: white;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 150px;
-    font-family: reguler;
-    opacity: 90%;
-    transition: 0.3s;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 150px;
+  font-family: reguler;
+  opacity: 90%;
+  transition: 0.3s;
 }
-  #header-text{
-    top: 10px;
-    margin: 10px;
-  }
+#header-text{
+  top: 10px;
+  margin: 10px;
+}
 
-  #header:hover{
-    opacity: 100%;
-    transition:0.3s;
-  }
+#header:hover{
+  opacity: 100%;
+  transition:0.3s;
+}
 
-  #logo{
-    margin: 0px 80px 80px 10%; 
-    width: 150px; 
-    height: fit-content; 
-    top: 0;
-  }
+#logo{
+  margin: 0px 80px 80px 10%; 
+  width: 150px; 
+  height: fit-content; 
+  top: 0;
+}
 
 
 
 button:active {
-	transform: scale(0.95);
+transform: scale(0.95);
 }
 
 #header #left-navbar{
-    text-decoration: none;
-    color: #173695;
-    margin: 0px 30px;
-    vertical-align: 50px;
-    line-height: 150px;
+  text-decoration: none;
+  color: #173695;
+  margin: 0px 30px;
+  vertical-align: 50px;
+  line-height: 150px;
 }
 
 #header #right-navbar{
-    text-decoration: none;
-    color: #173695;
-    margin: 0px 10px;
-    line-height: 150px;
-    float: right;
+  text-decoration: none;
+  color: #173695;
+  margin: 0px 10px;
+  line-height: 150px;
+  float: right;
 }
 
 #header input{
-    margin-top: 65px;
-    line-height: 10px;
-    text-decoration: #173695;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-color: #173695;
+  margin-top: 65px;
+  line-height: 10px;
+  text-decoration: #173695;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: #173695;
 }
 
 #header a:hover{
-    font-weight: bolder;
-    color:teal;
+  font-weight: bolder;
+  color:teal;
 }
 
 #right-navbar a:hover{
-    font-weight: bolder;
-    color:teal;
-    text-decoration: underline;
+  font-weight: bolder;
+  color:teal;
+  text-decoration: underline;
 }
 
 #right-navbar{
-    display: inline;
+  display: inline;
 }
 
 #bodytitle{
-  margin-top: 110px;
+margin-top: 110px;
 }
 
 #body-header{
-    margin-top: 165px;
-    height: 600px;
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
+  margin-top: 165px;
+  height: 600px;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #body-header a{
-   margin-left: 200px;
-   color: #173695;
-   float: left;
+ margin-left: 200px;
+ color: #173695;
+ float: left;
 }
 
 #btn_startshop{
-    height: 50px;
-    background-color: #173695; 
-    color: white; 
-    font-family: bold;
-    width: 250px;
-    margin-top: 15px;
-    border: none;
+  height: 50px;
+  background-color: #173695; 
+  color: white; 
+  font-family: bold;
+  width: 250px;
+  margin-top: 15px;
+  border: none;
 }
 
 #btn_startshop:hover{
-    cursor: pointer;
-    background-color: teal;
+  cursor: pointer;
+  background-color: teal;
 }
 
 #carousel{
-    float: right;
-    margin-top: 1%;
-    margin-right: 5%;
-    background-image: url(../img/crslbg.png); 
-    background-repeat: no-repeat; 
-    height: 100%; 
-    width: fit-content;
-    background-position: right;
+  float: right;
+  margin-top: 1%;
+  margin-right: 5%;
+  background-image: url(../img/crslbg.png); 
+  background-repeat: no-repeat; 
+  height: 100%; 
+  width: fit-content;
+  background-position: right;
 }
 
 #biglogo{
-  width: 100%; 
-  height:fit-content;
-  margin: 30% 100px 0 100px;
+width: 100%; 
+height:fit-content;
+margin: 30% 100px 0 100px;
 }
 
 * {box-sizing: border-box}
@@ -238,138 +238,138 @@ body {font-family: Verdana, sans-serif; margin:0}
 img {vertical-align: middle;}
 
 #body-aturakun{
-  height: 1000px;
-  transition: 0.5s;
+height: 1000px;
+transition: 0.5s;
 }
 
 div.scrollmenu {
-    overflow-x: auto; 
-    overflow-y: scroll;
-    white-space: nowrap; 
-    height: 500px; 
-    width: 90%; 
-    margin-left: auto; 
-    margin-right: auto; 
-    height: 500px;
-    margin-left: auto; 
-    margin-right: auto; 
+  overflow-x: auto; 
+  overflow-y: scroll;
+  white-space: nowrap; 
+  height: 500px; 
+  width: 90%; 
+  margin-left: auto; 
+  margin-right: auto; 
+  height: 500px;
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+  table tr,td{
+    border-style:groove ;
   }
 
-    table tr,td{
-      border-style:groove ;
+    #table-pemesanan{
+      width: 85%;
+      margin: auto;
     }
-
-      #table-pemesanan{
-        width: 85%;
-        margin: auto;
-      }
-    
-      #btn_tambahakun{
-        height: 50px;
-        background-color: #173695; 
-        color: white; 
-        font-family: bold;
-        width: 20%;
-        margin-top: 15px;
-        border: none;
-        margin-left: 5%;
-        border-radius: 10px;
-    }
-    
-    #btn_tambahakun:hover{
-        cursor: pointer;
-        background-color: teal;
-    }
-
-    #form-tambahakun{
-      font-family: bold;
-      margin: 50px 0 0 5%;
-      background-color: white;
-      width: 0px;
-      height: 0px;
-      padding: 10px 20px 10px 20px;
-      color: white;
-      border-radius: 10px;
-      font-size: 20px;
-      display: block;
-      transition: 1s;
-      overflow: hidden;
-    }
-
-    #btn_entertambahakun{
+  
+    #btn_tambahakun{
       height: 50px;
-        background-color: white; 
-        color: #173695; 
-        font-family: bold;
-        width: 50%;
-        margin-top: 15px;
-        border: none;
-        margin: 20px 50%;
-        border-radius: 10px;
-        cursor: pointer;
-    }
-    
+      background-color: #173695; 
+      color: white; 
+      font-family: bold;
+      width: 20%;
+      margin-top: 15px;
+      border: none;
+      margin-left: 5%;
+      border-radius: 10px;
+  }
+  
+  #btn_tambahakun:hover{
+      cursor: pointer;
+      background-color: teal;
+  }
 
-    #table-tambahakun td{
-      border-style: none;
-    }
+  #form-tambahakun{
+    font-family: bold;
+    margin: 50px 0 0 5%;
+    background-color: white;
+    width: 0px;
+    height: 0px;
+    padding: 10px 20px 10px 20px;
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    display: block;
+    transition: 1s;
+    overflow: hidden;
+  }
 
-    #table-tambahakun tr{
-      margin-bottom: 50px;
-    }
+  #btn_entertambahakun{
+    height: 50px;
+      background-color: white; 
+      color: #173695; 
+      font-family: bold;
+      width: 50%;
+      margin-top: 15px;
+      border: none;
+      margin: 20px 50%;
+      border-radius: 10px;
+      cursor: pointer;
+  }
+  
 
-      #table-tambahakun-masukan{
-        margin-left: 50px;
-      }
-      #table-tambahakun-select{
-        margin-left: 50px;
-      }
+  #table-tambahakun td{
+    border-style: none;
+  }
+
+  #table-tambahakun tr{
+    margin-bottom: 50px;
+  }
+
+    #table-tambahakun-masukan{
+      margin-left: 50px;
+    }
+    #table-tambahakun-select{
+      margin-left: 50px;
+    }
 
 .contact{
-    text-align: center;
+  text-align: center;
 }
 
 .contact a{
-    font-size: 80px;
-    margin-right: 20px;
+  font-size: 80px;
+  margin-right: 20px;
 }
 
 .contact a:hover{
-    color: teal;
+  color: teal;
 }
 
 .contact i{
-    color: black;
+  color: black;
 }
 
 .footer{
-    background-color: #173695;
-    height: 500px;
-    float: left; 
-    width: 100%;
+  background-color: #173695;
+  height: 500px;
+  float: left; 
+  width: 100%;
 }
 
 .footer-text p{
+text-align: left; 
+font-family: reguler; 
+color: white; 
+font-weight: lighter;
+font-size: 25px; 
+margin-right: 150px;
+}
+.footer-text a{
   text-align: left; 
   font-family: reguler; 
-  color: white; 
+  color: rgba(255, 255, 255, 0.733); 
   font-weight: lighter;
-  font-size: 25px; 
   margin-right: 150px;
+  float: left;
 }
-  .footer-text a{
-    text-align: left; 
-    font-family: reguler; 
-    color: rgba(255, 255, 255, 0.733); 
-    font-weight: lighter;
-    margin-right: 150px;
-    float: left;
-  }
 
 #logobawah{
-  margin-top: 80px; 
-  margin-left: 190px; 
-  margin-right: 300px;
-  width: 400px; 
-  height: fit-content;
+margin-top: 80px; 
+margin-left: 190px; 
+margin-right: 300px;
+width: 400px; 
+height: fit-content;
 }
