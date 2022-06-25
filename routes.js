@@ -10,9 +10,9 @@ export const routes = (app, upload) => {
         try{
             pengguna = await getUserDetail(conn, req.cookies['username']);
         }
-        catch(e){
-            if(e){
-                console.log(e);
+        catch(err){
+            if(err) {
+                console.log(err);
             }
         }
         if(!pengguna){
@@ -69,7 +69,7 @@ export const routes = (app, upload) => {
         const models = await getModelPaginated(conn, page, modelPageSize);
         res.render('model-display', {models});
     }
-    catch(e){
+    catch(err){
         res.status(500).send();
     }
   })
@@ -113,7 +113,7 @@ export const routes = (app, upload) => {
   app.post('/login', async (req, res) => {
       const { username, password } = req.body;
       const conn = await dbConnect();
-      if(!username || !password){
+      if(!username || !password){ // Jika username atau password kosong
           res.status(401);
           res.render('LoginPage', {error: true})
       }
@@ -230,8 +230,8 @@ export const routes = (app, upload) => {
         await updatePemesanan(conn, +idTransaksi, +idKurir, stat);
         res.status(200).send();
     }
-    catch(e){
-        console.error(e);
+    catch(err){
+        console.error(err);
         res.status(500).send();
     }
   })

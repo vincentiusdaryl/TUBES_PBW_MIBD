@@ -1,6 +1,6 @@
 import { pool } from "./app.js";
 
-// Dari modul
+// Koneksi dari routes.js ke sql.js
 export const dbConnect = () =>{
     return new Promise((resolve, rejects) =>{
         pool.getConnection((err, conn) =>{
