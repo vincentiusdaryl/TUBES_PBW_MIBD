@@ -42,13 +42,13 @@
 			<a href="#bahan">
 				<button id="btn_startshop" type="button">Atur Stok<br>Bahan Baju</button>
 			</a><br>
-			<a href="#aksesoris">
+			<a href="#Aksesoris">
 				<button id="btn_startshop" type="button">Atur Stok<br>Aksesoris</button>
 			</a><br>
-			<a href="#aksesoris">
+			<a href="#Pengiriman">
 				<button id="btn_startshop" type="button">Atur Pengiriman</button>
 			</a><br>
-			<a href="#aksesoris">
+			<a href="#Laporan">
 				<button id="btn_startshop" type="button">Laporan</button>
 			</a>
 			</div>
@@ -94,7 +94,7 @@
 						<td>Deskripsi</td> 
 						<td>Harga</td> 
 						<td>Gambar</td>
-						<td>Edit</td>
+						<td>Delete</td>
 						
 					</tr>
 					<% for(let i = 0; i < model.length; i++){ %>
@@ -103,8 +103,8 @@
 							<td><%- model[i].namaModel %></td>
 							<td><%- model[i].deskripsiModel %></td> 
 							<td><%- model[i].hargaModel %></td>
-							<td><img src='/uploads/<%- model[i].gambarModel %>'></td>
-							<td><button onclick="deleteModel(<%- model[i].idModel %>)">Delete</button></td>
+							<td><img id="imgmodel" src='/uploads/<%- model[i].gambarModel %>'></td>
+							<td><button id="btn_delete" onclick="deleteModel(<%- model[i].idModel %>)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
 						</tr>
 					<% } %>
 				</table>
@@ -121,7 +121,7 @@
 			</div>
 			<a>
 				<button id="btn_tambahmodel" type="button">Tambah Model Baju</button><br>
-				<a id="bahan">.</a>
+				<a id="bahan"></a>
 			</a>
 		</div>
 
@@ -155,7 +155,7 @@
 						<td>Harga Beli</td>
 						<td>Harga Jual</td>
 						<td>Gambar</td>
-						<td>Edit</td>
+						<td>Delete</td>
 					</tr>
 					<% for(let i = 0; i < bahan.length; i++){ %>
 						<tr>
@@ -165,8 +165,8 @@
 							<td><%- bahan[i].stock %></td>
 							<td><%- bahan[i].hargaBeliBahan %></td>
 							<td><%- bahan[i].hargaJualBahan %></td>
-							<td><img src="/uploads/<%- bahan[i].gambarBahanBaku %>"></td>
-							<td><button onclick="deleteBahan(<%- bahan[i].idBahanBaku%>)">Delete</button></td>
+							<td><img id="imgmodel" src="/uploads/<%- bahan[i].gambarBahanBaku %>"></td>
+							<td><button id="btn_delete" onclick="deleteBahan(<%- bahan[i].idBahanBaku%>)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
 						</tr>
 					<% } %>
 				</table>
@@ -223,7 +223,7 @@
 						<td>Harga Beli</td>
 						<td>Harga Jual</td>
 						<td>Gambar</td>
-						<td>Edit</td>
+						<td>Delete</td>
 					</tr>
 					<% for(let i = 0; i < aksesoris.length; i++){ %>
 						<tr>
@@ -233,8 +233,8 @@
 							<td><%= aksesoris[i].stock %></td>
 							<td><%= aksesoris[i].hargaJualAksesoris %></td>
 							<td><%= aksesoris[i].hargaBeliAksesoris %></td>
-							<td><img src='/uploads/<%- aksesoris[i].gambarAksesoris %>'></td>
-							<td><button onclick="deleteAksesoris(<%- aksesoris[i].idAksesoris %>)">Delete</button></td>
+							<td><img id="imgmodel" src='/uploads/<%- aksesoris[i].gambarAksesoris %>'></td>
+							<td><button id="btn_delete" onclick="deleteAksesoris(<%- aksesoris[i].idAksesoris %>)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
 						</tr>
 					<% } %>
 				</table>
@@ -291,7 +291,7 @@
 						<th>Tanggal</th> 
 						<th>Status Pesanan</th>
 						<th>Kurir</th>
-						<th>Edit</th>
+						<th>Delete</th>
 					</thead>
 					<% for(let i = 0; i < pengiriman.length; i++){ %>
 						<tr>
