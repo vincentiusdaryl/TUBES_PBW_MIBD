@@ -375,7 +375,7 @@ export const deleteModelById = (conn, id) => {
 // Menghapus Bahan berdasarkan id
 export const deleteBahanById = (conn, id) => {
     return new Promise((resolve, reject) => {
-        conn.query('DELETE FROM ModelBaju WHERE idBahanBaku = ?', 
+        conn.query('DELETE FROM BahanBaku WHERE idBahanBaku = ?', 
         [id], (err, res) => {
             if(err) reject(err);
             else resolve(res);
@@ -384,10 +384,10 @@ export const deleteBahanById = (conn, id) => {
     })
 }
 
-// Mengambil aksesoris baju berdasarkan id
+// Menghapus aksesoris baju berdasarkan id
 export const deleteAksesorisById = (conn, id) => {
     return new Promise((resolve, reject) => {
-        conn.query('DELETE FROM ModelBaju WHERE idAksesoris = ?', 
+        conn.query('DELETE FROM Aksesoris WHERE idAksesoris = ?', 
         [id], (err, res) => {
             if(err) reject(err);
             else resolve(res);
