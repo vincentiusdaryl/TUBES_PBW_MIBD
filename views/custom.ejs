@@ -10,21 +10,37 @@
   </head>
 	<body>
 		<!-- Header class -->
+		
+		<a id="home">home</a>
 		<div class="card3" id="header">
-			<a href="/"><img id="logo" src="/img/bajuku_logo.png"></a>
+			<a href="#home"><img id="logo" src="../img/bajuku_logo.png"></a>
 			<!--Navbar-->
-			
-			
-			<a id="right-navbar" style="float: right; font-weight:300; margin-right: 100px;" href="/logout"><i class="fa fa-user"></i> Log out</a>
-			
+			<a id="left-navbar" style="cursor: pointer;" href="/">Home</a>
+			<a id="left-navbar" href="#aboutus">About</a>
+			<a id="right-navbar" href="/logout"><i class="fa fa-sign-in"></i> Log Out</a>
 		</div>
 		<!-- BODY -->
+		<div class="card3" id="body-header">
+			<a class="w3-button" id="left-navbar" href="#modelbaju">Model Baju</a>
+			<a class="w3-button" id="left-navbar" href="#Bahan">Bahan Baju</a>
+			<a class="w3-button" id="left-navbar" href="#aksesoris">Aksesoris</a>
+			<a class="w3-button" id="left-navbar" href="#pengiriman">Pengiriman</a>
+			<a id="modelbaju"></a>
+		</div>
+<a id="modelbaju"></a>
 		<!-- 1st part: model -->
-		<div class="card3" id='body-header'>
+		<div class="card3" id='body-container-model'>
+			<div id="judul">
+				<span>Model Baju</span>
+				<a id="category" href="#modelbaju">Model Baju</a>
+				<a id="category" href="#Bahan">Bahan Baju</a>
+				<a id="category" href="#aksesoris">Ukuran Baju</a>
+				<a id="category" href="#pengiriman">Aksesoris</a>
+			</div>
 			<div id="model-display">
 				<% for(let i = 0; i < models.length; i++){ %>
-					<div class="card model-baju" onclick="pilihModelBaju(<%- i %>, <%- models[i].idModel %>)">
-						<img src="/uploads/<%- models[i].gambarModel %>">
+					<div class="card-model-baju" onclick="pilihModelBaju(<%- i %>, <%- models[i].idModel %>)">
+						<img id="img_model" src="/uploads/<%- models[i].gambarModel %>">
 						<h3><%- models[i].namaModel %></h3>
 						<p><%- models[i].deskripsiModel %></p>
 						<span><%- models[i].hargaModel %></span>
@@ -32,21 +48,35 @@
 				<% } %>
 			</div>
 			<button id="prev-model" style="display: none">Previous Page</button>
-			<button id="next-model">Next Page</button>
+			<button id="next-model">Next Page</button><a id="Bahan"></a>
 		</div>
 
 		<!-- 2nd part: bahan -->
-		<div class='card3' id="body-header">
+		<div class='card3' id="body-container">
+			<div id="judul">
+				<span>Bahan Baju</span>
+				<a id="category" href="#modelbaju">Model Baju</a>
+				<a id="category" href="#Bahan">Bahan Baju</a>
+				<a id="category" href="#aksesoris">Ukuran Baju</a>
+				<a id="category" href="#pengiriman">Aksesoris</a>
+			</div>
 			<h2 id="bahan">Pilih bahan:</h2>
 			<select id="select-bahan">
 				<% for(let i = 0; i < bahan.length; i++){ %>
-					<option value="<%- bahan[i].idBahanBaku %>"><%- bahan[i].namaBahanBaku %></option>
+					<option id="bahanbaju" value="<%- bahan[i].idBahanBaku %>"><%- bahan[i].namaBahanBaku %></option>
 				<% } %>
-			</select>
+			</select><a id="aksesoris"></a>
 		</div>
 
 		<!-- 3rd part: model size -->
-		<div class="card3" id='body-header'>
+		<div class="card3" id='body-container'>
+			<div id="judul">
+				<span>Ukuran Baju</span>
+				<a id="category" href="#modelbaju">Model Baju</a>
+				<a id="category" href="#Bahan">Bahan Baju</a>
+				<a id="category" href="#aksesoris">Ukuran Baju</a>
+				<a id="category" href="#pengiriman">Aksesoris</a>
+			</div>
 			<h2 id='ukuran'>Pilih Ukuran:</h2>
 			<select id="select-ukuran">
 				<option>XXS</option>
@@ -57,18 +87,73 @@
 				<option>XL</option>
 				<option>XXL</option>
 				<option>3XL</option>
-			</select>
+			</select><a id="pengiriman"></a>
 		</div>
 
 		<!-- 4th part: aksesoris -->
-		<div class="card3" id='body-header'>
+		<div class="card3" id='body-container'>
+			<div id="judul">
+				<span>Aksesoris</span>
+				<a id="category" href="#modelbaju">Model Baju</a>
+				<a id="category" href="#Bahan">Bahan Baju</a>
+				<a id="category" href="#aksesoris">Ukuran Baju</a>
+				<a id="category" href="#pengiriman">Aksesoris</a>
+			</div>
 			<h2 id="aksesoris">Pilih Aksesoris:</h2>
 			<select id="select-aksesoris">
 				<% for(let i = 0; i < aksesoris.length; i++){ %>
 					<option value="<%- aksesoris[i].idAksesoris %>"><%- aksesoris[i].namaAksesoris %></option>
 				<% } %>
-			</select>
+			</select><br>
 			<button id='navigate-pay'>Lanjut Bayar</button>
+		</div>
+
+		<a id="aboutus" style="color: white;"></a>
+		<br>
+		<div class="contact">
+			<p style="font-family: bold; font-size: 40px; text-align: center;">
+				Get our news in this social media
+			</p>
+			<a href="https://id-id.facebook.com/" target="_blank"><i class="fa fa-facebook-square"></i></a>
+			<a href="https://twitter.com/login" target="_blank"><i class="fa fa-twitter"></i></a>
+			<a href="https://vk.com/" target="_blank"><i class="fa fa-vk"></i></a>
+			<a href="https://id-id.facebook.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+			<a href="https://www.youtube.com/?gl=ID" target="_blank"><i class="fa fa-youtube-play"></i></a>
+		</div>
+		<br><br>
+		<div class="footer">
+			<table>
+				<tr>
+					<th>
+						<a><img id="logobawah" src="img/bajuku_logo_putih.png"></a>
+					</th>
+					<th>
+						<br>
+					</th>
+					<th>
+						<br>
+					</th>
+					<th>
+						<div class="footer-text" >
+							<br><br><br><br>
+							<p>Legal</p>
+							<a href="pages/Cookies.html">Cookies Policy</a><br><br>
+							<a href="pages/privacy.html">Privacy Policy</a>
+						</div>
+					</th>
+					<th>
+						<div class="footer-text">
+							<br><br><br><br>
+							<p>Support</p>
+							<a href="pages/Faq.html">FAQ</a><br><br>
+							<a href="mailto:jayasejahtera@gmail.com">Contact Support</a><br><br>
+							<a href="Viscovery_Online_Terms_and_Conditions.pdf" target="_blank">Terms of Sevice</a>
+						</div>
+					</th>
+				</tr>
+			</table>
+			
+			
 		</div>
 		<script>
 			let models = <%- models.length %>;
