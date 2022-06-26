@@ -170,7 +170,7 @@
 							<td><%- users[i].noHP %></td>
 							<td><%- users[i].Email %></td>
 							<td><%- users[i].alamat %></td>
-							<td><button onclick="deleteUser(<%- i %>, '<%- users[i].Username %>')">Delete</button></td>
+							<td id="delete"><button id="btn_delete" onclick="deleteUser(<%- i %>, '<%- users[i].Username %>')"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
 						</tr>
 					<% } %>
 				</table>
