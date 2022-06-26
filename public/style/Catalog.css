@@ -16,16 +16,16 @@ body {
 	background-color: rgb(255, 255, 255);
 }
 
-.line{
-  border-top: 1px solid rgb(0, 0, 0);
-  width: 70%;
-  margin-right: 300px;
-  top: 0;
-  overflow: hidden;
+select:hover{
+  cursor: pointer;
 }
 
 .card3{
   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+
+.card-model-baju{
+  margin: 1% 1% 1% 1%;
 }
 
 #header{
@@ -125,99 +125,96 @@ transform: scale(0.95);
   color: teal;
 }
 
+#judul{
+  font-family: bold; 
+  margin: 2% 0 5% 0; 
+  font-size: 35px; 
+  font-weight: bold;
+}
+
+#body-container-model{
+  margin-top: 50px;
+  height: 750px;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+}
+
+  #img_model{
+    height: 200px;
+  }
+
+  #category{
+    margin-left: 3%; 
+    font-size: 15px;
+  }
+
+  #model-display{
+    overflow-x: scroll;
+    height: 60%;
+    display: flex;
+  }
+
+  #next-model{
+    height: 50px;
+    background-color: #173695; 
+    color: white; 
+    font-family: bold;
+    width: 250px;
+    border: none;
+    margin-top: 2%;
+  }
+
+  #next-model:hover{
+    cursor: pointer;
+    background-color: teal;
+  }
+
+#body-container{
+  margin-top: 50px;
+  height: 400px;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+  margin-bottom: 20px;
+}
+
+  #select-bahan{
+    font-size: 40px;
+    width: 50%;
+  }
+
+  #select-ukuran{
+    font-size: 40px;
+    width: 50%;
+  }
+
+  #select-aksesoris{
+    font-size: 40px;
+    width: 50%;
+  }
+
+  #navigate-pay{
+    height: 50px;
+    background-color: #173695; 
+    color: white; 
+    font-family: bold;
+    width: 250px;
+    border: none;
+    margin-top: 10px;
+  }
+
+  #navigate-pay:hover{
+    cursor: pointer;
+    background-color: teal;
+  }
+
 * {box-sizing: border-box}
 body {font-family: Verdana, sans-serif; margin:0}
 .mySlides {display: none}
 img {vertical-align: middle;}
-
-
-#body-bestseller{
-    width: 75%;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 700px;
-}
-
-#body-bestseller a{
-    text-decoration: none;
-}
-
-#body-bestseller a:hover{
-    text-decoration: underline;
-    color:teal;
-}
-
-div.scrollmenu {
-    overflow: auto;
-    white-space: nowrap;
-    height: 500px; 
-    width: 90%; 
-    margin-left: auto; 
-    margin-right: auto;
-  }
-  
-  div.scrollmenu a {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    margin: 20px;
-  }
-
-  .w3-btn{
-    background-color: white;
-    padding: 0;
-  }
-
-#body-space{
-    width: 75%;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 1100px;
-}
-
-#body-space a{
-    text-decoration: none;
-}
-
-#body-space a:hover{
-    text-decoration: underline;
-    color:teal;
-}
-
-#body-desc{
-  font-family: reguler;
-  background-color: rgb(202, 202, 202);
-  border-radius: 5px;
-  padding: 20px;
-  font-size: 25px;
-  width: 43%;
-  margin-right: 2%;
-  height: 80%;
-  display: flex;
-  flex-direction: row;
-  flex: 1 1;
-}
-#body-desc a{
-}
-
-  #body-desc-img{
-    height: auto;
-    width: 200px;
-    margin-right: 30px;
-    text-decoration: none;
-  }
-
-  #body-desc-desc{
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-  }
-
-  #body-desc-desc a{
-    word-break: break-all;
-  }
 
 .contact{
   text-align: center;
