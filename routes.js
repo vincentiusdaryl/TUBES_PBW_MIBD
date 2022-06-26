@@ -98,7 +98,6 @@ export const routes = (app, upload) => {
   app.post('/pay_upload', upload.single('buktibayar'), async(req, res) => {
     const idTransaksi = +req.query['id'];
     const file = req.file.filename;
-    console.log(idTransaksi, file);
     const conn = await dbConnect();
     await updateBuktiBayar(conn, idTransaksi, file);
     res.redirect('/')
@@ -142,7 +141,7 @@ export const routes = (app, upload) => {
             .then(() => {
                 res.status(201).send();
             })
-            .catch((e) => {
+            .catch((err) => {
                 res.status(500).send();
             });
       }
@@ -161,8 +160,8 @@ export const routes = (app, upload) => {
       const conn = await dbConnect();
       addBahan(conn, name, desc, stock, buy, sell, img)
         .then(() => res.status(200).send('OK'))
-        .catch((e) => {
-            console.error(e);
+        .catch((err) => {
+            console.error(err);
             res.status(500).send('NOT OK')
         });
   })
@@ -174,8 +173,8 @@ export const routes = (app, upload) => {
       const conn = await dbConnect();
       addAksesoris(conn, name, desc, stock, buy, sell, img)
         .then(() => res.status(200).send('OK'))
-        .catch((e) => {
-            console.error(e);
+        .catch((err) => {
+            console.error(err);
             res.status(500).send('NOT OK')
         });
   })
@@ -187,8 +186,8 @@ export const routes = (app, upload) => {
       const conn = await dbConnect();
       addModel(conn, name, desc, price, img)
         .then(() => res.status(200).send('OK'))
-        .catch((e) => {
-            console.error(e);
+        .catch((err) => {
+            console.error(err);
             res.status(500).send('NOT OK')
         });
   })
@@ -201,9 +200,9 @@ export const routes = (app, upload) => {
         const transactions = await getTransactionsById(conn, id);
         res.json(transactions)
       }
-      catch(e){
-          console.error(e);
-          res.status(500).send();
+      catch(err){
+          console.error(err);
+          res.status(500).send('NOT OK');
       }
   })
 
@@ -215,8 +214,8 @@ export const routes = (app, upload) => {
         const users = await getUsersByUsername(conn, username);
         res.json(users);
     }
-    catch(e){
-        console.error(e);
+    catch(err){
+        console.error(err);
         res.status(500).send();
     }
   })
@@ -226,7 +225,6 @@ export const routes = (app, upload) => {
     const { idTransaksi, stat, idKurir } = req.body;
     const conn = await dbConnect();
     try{
-        console.log(idTransaksi, idKurir, stat);
         await updatePemesanan(conn, +idTransaksi, +idKurir, stat);
         res.status(200).send();
     }
