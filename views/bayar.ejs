@@ -4,49 +4,62 @@
 		<link rel="shortcut icon" href="/img/icon.png"/>
 		<title>Bajuku - Custom</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="/style/Catalog.css">
+		<link rel="stylesheet" href="/style/Bayar.css">
 		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
   </head>
 	<body>
 		<!-- Header class -->
+		<a id="home">home</a>
 		<div class="card3" id="header">
-			<a href="/"><img id="logo" src="/img/bajuku_logo.png"></a>
+			<a href="#home"><img id="logo" src="../img/bajuku_logo.png"></a>
 			<!--Navbar-->
-			
-			
-			<a id="right-navbar" style="float: right; font-weight:300; margin-right: 100px;" href="/logout"><i class="fa fa-user"></i> Log out</a>
-			
+			<a id="left-navbar" style="cursor: pointer;" href="/">Home</a>
+			<a id="right-navbar" href="/logout"><i class="fa fa-sign-in"></i> Log Out</a>
 		</div>
 		<!-- BODY -->
+    <div></div>
 		<div class="card3" id='body-header'>
-      <h2>Detail Pembayaran</h2>
-      <table>
+      <h1>Detail Pembayaran</h1>
+      <table id="table-pembayaran">
         <thead>
           <th>Komponen</th>
+          <th>Value</th>
           <th>Harga</th>
         </thead>
         <tr>
-          <td>Baju: <%- baju.namaModel %></td>
-          <td><%- baju.hargaBaju %></td>
+          <td>Baju</td>
+          <td><%- baju.namaModel %></td>
+          <td>Rp <%- baju.hargaBaju %></td>
         </tr>
         <tr>
-          <td>Bahan: <%- baju.namaBahanBaku %></td>
-          <td><%- baju.hargaJualBahan %></td>
+          <td>Bahan</td>
+          <td><%- baju.namaBahanBaku %></td>
+          <td>Rp <%- baju.hargaJualBahan %></td>
         </tr>
         <tr>
-          <td>Ukuran: <%- baju.Ukuran %></td>
+          <td>Ukuran</td>
+          <td><%- baju.Ukuran %></td>
+          <td>Rp 0</td>
         </tr>
         <tr>
-          <td>Aksesoris: <%- baju.namaAksesoris ? baju.namaAksesoris : 'tidak ada' %></td>
-          <td><%- baju.hargaJualAksesoris %></td>
+          <td>Aksesoris</td>
+          <td><%- baju.namaAksesoris ? baju.namaAksesoris : 'tidak ada' %></td>
+          <td>Rp <%- baju.hargaJualAksesoris %></td>
         </tr>
-      </table>
-      <span>Total bayar: <%- baju.hargaTotal %></span>
+        <tr>
+          <td>Total</td>
+          <td></td>
+          <td>Rp <%- baju.hargaTotal %></td>
+        </tr>
+      </table><br>
+      <span>Total bayar: Rp <%- baju.hargaTotal %>,-</span>
+      <br>
       <form action="/pay_upload?id=<%- baju.idTransaksi %>" method='POST' enctype="multipart/form-data">
-        <input type="file" name='buktibayar'>
+        <input id="input-buktibayar" type="file" name='buktibayar'><br><br>
         <button id='bayar'>Bayar</button>
       </form>
+      
 		</div>
 
 		<script>
