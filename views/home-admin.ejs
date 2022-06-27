@@ -47,9 +47,9 @@
 			<div id="carousel">
 				<div id="biglogo">
 					<div class="mySlides fade">
-						<!--Gambar Dalam Carousel 1-->
-						<img src="/img/bajuku_logo_putih.png" style="height: 150px;"><br><br><br><br><br><br><br><br>
-						<a id="model">.</a>
+					  <!--Gambar Dalam Carousel 1-->
+					  <img src="/img/bajuku_logo_putih.png" style="height: 150px;"><br><br><br><br><br><br><br><br>
+					  <a id="model">.</a>
 					</div>
 				</div>
 			</div>
@@ -170,7 +170,7 @@
 							<td><%- users[i].noHP %></td>
 							<td><%- users[i].Email %></td>
 							<td><%- users[i].alamat %></td>
-							<td id="delete"><button id="btn_delete" onclick="deleteUser(<%- i %>, '<%- users[i].Username %>')"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+							<td><button onclick="deleteUser(<%- i %>, '<%- users[i].Username %>')">Delete</button></td>
 						</tr>
 					<% } %>
 				</table>
