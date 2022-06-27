@@ -38,6 +38,16 @@ app.use((req, res, next) => {
 });
 routes(app, upload);
 
+// to pdf
+const puppeteer = require('puppeteer')
+
+const url = 'localhost:8080'
+
+async function webPageToPDF(){
+    const browser = await puppeteer.launch();
+    const webPage = await browser.newPage();
+
+}
 
 app.listen(port,()=>{
     console.log(`Listening on port ${port}`);
