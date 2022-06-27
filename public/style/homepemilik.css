@@ -242,11 +242,6 @@ img {vertical-align: middle;}
   transition: 0.5s;
 }
 
-#imgmodel{
-  height: 50px;
-  width: auto;
-}
-
 div.scrollmenu {
     overflow-x: auto; 
     overflow-y: scroll;
@@ -264,10 +259,10 @@ div.scrollmenu {
       border-style:groove ;
     }
 
-    table{
-      width: 100%;
-      font-size: 20px;
-    }
+      #table-pemesanan{
+        width: 85%;
+        margin: auto;
+      }
     
       #btn_tambahakun{
         height: 50px;
@@ -312,24 +307,6 @@ div.scrollmenu {
         margin: 20px 50%;
         border-radius: 10px;
         cursor: pointer;
-    }
-
-    #btn_delete{
-      font-size: 30px;
-      border: none;
-      transition: 0.1s;
-      cursor: pointer;
-      width: 95%;
-      height: 100%;
-    }
-
-    #btn_delete:hover{
-      font-size: 35px;
-      background-color: grey;
-    }
-
-    #delete{
-      text-align: center;
     }
     
 
