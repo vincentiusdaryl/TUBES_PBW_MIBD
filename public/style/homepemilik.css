@@ -7,6 +7,28 @@
     src: url(../fonts/Montserrat-ExtraBold.ttf);
 }
 
+.tableisian tr,td{
+  border-bottom: groove;
+}
+
+.tableisian{
+  width: 100%;
+  font-size: 20px;
+  border-collapse: collapse;
+}
+
+.select2{
+  height: 50px;
+  width: 100%;
+  font-size: 18px;
+  border: none;
+}
+
+.select2:hover{
+  background-color: aliceblue;
+  cursor: pointer;
+}
+
 .card3{
   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
@@ -259,15 +281,6 @@ div.scrollmenu {
     margin-left: auto; 
     margin-right: auto; 
   }
-
-    table tr,td{
-      border-style:groove ;
-    }
-
-    table{
-      width: 100%;
-      font-size: 20px;
-    }
     
       #btn_tambahakun{
         height: 50px;
@@ -282,6 +295,23 @@ div.scrollmenu {
     }
     
     #btn_tambahakun:hover{
+        cursor: pointer;
+        background-color: teal;
+    }
+
+    .btn_tambah{
+      height: 50px;
+      background-color: #173695; 
+      color: white; 
+      font-family: bold;
+      width: 20%;
+      margin-top: 15px;
+      border: none;
+      margin-left: 5%;
+      border-radius: 10px;
+    }
+    
+    .btn_tambah:hover{
         cursor: pointer;
         background-color: teal;
     }
