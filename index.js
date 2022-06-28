@@ -38,6 +38,14 @@ app.use((req, res, next) => {
 });
 routes(app, upload);
 
+// To PDF
+// const puppeteer = require('puppeteer');
+
+// (async () => {
+//     const browser = await puppeteer.launch();
+//     const page = await browser.newPage();
+//
+// })();
 
 app.listen(port,()=>{
     console.log(`Listening on port ${port}`);
