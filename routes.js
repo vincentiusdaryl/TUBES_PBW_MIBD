@@ -108,7 +108,7 @@ export const routes = (app, upload) => {
       res.render('LoginPage', {error: false});
   });
 
-  //Rute untuk bagian halaman login.ejs (Menerima data dari pengguna apakah login sudah benar atau belum)
+  //Rute untuk bagian halaman login.ejs (Menerima data dari pengguna apakah login sudah benar atau belum) 
   app.post('/login', async (req, res) => {
       const { username, password } = req.body;
       const conn = await dbConnect();

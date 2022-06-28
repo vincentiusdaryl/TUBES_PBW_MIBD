@@ -563,7 +563,6 @@
 				const statPemesanan = row[4].querySelector('select').selectedOptions[0].textContent;
 				const idKurir = row[5].querySelector('select').selectedOptions[0].value;
 				fetch('/update_pengiriman', {
-					headers: {},
 					method: 'POST',
 					body: new URLSearchParams({idTransaksi, stat: statPemesanan, idKurir})
 				})
