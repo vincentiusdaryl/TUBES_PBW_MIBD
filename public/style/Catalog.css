@@ -26,6 +26,14 @@ select:hover{
 
 .card-model-baju{
   margin: 1% 1% 1% 1%;
+  padding: 1%;
+  transition: 0.3s;
+  border-radius: 10px;
+}
+
+.card-model-baju:hover{
+  cursor: pointer;
+  background-color: rgb(182, 182, 182);
 }
 
 #header{
