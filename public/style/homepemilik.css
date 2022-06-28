@@ -242,6 +242,11 @@ img {vertical-align: middle;}
   transition: 0.5s;
 }
 
+#imgmodel{
+  height: 50px;
+  width: auto;
+}
+
 div.scrollmenu {
     overflow-x: auto; 
     overflow-y: scroll;
@@ -256,15 +261,16 @@ div.scrollmenu {
   }
 
     table tr,td{
-      border-style:groove ;
+      border-bottom:groove ;
     }
 
-      #table-pemesanan{
-        width: 85%;
-        margin: auto;
-      }
+    table{
+      width: 100%;
+      font-size: 20px;
+      border-collapse: collapse;
+    }
     
-      #btn_tambahakun{
+      #btn_tambah{
         height: 50px;
         background-color: #173695; 
         color: white; 
@@ -276,7 +282,7 @@ div.scrollmenu {
         border-radius: 10px;
     }
     
-    #btn_tambahakun:hover{
+    #btn_tambah:hover{
         cursor: pointer;
         background-color: teal;
     }
@@ -307,6 +313,60 @@ div.scrollmenu {
         margin: 20px 50%;
         border-radius: 10px;
         cursor: pointer;
+    }
+
+    #btn_delete{
+      font-size: 30px;
+      border: none;
+      transition: 0.1s;
+      cursor: pointer;
+      width: 95%;
+      height: 100%;
+    }
+
+    #btn_delete:hover{
+      background-color: grey;
+    }
+
+    #btn_save{
+      font-size: 30px;
+      border: none;
+      transition: 0.1s;
+      cursor: pointer;
+      width: 95%;
+      height: 50px;
+    }
+
+    #btn_save:hover{
+      background-color: grey;
+    }
+
+    #statuspesanan{
+      height: 50px;
+      width: 100%;
+      font-size: 23px;
+      border: none;
+    }
+
+    #statuspesanan:hover{
+      background-color: aliceblue;
+      cursor: pointer;
+    }
+
+    #kurir{
+      height: 50px;
+      width: 100%;
+      font-size: 15px;
+      border: none;
+    }
+
+    #kurir:hover{
+      background-color: aliceblue;
+      cursor: pointer;
+    }
+
+    #delete{
+      text-align: center;
     }
     
 
