@@ -112,6 +112,8 @@
 			<a>
 				<button id="btn_tambah" type="button">Tambah Model Baju</button><br>
 				<a id="bahan"></a>
+				<button id="btn_tambahmodel" type="button">Tambah Model Baju</button><br>
+				<!-- <a id="bahan">.</a> -->
 			</a>
 		</div>
 
@@ -394,7 +396,6 @@
 
 		<script>
 
-			let addAkun = document.getElementById('btn_tambahakun');
 			let addBahan = document.getElementById('btn_tambahbahan');
 			let addAksesoris = document.getElementById('btn_tambahaksesoris');
 			let addModel = document.getElementById('btn_tambahmodel');
@@ -404,21 +405,6 @@
 			let nBahan = <%= bahan.length %>;
 			let nAksesoris = <%= aksesoris.length %>;
 			let nModel = <%= model.length %>;
-
-			addAkun.addEventListener('click',function(){
-				if(form.style.width == "fit-content"){
-					form.style.backgroundColor="white";
-					form.style.width = "0px";
-					form.style.height = "0px";
-					base.style.height = "1000px";
-				}else{
-					form.style.backgroundColor="#173695";
-					form.style.width = "fit-content";
-					form.style.height = "fit-content";
-					base.style.height = "1200px";
-				}
-				
-			})
 
 			addBahan.addEventListener('click', (e) => {
 				const tabelBahan = document.querySelector('#table-bahan');
