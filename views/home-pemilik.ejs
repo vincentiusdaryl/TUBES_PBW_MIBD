@@ -70,7 +70,7 @@
 		<div class="bodycard" id="body-space">
 			<br><br>
 			<div id="judul">
-				<span style="">Model Baju</span>
+				<span>Model Baju</span>
 				<a id="category" href="#bahan">Bahan Baju</a>
 				<a id="category" href="#Aksesoris">Aksesoris</a>
 				<a id="category" href="#Pengiriman">Pengiriman</a>
@@ -87,7 +87,7 @@
 			</div>
 			<br><br>
 			<div class="scrollmenu" id="scrollmenu">
-				<table id="table-model">
+				<table class="tableisian" id="table-model">
 					<tr>
 						<td>No.</td>
 						<td>Nama Model</td>
@@ -120,7 +120,7 @@
 				</template>
 			</div>
 			<a>
-				<button id="btn_tambahmodel" type="button">Tambah Model Baju</button><br>
+				<button class="btn_tambah" id="btn_tambahmodel" type="button">Tambah Model Baju</button><br>
 				<a id="bahan"></a>
 			</a>
 		</div>
@@ -146,7 +146,7 @@
 			</div>
 			<br><br>
 			<div class="scrollmenu" id="scrollmenu">
-				<table id="table-bahan">
+				<table class="tableisian" id="table-bahan">
 					<tr>
 						<td>No.</td>
 						<td>Nama Bahan</td>
@@ -184,7 +184,7 @@
 				</template>
 			</div>
 			<a>
-				<button id="btn_tambahbahan" type="button">Tambah Bahan</button><br>
+				<button class="btn_tambah" id="btn_tambahbahan" type="button">Tambah Bahan</button><br>
 			</a>
 			<div id="form-tambahakun">
 				
@@ -214,7 +214,7 @@
 			</div>
 			<br><br>
 			<div class="scrollmenu" id="scrollmenu">
-				<table id="table-aksesoris">
+				<table class="tableisian" id="table-aksesoris">
 					<tr>
 						<td>No.</td>
 						<td>Nama Aksesoris</td>
@@ -252,7 +252,7 @@
 				</template>
 			</div>
 			<a>
-				<button id="btn_tambahaksesoris" type="button">Tambah Aksesoris</button><br>
+				<button class="btn_tambah" id="btn_tambahaksesoris" type="button">Tambah Aksesoris</button><br>
 			</a>
 
 			<div id="form-tambahakun">
@@ -283,7 +283,7 @@
 			</div>
 			<br><br>
 			<div class="scrollmenu" id="scrollmenu">
-				<table id="table-stat-pengiriman">
+				<table class="tableisian" id="table-stat-pengiriman">
 					<thead>
 						<th>No.</th>
 						<th>Nomor Transaksi</th>
@@ -299,11 +299,11 @@
 							<td><%- pengiriman[i].idTransaksi %></td>
 							<td><%- pengiriman[i].idPengguna %></td> 
 							<td><%- pengiriman[i].tglTransaksi %></td>
-							<td><select>
+							<td><select class="select2">
 								<option <%- pengiriman[i].statPemesanan === 'belum dikirim' ? 'selected="selected"' : ''%>>belum dikirim</option>
 								<option <%- pengiriman[i].statPemesanan === 'sudah dikirim' ? 'selected="selected"' : ''%>>sudah dikirim</option>
 							</select></td>
-							<td><select>
+							<td><select class="select2">
 								<% for(let j = 0; j < kurir.length; j++){ %>
 									<option value="<%- kurir[j].idKurir %>" <%- pengiriman[i].idKurir === kurir[j].idKurir ? 'selected="selected"' : '' %>><%- kurir[j].namaKurir %></option>
 								<% } %>
@@ -355,7 +355,7 @@
 						</Select></td>
 					</tr>
 				</table>
-				<button id="btn_tambahakun" type="button">Tambah Akun</button><br>
+				<button class="btn_tambah" id="btn_tambahakun" type="button">Tambah Akun</button><br>
 				<a id="Laporan">.</a>
 			</div>
 		</div>
@@ -381,7 +381,7 @@
 			</div>
 			<br><br>
 			<div class="scrollmenu" id="scrollmenu">
-				<table id="table-laporan">
+				<table class="tableisian" id="table-laporan">
 					<thead>
 						<th>No.</th>
 						<th>No. Transaksi</th>
