@@ -7,6 +7,11 @@
   src: url(../fonts/Montserrat-ExtraBold.ttf);
 }
 
+table{
+  width: 100%;
+  font-size: 20px;;
+}
+
 .card3{
 box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
@@ -256,7 +261,7 @@ div.scrollmenu {
 }
 
   table tr,td{
-    border-style:groove ;
+    border-bottom: groove ;
   }
 
     #table-pemesanan{
@@ -274,12 +279,56 @@ div.scrollmenu {
       border: none;
       margin-left: 5%;
       border-radius: 10px;
-  }
-  
-  #btn_tambahakun:hover{
+    }
+
+    #btn_tambahakun:hover{
       cursor: pointer;
       background-color: teal;
-  }
+    }
+
+    #status{
+      height: 50px;
+      width: 100%;
+      font-size: 23px;
+      border: none;
+    }
+
+    #status:hover{
+      background-color: aliceblue;
+      cursor: pointer;
+    }
+
+    #btn_save{
+      font-size: 30px;
+      border: none;
+      transition: 0.1s;
+      cursor: pointer;
+      width: 95%;
+      height: 50px;
+    }
+
+    #btn_save:hover{
+      background-color: grey;
+    }
+
+    #btn_delete{
+      font-size: 30px;
+      border: none;
+      transition: 0.1s;
+      cursor: pointer;
+      width: 95%;
+      height: 90%;
+    }
+
+    #btn_delete:hover{
+      background-color: grey;
+    }
+
+    #delete{
+      text-align: center;
+    }
+  
+  
 
   #form-tambahakun{
     font-family: bold;
