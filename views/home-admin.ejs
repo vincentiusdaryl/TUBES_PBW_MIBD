@@ -47,9 +47,9 @@
 			<div id="carousel">
 				<div id="biglogo">
 					<div class="mySlides fade">
-					  <!--Gambar Dalam Carousel 1-->
-					  <img src="/img/bajuku_logo_putih.png" style="height: 150px;"><br><br><br><br><br><br><br><br>
-					  <a id="model">.</a>
+						<!--Gambar Dalam Carousel 1-->
+						<img src="/img/bajuku_logo_putih.png" style="height: 150px;"><br><br><br><br><br><br><br><br>
+						<a id="model">.</a>
 					</div>
 				</div>
 			</div>
@@ -74,7 +74,7 @@
 			<br><br>
 			<div class="scrollmenu" id="scrollmenu">
 				<table id="table-pemesanan">
-					<thead>
+					<tr>
 						<th>No.</th>
 						<th>Nomor transaksi</th>
 						<th>Nama Pembeli</th> 
@@ -83,7 +83,7 @@
 						<th>Progress Pesanan</th>
 						<th>Status Pesanan</th>
 						<th>Edit</th>
-					</thead>
+					</tr>
 					<% for(let i = 0; i < transaksi.length; i++){ %>
 						<tr>
 							<td><%= i+1 %></td>
@@ -91,12 +91,12 @@
 							<td><%- transaksi[i].namaPengguna %></td>
 							<td><a href="/uploads/<%- transaksi[i].buktiTransfer %>"><%- transaksi[i].buktiTransfer %></a></td>
 							<td>
-								<select>
+								<select id="status">
 									<option <%- transaksi[i].statPembayaran === 'validasi pembayaran valid' ? 'selected="selected"' : '' %>>valid</option>
 									<option <%- transaksi[i].statPembayaran  === 'validasi pembayaran tidak valid' ? 'selected="selected"' : '' %>>tidak valid</option>
 								</select>
 							<td>
-								<select>
+								<select id="status">
 									<option <%- transaksi[i].progresPesanan === 'validasi pembayaran' ? 'selected="selected"' : '' %>>validasi pembayaran</option>
 									<option <%- transaksi[i].progresPesanan === 'pembuatan pola' ? 'selected="selected"' : '' %>>pembuatan pola</option>
 									<option <%- transaksi[i].progresPesanan === 'pengiriman' ? 'selected="selected"' : '' %>>pengiriman</option>
@@ -104,13 +104,13 @@
 								</select>
 							</td>
 							<td>
-								<select>
+								<select id="status">
 									<option <%- transaksi[i].statPemesanan === 'pesanan selesai' ? 'selected="selected"' : '' %>>selesai</option>
 									<option <%- transaksi[i].statPemesanan === 'pesanan belum selesai' ? 'selected="selected"' : '' %>>belum selesai</option>
 								</select>
 						</td>
 						<td>
-							<button onclick="saveTransaksi(<%- i %>)">save</button>
+							<button id="btn_save" onclick="saveTransaksi(<%- i %>)"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
 						</td>
 					</tr>
 					<% } %>
@@ -170,7 +170,7 @@
 							<td><%- users[i].noHP %></td>
 							<td><%- users[i].Email %></td>
 							<td><%- users[i].alamat %></td>
-							<td><button onclick="deleteUser(<%- i %>, '<%- users[i].Username %>')">Delete</button></td>
+							<td id="delete"><button id="btn_delete" onclick="deleteUser(<%- i %>, '<%- users[i].Username %>')"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
 						</tr>
 					<% } %>
 				</table>
