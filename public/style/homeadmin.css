@@ -261,7 +261,7 @@ div.scrollmenu {
 }
 
   table tr,td{
-    border-bottom: groove ;
+    border-style:groove ;
   }
 
     #table-pemesanan{
@@ -280,37 +280,6 @@ div.scrollmenu {
       margin-left: 5%;
       border-radius: 10px;
     }
-
-    #btn_tambahakun:hover{
-      cursor: pointer;
-      background-color: teal;
-    }
-
-    #status{
-      height: 50px;
-      width: 100%;
-      font-size: 23px;
-      border: none;
-    }
-
-    #status:hover{
-      background-color: aliceblue;
-      cursor: pointer;
-    }
-
-    #btn_save{
-      font-size: 30px;
-      border: none;
-      transition: 0.1s;
-      cursor: pointer;
-      width: 95%;
-      height: 50px;
-    }
-
-    #btn_save:hover{
-      background-color: grey;
-    }
-
     #btn_delete{
       font-size: 30px;
       border: none;
@@ -328,7 +297,10 @@ div.scrollmenu {
       text-align: center;
     }
   
-  
+  #btn_tambahakun:hover{
+      cursor: pointer;
+      background-color: teal;
+  }
 
   #form-tambahakun{
     font-family: bold;

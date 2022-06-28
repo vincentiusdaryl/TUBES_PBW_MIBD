@@ -74,7 +74,7 @@
 			<br><br>
 			<div class="scrollmenu" id="scrollmenu">
 				<table id="table-pemesanan">
-					<tr>
+					<thead>
 						<th>No.</th>
 						<th>Nomor transaksi</th>
 						<th>Nama Pembeli</th> 
@@ -83,7 +83,7 @@
 						<th>Progress Pesanan</th>
 						<th>Status Pesanan</th>
 						<th>Edit</th>
-					</tr>
+					</thead>
 					<% for(let i = 0; i < transaksi.length; i++){ %>
 						<tr>
 							<td><%= i+1 %></td>
@@ -91,12 +91,12 @@
 							<td><%- transaksi[i].namaPengguna %></td>
 							<td><a href="/uploads/<%- transaksi[i].buktiTransfer %>"><%- transaksi[i].buktiTransfer %></a></td>
 							<td>
-								<select id="status">
+								<select>
 									<option <%- transaksi[i].statPembayaran === 'validasi pembayaran valid' ? 'selected="selected"' : '' %>>valid</option>
 									<option <%- transaksi[i].statPembayaran  === 'validasi pembayaran tidak valid' ? 'selected="selected"' : '' %>>tidak valid</option>
 								</select>
 							<td>
-								<select id="status">
+								<select>
 									<option <%- transaksi[i].progresPesanan === 'validasi pembayaran' ? 'selected="selected"' : '' %>>validasi pembayaran</option>
 									<option <%- transaksi[i].progresPesanan === 'pembuatan pola' ? 'selected="selected"' : '' %>>pembuatan pola</option>
 									<option <%- transaksi[i].progresPesanan === 'pengiriman' ? 'selected="selected"' : '' %>>pengiriman</option>
@@ -104,13 +104,13 @@
 								</select>
 							</td>
 							<td>
-								<select id="status">
+								<select>
 									<option <%- transaksi[i].statPemesanan === 'pesanan selesai' ? 'selected="selected"' : '' %>>selesai</option>
 									<option <%- transaksi[i].statPemesanan === 'pesanan belum selesai' ? 'selected="selected"' : '' %>>belum selesai</option>
 								</select>
 						</td>
 						<td>
-							<button id="btn_save" onclick="saveTransaksi(<%- i %>)"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+							<button onclick="saveTransaksi(<%- i %>)">save</button>
 						</td>
 					</tr>
 					<% } %>

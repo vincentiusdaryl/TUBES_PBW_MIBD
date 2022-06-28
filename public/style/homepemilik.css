@@ -261,16 +261,15 @@ div.scrollmenu {
   }
 
     table tr,td{
-      border-bottom:groove ;
+      border-style:groove ;
     }
 
     table{
       width: 100%;
       font-size: 20px;
-      border-collapse: collapse;
     }
     
-      #btn_tambah{
+      #btn_tambahakun{
         height: 50px;
         background-color: #173695; 
         color: white; 
@@ -282,7 +281,7 @@ div.scrollmenu {
         border-radius: 10px;
     }
     
-    #btn_tambah:hover{
+    #btn_tambahakun:hover{
         cursor: pointer;
         background-color: teal;
     }
@@ -325,44 +324,8 @@ div.scrollmenu {
     }
 
     #btn_delete:hover{
+      font-size: 35px;
       background-color: grey;
-    }
-
-    #btn_save{
-      font-size: 30px;
-      border: none;
-      transition: 0.1s;
-      cursor: pointer;
-      width: 95%;
-      height: 50px;
-    }
-
-    #btn_save:hover{
-      background-color: grey;
-    }
-
-    #statuspesanan{
-      height: 50px;
-      width: 100%;
-      font-size: 23px;
-      border: none;
-    }
-
-    #statuspesanan:hover{
-      background-color: aliceblue;
-      cursor: pointer;
-    }
-
-    #kurir{
-      height: 50px;
-      width: 100%;
-      font-size: 15px;
-      border: none;
-    }
-
-    #kurir:hover{
-      background-color: aliceblue;
-      cursor: pointer;
     }
 
     #delete{
