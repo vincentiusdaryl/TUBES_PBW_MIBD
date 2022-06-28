@@ -42,25 +42,15 @@
 			<a href="#bahan">
 				<button id="btn_startshop" type="button">Atur Stok<br>Bahan Baju</button>
 			</a><br>
-			<a href="#aksesoris">
+			<a href="#Aksesoris">
 				<button id="btn_startshop" type="button">Atur Stok<br>Aksesoris</button>
 			</a><br>
-			<a href="#aksesoris">
+			<a href="#Pengiriman">
 				<button id="btn_startshop" type="button">Atur Pengiriman</button>
 			</a><br>
-			<a href="#aksesoris">
+			<a href="#Laporan">
 				<button id="btn_startshop" type="button">Laporan</button>
 			</a>
-			</div>
-			
-			<div id="carousel">
-				<div id="biglogo">
-					<div class="mySlides fade">
-					  <!--Gambar Dalam Carousel 1-->
-					  <img src="/img/bajuku_logo_putih.png" style="height: 150px;"><br><br><br><br><br><br><br><br>
-					  <a id="model">.</a>
-					</div>
-				</div>
 			</div>
 		</div>
 		
@@ -94,7 +84,7 @@
 						<td>Deskripsi</td> 
 						<td>Harga</td> 
 						<td>Gambar</td>
-						<td>Edit</td>
+						<td>Delete</td>
 						
 					</tr>
 					<% for(let i = 0; i < model.length; i++){ %>
@@ -103,8 +93,8 @@
 							<td><%- model[i].namaModel %></td>
 							<td><%- model[i].deskripsiModel %></td> 
 							<td><%- model[i].hargaModel %></td>
-							<td><img src='/uploads/<%- model[i].gambarModel %>'></td>
-							<td><button onclick="deleteModel(<%- model[i].idModel %>)">Delete</button></td>
+							<td><img id="imgmodel" src='/uploads/<%- model[i].gambarModel %>'></td>
+							<td><button id="btn_delete" onclick="deleteModel(<%- model[i].idModel %>)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
 						</tr>
 					<% } %>
 				</table>
@@ -120,8 +110,8 @@
 				</template>
 			</div>
 			<a>
-				<button id="btn_tambahmodel" type="button">Tambah Model Baju</button><br>
-				<a id="bahan">.</a>
+				<button id="btn_tambah" type="button">Tambah Model Baju</button><br>
+				<a id="bahan"></a>
 			</a>
 		</div>
 
@@ -155,7 +145,7 @@
 						<td>Harga Beli</td>
 						<td>Harga Jual</td>
 						<td>Gambar</td>
-						<td>Edit</td>
+						<td>Delete</td>
 					</tr>
 					<% for(let i = 0; i < bahan.length; i++){ %>
 						<tr>
@@ -165,8 +155,8 @@
 							<td><%- bahan[i].stock %></td>
 							<td><%- bahan[i].hargaBeliBahan %></td>
 							<td><%- bahan[i].hargaJualBahan %></td>
-							<td><img src="/uploads/<%- bahan[i].gambarBahanBaku %>"></td>
-							<td><button onclick="deleteBahan(<%- bahan[i].idBahanBaku%>)">Delete</button></td>
+							<td><img id="imgmodel" src="/uploads/<%- bahan[i].gambarBahanBaku %>"></td>
+							<td><button id="btn_delete" onclick="deleteBahan(<%- bahan[i].idBahanBaku%>)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
 						</tr>
 					<% } %>
 				</table>
@@ -184,13 +174,8 @@
 				</template>
 			</div>
 			<a>
-				<button id="btn_tambahbahan" type="button">Tambah Bahan</button><br>
+				<button id="btn_tambah" type="button">Tambah Bahan</button><br>
 			</a>
-			<div id="form-tambahakun">
-				
-				<button id="btn_entertambahakun" type="button">Tambah Akun</button><br>
-				<a id="Aksesoris">.</a>
-			</div>
 		</div>
 
 		<!-- Aksesoris -->
@@ -223,7 +208,7 @@
 						<td>Harga Beli</td>
 						<td>Harga Jual</td>
 						<td>Gambar</td>
-						<td>Edit</td>
+						<td>Delete</td>
 					</tr>
 					<% for(let i = 0; i < aksesoris.length; i++){ %>
 						<tr>
@@ -233,8 +218,8 @@
 							<td><%= aksesoris[i].stock %></td>
 							<td><%= aksesoris[i].hargaJualAksesoris %></td>
 							<td><%= aksesoris[i].hargaBeliAksesoris %></td>
-							<td><img src='/uploads/<%- aksesoris[i].gambarAksesoris %>'></td>
-							<td><button onclick="deleteAksesoris(<%- aksesoris[i].idAksesoris %>)">Delete</button></td>
+							<td><img id="imgmodel" src='/uploads/<%- aksesoris[i].gambarAksesoris %>'></td>
+							<td><button id="btn_delete" onclick="deleteAksesoris(<%- aksesoris[i].idAksesoris %>)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
 						</tr>
 					<% } %>
 				</table>
@@ -252,14 +237,8 @@
 				</template>
 			</div>
 			<a>
-				<button id="btn_tambahaksesoris" type="button">Tambah Aksesoris</button><br>
+				<button id="btn_tambah" type="button">Tambah Aksesoris</button><br>
 			</a>
-
-			<div id="form-tambahakun">
-				
-				<button id="btn_entertambahakun" type="button">Tambah Akun</button><br>
-				<a id="Pengiriman">.</a>
-			</div>
 		</div>
 		
 		<!-- pengiriman -->
@@ -291,7 +270,7 @@
 						<th>Tanggal</th> 
 						<th>Status Pesanan</th>
 						<th>Kurir</th>
-						<th>Edit</th>
+						<th>Save</th>
 					</thead>
 					<% for(let i = 0; i < pengiriman.length; i++){ %>
 						<tr>
@@ -299,65 +278,21 @@
 							<td><%- pengiriman[i].idTransaksi %></td>
 							<td><%- pengiriman[i].idPengguna %></td> 
 							<td><%- pengiriman[i].tglTransaksi %></td>
-							<td><select>
-								<option <%- pengiriman[i].statPemesanan === 'belum dikirim' ? 'selected="selected"' : ''%>>belum dikirim</option>
-								<option <%- pengiriman[i].statPemesanan === 'sudah dikirim' ? 'selected="selected"' : ''%>>sudah dikirim</option>
+							<td><select id="statuspesanan">
+								<option <%- pengiriman[i].statPemesanan === 'belum dikirim' ? 'selected="selected"' : ''%>>Belum Dikirim</option>
+								<option <%- pengiriman[i].statPemesanan === 'sudah dikirim' ? 'selected="selected"' : ''%>>Sudah Dikirim</option>
 							</select></td>
-							<td><select>
+							<td><select id="kurir">
 								<% for(let j = 0; j < kurir.length; j++){ %>
 									<option value="<%- kurir[j].idKurir %>" <%- pengiriman[i].idKurir === kurir[j].idKurir ? 'selected="selected"' : '' %>><%- kurir[j].namaKurir %></option>
 								<% } %>
 							</select></td>
-							<td><button onclick="updateData(<%- i %>, <%- pengiriman[i].idTransaksi %>)">save</button></td>
+							<td><button id="btn_save" onclick="updateData(<%- i %>, <%- pengiriman[i].idTransaksi %>)"><i class="fa fa-floppy-o" aria-hidden="true"></i></button></td>
 						</tr>
 					<% } %>
 				</table>
 			</div>
-			<div id="form-tambahakun">
-				<table id="table-tambahakun">
-					<tr>
-						<td>Nama</td>
-						<td> :</td>
-						<td><input id="table-tambahakun-masukan" placeholder="Masukan Nama Lengkap" type="text"></td>
-					</tr>
-					<tr>
-						<td>Username</td>
-						<td> :</td>
-						<td><input id="table-tambahakun-masukan" placeholder="Masukan Username" type="text"></td>
-					</tr>
-					<tr>
-						<td>Password</td>
-						<td> :</td>
-						<td><input id="table-tambahakun-masukan" placeholder="Masukan Password" type="text"></td>
-					</tr>
-					<tr>
-						<td>Email</td>
-						<td> :</td>
-						<td><input id="table-tambahakun-masukan" placeholder="Masukan Email" type="text"></td>
-					</tr>
-					<tr>
-						<td>Alamat</td>
-						<td> :</td>
-						<td><input id="table-tambahakun-masukan" placeholder="Masukan Alamat" type="text"></td>
-					</tr>
-					<tr>
-						<td>Nomor HP</td>
-						<td> :</td>
-						<td><input id="table-tambahakun-masukan" placeholder="Masukan Nomor HP" type="text"></td>
-					</tr>
-					<tr>
-						<td>Tipe Akun</td>
-						<td> :</td>
-						<td><Select id="table-tambahakun-select">
-							<option>Costumer</option>
-							<option>Admin</option>
-							<option>Pemilik</option>
-						</Select></td>
-					</tr>
-				</table>
-				<button id="btn_tambahakun" type="button">Tambah Akun</button><br>
-				<a id="Laporan">.</a>
-			</div>
+			<a id="Laporan"></a>
 		</div>
 
 		<!-- Laporan -->
@@ -403,7 +338,7 @@
 						<% } %>
 					</tbody>
 				</table>
-				<span>Total pemasukan: <%- pemasukan.total %></span>
+				<!-- <span>Total pemasukan: <%- pemasukan.total %></span> -->
 			</div>
 			<div id="form-tambahakun">
 				
